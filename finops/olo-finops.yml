@@ -1,0 +1,100 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+provider: Olo
+providerId: olo
+publisherName: Olo, Inc.
+serviceCategory: Restaurant Commerce Platform
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - Food Service
+  - Restaurants
+  - Online Ordering
+  - Delivery
+  - Payments
+  - FinOps
+  - FOCUS
+description: 'FinOps shape for Olo: a hybrid platform-subscription + per-transaction take-rate model. Brands
+  contract for the platform (Ordering, Rails, Dispatch, GDP / Marketing, etc.) on subscription and pay
+  per-transaction processing fees for Olo Pay; partner API access is bundled into the Connect Partner Program.
+  Specific dollar amounts and meter rates are sales-led and not exposed publicly, so this artifact captures
+  the structure rather than reconciled rates.'
+sources:
+  - https://www.olo.com/
+  - https://partners.olo.com/
+  - https://investors.olo.com/
+notes: Olo does not publish list pricing. Meters described here are structural (what Olo bills on), not priced.
+  Olo (NYSE - OLO) reports SaaS-platform revenue and transaction-revenue lines separately in financial filings.
+billingModel:
+  pricingCategory: Subscription + Per-Order Transaction + Payments Take Rate
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+    - Tax
+    - Adjustment
+    - Refund
+focusColumns:
+  ServiceName: Olo Restaurant Platform
+  ServiceCategory: Restaurant Commerce Platform
+  ProviderName: Olo
+  PublisherName: Olo, Inc.
+  InvoiceIssuerName: Olo, Inc.
+  BillingCurrency: USD
+meters:
+  - name: platform_subscription
+    description: Monthly platform subscription per brand / module / location.
+    unit: subscription
+    chargeCategory: Usage
+    pricingModel: Subscription
+  - name: ordering_transactions
+    description: Per-order transaction fee on orders flowing through the Ordering API and Network.
+    unit: order
+    chargeCategory: Usage
+    pricingModel: Per-Unit
+  - name: rails_transactions
+    description: Per-order fee on marketplace orders injected through Rails.
+    unit: order
+    chargeCategory: Usage
+    pricingModel: Per-Unit
+  - name: dispatch_deliveries
+    description: Per-delivery fee for orchestrated DSP deliveries.
+    unit: delivery
+    chargeCategory: Usage
+    pricingModel: Per-Unit
+  - name: olo_pay_processing
+    description: Payments take-rate on card / digital-wallet transactions processed by Olo Pay.
+    unit: transaction
+    chargeCategory: Usage
+    pricingModel: Take-Rate
+  - name: omnivore_partner_access
+    description: Partner subscription / per-location access to the Omnivore Universal POS API.
+    unit: location
+    chargeCategory: Usage
+    pricingModel: Subscription
+  - name: marketing_messages
+    description: Outbound marketing messages (where Olo facilitates delivery via partner ESPs / SMS providers).
+    unit: message
+    chargeCategory: Usage
+    pricingModel: Per-Unit
+costAllocation:
+  by:
+    - brand
+    - module
+    - location
+    - channel
+  granularity: monthly
+  notes: Brands typically allocate Olo platform spend by module (Ordering, Pay, GDP, etc.) and by location
+    cohort; integration partners track Omnivore costs by integrated POS location.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

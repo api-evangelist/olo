@@ -1,0 +1,409 @@
+aid: olo
+name: Olo
+description: Olo is a leading on-demand commerce platform powering the digital experience for restaurant brands, serving
+  approximately 750+ enterprise and emerging chains across 90,000+ restaurant locations. The Olo platform combines online
+  ordering, delivery dispatch, marketplace integration (Rails), payments (Olo Pay), guest data (GDP / Marketing), loyalty,
+  and POS connectivity (Omnivore) into a single restaurant commerce stack. Developers and certified Olo Connect partners
+  build against the Ordering API (custom order injection), Rails API (third-party marketplace order delivery), Dispatch
+  API (delivery orchestration), the POS Interface (OloCloud) for direct POS integrations, the Omnivore API (multi-POS
+  abstraction), the Olo Pay SDKs (iOS, Android, Flutter, Digital Wallets), and a webhook surface that fires order, loyalty,
+  gift-card, and tender events. APIs use signature-based request authorization (HMAC) for ordering/rails plus webhook
+  signature validation; sample code is published for C#, Java, PHP, Ruby, JavaScript, and Python. Olo (NYSE - OLO) is
+  headquartered in New York City and went public in March 2021.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Food Service
+  - Restaurants
+  - Online Ordering
+  - Delivery
+  - Point of Sale
+  - Hospitality
+  - Payments
+  - Loyalty
+  - Marketing
+created: '2026-05-25'
+modified: '2026-05-25'
+url: https://raw.githubusercontent.com/api-evangelist/olo/refs/heads/main/apis.yml
+specificationVersion: '0.19'
+apis:
+  - aid: olo:olo-ordering
+    name: Olo Ordering API
+    description: The Olo Ordering API is the platform's flagship order-injection surface, enabling certified partner
+      apps, branded restaurant clients, and white-label storefronts to push custom orders, baskets, and payment
+      authorizations into Olo's network of 90,000+ restaurant locations. The API covers menu retrieval, basket
+      construction, basket validation, fulfillment options (pickup, curbside, dine-in, delivery), gift cards,
+      coupons, loyalty redemption, and order submission. Requests are signed with HMAC-based signature authorization;
+      sandbox credentials are issued through the Olo Developer Portal after partner certification.
+    humanURL: https://developer.olo.com/
+    tags:
+      - Ordering
+      - Baskets
+      - Menus
+      - Restaurants
+    properties:
+      - type: DeveloperPortal
+        url: https://developer.olo.com/
+      - type: Authentication
+        url: https://github.com/ololabs/dev-support-code-samples
+      - type: CodeExamples
+        url: https://github.com/ololabs/dev-support-code-samples
+  - aid: olo:olo-rails
+    name: Olo Rails API
+    description: Olo Rails is the marketplace-delivery integration surface, accepting orders originated on third-party
+      delivery marketplaces (DoorDash, Uber Eats, Grubhub, Google, and 25+ other channels) and injecting them into
+      the restaurant's POS through Olo. Rails normalizes menu mapping, modifier translation, fulfillment timing, and
+      tax/tender handling across marketplaces. Partners authenticate with Rails-specific signature authorization that
+      differs from the Ordering API signature scheme.
+    humanURL: https://www.olo.com/products/rails
+    tags:
+      - Rails
+      - Marketplace
+      - Delivery
+      - Order Injection
+    properties:
+      - type: Documentation
+        url: https://www.olo.com/products/rails
+      - type: Authentication
+        url: https://github.com/ololabs/dev-support-code-samples
+      - type: CodeExamples
+        url: https://github.com/ololabs/dev-support-code-samples
+  - aid: olo:olo-dispatch
+    name: Olo Dispatch API
+    description: The Olo Dispatch API orchestrates direct delivery for restaurants by routing orders to a network of
+      delivery service providers (DSPs) such as DoorDash Drive, Uber Direct, Postmates, and Relay. Dispatch handles
+      quote retrieval, driver assignment, status callbacks, fee calculation, and tipping. Restaurants use Dispatch to
+      power their own branded delivery without operating a fleet.
+    humanURL: https://www.olo.com/products/dispatch
+    tags:
+      - Dispatch
+      - Delivery
+      - Logistics
+      - Last Mile
+    properties:
+      - type: Documentation
+        url: https://www.olo.com/products/dispatch
+      - type: StatusPage
+        url: https://status.olo.com/
+  - aid: olo:olo-pos-interface
+    name: Olo POS Interface (OloCloud)
+    description: The Olo POS Interface Specification (commonly OloCloud) is the contract POS vendors implement to make
+      their point-of-sale system natively integrable with Olo's ordering platform. The interface defines menu
+      synchronization, order injection, store hours, store status (eighty-sixing), and tender configuration that the
+      POS must accept and respond to. Certified POS systems include NCR Aloha, PAR Brink, Oracle Micros Simphony,
+      POSitouch, Squirrel, and others.
+    humanURL: https://olosupport.zendesk.com/hc/en-us/articles/115002761943-Olo-POS-Interface-Specification-aka-OloCloud
+    tags:
+      - POS
+      - Point of Sale
+      - Integration
+      - Menus
+    properties:
+      - type: Documentation
+        url: https://olosupport.zendesk.com/hc/en-us/articles/115002761943-Olo-POS-Interface-Specification-aka-OloCloud
+  - aid: olo:olo-omnivore
+    name: Omnivore POS API
+    description: Omnivore (acquired by Olo in 2019) is a universal POS API that abstracts 12+ point-of-sale systems
+      behind a single REST surface, handling 5.6M API calls per day across 23,000+ restaurant locations. Endpoints
+      cover tickets, menus, employees, tenders, modifiers, discounts, and location data. Supported POS systems
+      include NCR Aloha, PAR Brink, Dinerware, Micros Simphony, Micros 3700, POSitouch, Squirrel, XPIENT, Maitre'D,
+      NCR Cloud Connect, Simphony FE, and SimphonyCloud.
+    humanURL: https://www.olo.com/omnivoreapi
+    tags:
+      - POS
+      - Omnivore
+      - Tickets
+      - Multi-POS
+    properties:
+      - type: Documentation
+        url: https://www.olo.com/omnivoreapi
+      - type: Login
+        url: https://panel.omnivore.io/login
+  - aid: olo:olo-pay
+    name: Olo Pay API
+    description: Olo Pay is the platform's embedded payments solution, providing PCI-compliant card capture, tokenization,
+      Apple Pay / Google Pay digital wallet acceptance, network tokenization, fraud prevention, and chargeback handling
+      for restaurant brands. Developers integrate via native SDKs (iOS, Android, Flutter) and a Digital Wallets SDK
+      that complements the Olo Ordering API checkout flow. Olo Pay is also offered as Borderless Payments for cross-border
+      transactions.
+    humanURL: https://www.olo.com/products/pay
+    tags:
+      - Payments
+      - Pay
+      - PCI
+      - Digital Wallets
+    properties:
+      - type: Documentation
+        url: https://www.olo.com/products/pay
+      - type: SDK
+        url: https://github.com/ololabs/olo-pay-ios-sdk-releases
+      - type: SDK
+        url: https://github.com/ololabs/olo-pay-android-sdk-releases
+      - type: SDK
+        url: https://github.com/ololabs/olo-pay-flutter-sdk-releases
+      - type: SDK
+        url: https://github.com/ololabs/pay-digitalwallets-ios-sdk-releases
+      - type: SDK
+        url: https://github.com/ololabs/pay-digitalwallets-android-sdk-releases
+      - type: SDK
+        url: https://github.com/ololabs/pay-digitalwallets-flutter-sdk-releases
+  - aid: olo:olo-network
+    name: Olo Network API
+    description: The Olo Network is a second-party ordering ecosystem that exposes participating restaurant brands'
+      menus and ordering surfaces to high-intent guest channels (super-apps, wallets, voice agents, AI assistants)
+      while keeping the restaurant in control of the guest relationship. Network API access lets approved channel
+      partners discover stores, fetch menus, build baskets, and submit orders that flow through the same Ordering /
+      POS Interface pipeline.
+    humanURL: https://www.olo.com/network
+    tags:
+      - Network
+      - Second-Party
+      - Distribution
+      - Channels
+    properties:
+      - type: Documentation
+        url: https://www.olo.com/network
+  - aid: olo:olo-marketing
+    name: Olo Marketing & Guest Data Platform API
+    description: Olo Marketing and the Guest Data Platform (GDP) unify first-party guest data captured across ordering,
+      payments, loyalty, host, and sentiment signals into a single guest profile that powers segmentation, lifecycle
+      campaigns, and personalization. The Marketing surface exposes segments, campaigns, audiences, events, and webhooks
+      used by ESPs, SMS providers (Attentive, Infobip), and loyalty engines to engage guests at scale.
+    humanURL: https://www.olo.com/products/marketing
+    tags:
+      - Marketing
+      - Guest Data Platform
+      - GDP
+      - Segmentation
+      - Personalization
+    properties:
+      - type: Documentation
+        url: https://www.olo.com/products/marketing
+  - aid: olo:olo-loyalty
+    name: Olo Loyalty API
+    description: Olo Loyalty (formerly OloEngage) lets restaurant brands run rewards programs that are tightly bound
+      to the Ordering and POS surfaces - accrual, redemption, tier evaluation, and single-sign-on flow through the
+      Loyalty API and matching loyalty SSO endpoints exposed on the developer portal. Integrates with third-party
+      loyalty engines (Punchh, Paytronix, Thanx) as well as Olo's native loyalty product.
+    humanURL: https://www.olo.com/products/olo-loyalty
+    tags:
+      - Loyalty
+      - Rewards
+      - SSO
+      - Engagement
+    properties:
+      - type: Documentation
+        url: https://www.olo.com/products/olo-loyalty
+  - aid: olo:olo-host
+    name: Olo Host API
+    description: Olo Host (acquired from Wisely) provides reservations, waitlist, table management, and host-stand
+      workflows for restaurants. The Host API exposes reservation creation, waitlist updates, table state, and guest
+      tagging, integrating with the Guest Data Platform so dine-in behavior enriches the same guest profile used in
+      ordering and marketing.
+    humanURL: https://www.olo.com/products/host
+    tags:
+      - Host
+      - Reservations
+      - Waitlist
+      - Dine-In
+    properties:
+      - type: Documentation
+        url: https://www.olo.com/products/host
+  - aid: olo:olo-sentiment
+    name: Olo Sentiment API
+    description: Olo Sentiment aggregates guest feedback signals - post-order surveys, public reviews (Google, Yelp),
+      and social mentions - and exposes them through a sentiment API used for reputation management dashboards and
+      automated guest recovery workflows.
+    humanURL: https://www.olo.com/products/sentiment
+    tags:
+      - Sentiment
+      - Reviews
+      - Reputation
+      - Feedback
+    properties:
+      - type: Documentation
+        url: https://www.olo.com/products/sentiment
+  - aid: olo:olo-webhooks
+    name: Olo Webhooks
+    description: Olo exposes outbound webhooks that fire on order lifecycle events (placed, confirmed, ready, completed,
+      refunded), gift-card activity, loyalty accrual / redemption, tender events, and marketplace status changes.
+      Webhooks are HMAC-signed; reference signature-validation samples are published in C#, Java, PHP, Ruby,
+      JavaScript, and Python in the ololabs/dev-support-code-samples repository.
+    humanURL: https://github.com/ololabs/dev-support-code-samples
+    tags:
+      - Webhooks
+      - Events
+      - Notifications
+    properties:
+      - type: Documentation
+        url: https://github.com/ololabs/dev-support-code-samples
+      - type: CodeExamples
+        url: https://github.com/ololabs/dev-support-code-samples
+common:
+  - type: Portal
+    url: https://www.olo.com/
+  - type: DeveloperPortal
+    url: https://developer.olo.com/
+  - type: SignUp
+    url: https://developer.olo.com/Account/Register
+  - type: Login
+    url: https://developer.olo.com/Account/Login
+  - type: Documentation
+    url: https://developer.olo.com/
+  - type: Partners
+    url: https://partners.olo.com/
+  - type: TermsOfService
+    url: https://www.olo.com/api-usage-terms/
+  - type: PrivacyPolicy
+    url: https://www.olo.com/privacy-policy/
+  - type: StatusPage
+    url: https://status.olo.com/
+  - type: Support
+    url: https://olosupport.zendesk.com/hc/en-us
+  - type: KnowledgeCenter
+    url: https://olosupport.zendesk.com/hc/en-us
+  - type: Blog
+    url: https://www.olo.com/blog
+  - type: GitHubOrganization
+    url: https://github.com/ololabs
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/olo
+  - type: X
+    url: https://twitter.com/olo
+  - type: YouTube
+    url: https://www.youtube.com/@OloRestaurantTech
+  - type: Security
+    url: https://www.olo.com/security/
+  - type: TrustCenter
+    url: https://trust.olo.com/
+  - type: CodeExamples
+    url: https://github.com/ololabs/dev-support-code-samples
+  - type: SDK
+    url: https://github.com/ololabs/olo-pay-ios-sdk-releases
+  - type: SDK
+    url: https://github.com/ololabs/olo-pay-android-sdk-releases
+  - type: SDK
+    url: https://github.com/ololabs/olo-pay-flutter-sdk-releases
+  - type: SDK
+    url: https://github.com/ololabs/pay-digitalwallets-ios-sdk-releases
+  - type: SDK
+    url: https://github.com/ololabs/pay-digitalwallets-android-sdk-releases
+  - type: SDK
+    url: https://github.com/ololabs/pay-digitalwallets-flutter-sdk-releases
+  - type: Plans
+    url: plans/olo-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/olo-rate-limits.yml
+  - type: Vocabulary
+    url: vocabulary/olo-vocabulary.yaml
+  - type: JSONLD
+    url: json-ld/olo-context.jsonld
+  - type: Features
+    data:
+      - name: Direct Online Ordering
+        description: White-label web, mobile, and kiosk ordering surfaces backed by the Olo Ordering API for 800+ enterprise restaurant brands.
+      - name: Rails Marketplace Integration
+        description: Bidirectional integration with DoorDash, Uber Eats, Grubhub, Google, and 25+ marketplaces for menu sync and order injection.
+      - name: Dispatch Direct Delivery
+        description: Multi-DSP delivery orchestration across DoorDash Drive, Uber Direct, Postmates, and Relay with quote-and-tender routing.
+      - name: Olo Network (Second-Party Distribution)
+        description: Curated ordering distribution to super-apps, voice agents, and AI assistants while restaurants retain the guest relationship.
+      - name: Omnivore Universal POS API
+        description: Single REST interface abstracting 12+ POS systems (Aloha, PAR Brink, Micros, POSitouch, etc.) for partner integrations.
+      - name: Olo Pay Embedded Payments
+        description: PCI-compliant card capture, network tokenization, Apple Pay / Google Pay, and fraud prevention via native iOS, Android, and Flutter SDKs.
+      - name: Guest Data Platform (GDP)
+        description: Unified first-party guest profile combining ordering, payments, loyalty, host, and sentiment signals for segmentation and personalization.
+      - name: Olo Marketing
+        description: Lifecycle campaigns and personalization driven by GDP audiences and integrations with Attentive, Infobip, and email providers.
+      - name: Olo Loyalty
+        description: Native loyalty plus integrations with Punchh, Paytronix, and Thanx with loyalty SSO bound to ordering and POS.
+      - name: Olo Host
+        description: Reservations, waitlist, and table management (formerly Wisely) feeding GDP for unified guest profiles.
+      - name: Sentiment and Reputation
+        description: Aggregated post-order surveys, public review monitoring, and automated guest recovery workflows.
+      - name: Catering+
+        description: Catering order management with capacity controls, lead times, and large-order workflows on top of the Ordering API.
+      - name: Switchboard
+        description: Digitized phone-order capture that routes voice orders into Olo Ordering and the POS Interface.
+      - name: Serve and Olo Accounts
+        description: Front-end ordering kit and passwordless guest checkout that reduce friction across guest channels.
+      - name: Sync (Local Listings)
+        description: Local listing management across Google, Yelp, and search surfaces tied to restaurant store data.
+      - name: Webhooks for Order and Loyalty Events
+        description: Outbound HMAC-signed webhooks for order lifecycle, loyalty, gift-card, and tender events.
+      - name: Sandbox Environment
+        description: Dedicated sandbox issued through the Olo Developer Portal for partner certification and integration testing.
+      - name: Olo Connect Partner Program
+        description: Tiered (Standard, Gold, Platinum) partner program governing certification, co-marketing, and integration distribution.
+  - type: UseCases
+    data:
+      - name: Branded Direct Ordering for Enterprise Restaurant Chains
+        description: Power web, app, kiosk, and voice ordering for chains like Five Guys, P.F. Chang's, Portillo's, and First Watch.
+      - name: Marketplace Order Injection
+        description: Inject DoorDash, Uber Eats, and Grubhub orders into the restaurant POS via Rails without manual tablet workflows.
+      - name: Restaurant-Operated Direct Delivery
+        description: Dispatch routes direct-delivery orders to DSPs without operators running their own fleet.
+      - name: POS Partner Integrations via Omnivore
+        description: Loyalty, payroll, KDS, and analytics vendors integrate against Omnivore once and reach 12+ POS systems.
+      - name: Loyalty and Gift Card Programs
+        description: Tie accrual / redemption directly to checkout via Olo Loyalty and webhooks.
+      - name: Guest Data Activation
+        description: Build first-party audiences in GDP and activate them through Olo Marketing, Attentive SMS, and email ESPs.
+      - name: Catering and Large-Order Channels
+        description: Manage catering capacity, lead times, and corporate accounts with Catering+ on top of Ordering API.
+      - name: Voice and AI Assistant Order Channels
+        description: Olo Network distributes ordering capabilities into voice, super-app, and AI assistant surfaces.
+      - name: Reservations and Hospitality
+        description: Run host stand, waitlist, and reservation flows via Olo Host while feeding the same guest profile.
+      - name: Reputation and Guest Recovery
+        description: Aggregate sentiment signals and trigger automated recovery workflows after negative experiences.
+  - type: Integrations
+    data:
+      - name: DoorDash
+        description: Marketplace ordering via Rails and direct delivery via Dispatch.
+      - name: Uber Eats
+        description: Marketplace integration via Rails and Uber Direct via Dispatch.
+      - name: Grubhub
+        description: Marketplace order injection via Rails.
+      - name: Google
+        description: Order with Google integration and Sync local listings.
+      - name: Toast
+        description: POS interoperability for shared restaurant brands.
+      - name: NCR Aloha
+        description: POS Interface and Omnivore-supported point-of-sale.
+      - name: PAR Brink
+        description: POS Interface and Omnivore-supported point-of-sale.
+      - name: Oracle Micros Simphony
+        description: POS Interface support for Simphony and SimphonyCloud.
+      - name: POSitouch
+        description: POS Interface and Omnivore-supported point-of-sale.
+      - name: 7shifts
+        description: Labor scheduling integration consuming Olo restaurant and order data.
+      - name: Attentive
+        description: SMS marketing activation driven by GDP audiences.
+      - name: Infobip
+        description: Conversational messaging integration for marketing and order updates.
+      - name: Punchh
+        description: Third-party loyalty engine integrated via Olo Loyalty.
+      - name: Paytronix
+        description: Loyalty and gift-card integration via Olo Loyalty.
+      - name: Thanx
+        description: Loyalty engine integration.
+      - name: Apple Pay
+        description: Digital wallet acceptance via Olo Pay SDKs.
+      - name: Google Pay
+        description: Digital wallet acceptance via Olo Pay SDKs.
+  - type: Solutions
+    data:
+      - name: Increase Orders
+        description: Ordering, Serve, Dispatch, Rails, Catering+, Loyalty, Order with Google, Switchboard, and Olo Network.
+      - name: Streamline Operations
+        description: Olo Pay, Host, and Sync to streamline payments, reservations, and local listings.
+      - name: Improve Guest Experiences
+        description: Marketing, GDP, Sentiment, and Olo Accounts for unified, personalized guest journeys.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

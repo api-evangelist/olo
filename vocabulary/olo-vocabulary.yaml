@@ -1,0 +1,233 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Olo"
+  description: "Unified vocabulary for the Olo restaurant commerce platform spanning Ordering, Rails, Dispatch, POS Interface (OloCloud), Omnivore, Olo Pay, Network, Marketing / GDP, Loyalty, Host, Sentiment, and Webhooks."
+  created: "2026-05-25"
+  modified: "2026-05-25"
+
+operational:
+  apis:
+    - namespace: olo-ordering
+      version: "current"
+      baseUrl: https://developer.olo.com/
+      status: active
+      description: Olo Ordering API for custom order injection (HMAC signature auth).
+    - namespace: olo-rails
+      version: "current"
+      baseUrl: https://www.olo.com/products/rails
+      status: active
+      description: Rails marketplace order-injection API (Rails-specific signature auth).
+    - namespace: olo-dispatch
+      version: "current"
+      baseUrl: https://www.olo.com/products/dispatch
+      status: active
+      description: Multi-DSP delivery orchestration.
+    - namespace: olo-pos-interface
+      version: "current"
+      baseUrl: https://olosupport.zendesk.com/
+      status: active
+      description: OloCloud POS Interface Specification implemented by certified POS systems.
+    - namespace: olo-omnivore
+      version: "1.0"
+      baseUrl: https://api.omnivore.io/1.0/
+      status: active
+      description: Universal multi-POS REST API (12+ supported POS systems).
+    - namespace: olo-pay
+      version: "current"
+      baseUrl: https://www.olo.com/products/pay
+      status: active
+      description: Embedded payments via iOS / Android / Flutter SDKs and Digital Wallets SDK.
+    - namespace: olo-network
+      version: "current"
+      baseUrl: https://www.olo.com/network
+      status: active
+      description: Second-party distribution surface for ordering channels.
+    - namespace: olo-marketing
+      version: "current"
+      baseUrl: https://www.olo.com/products/marketing
+      status: active
+      description: Marketing and Guest Data Platform (GDP) for segmentation and lifecycle campaigns.
+    - namespace: olo-loyalty
+      version: "current"
+      baseUrl: https://www.olo.com/products/olo-loyalty
+      status: active
+      description: Loyalty accrual, redemption, and SSO bound to ordering and POS.
+    - namespace: olo-host
+      version: "current"
+      baseUrl: https://www.olo.com/products/host
+      status: active
+      description: Reservations, waitlist, and host-stand workflows.
+    - namespace: olo-sentiment
+      version: "current"
+      baseUrl: https://www.olo.com/products/sentiment
+      status: active
+      description: Guest feedback and reputation aggregation.
+    - namespace: olo-webhooks
+      version: "current"
+      baseUrl: https://github.com/ololabs/dev-support-code-samples
+      status: active
+      description: HMAC-signed outbound webhooks for order, loyalty, gift-card, and tender events.
+
+  resources:
+    - name: Basket
+      api: olo-ordering
+      actions: [create, get, update, validate, submit]
+      description: Guest's in-progress order container.
+    - name: Order
+      api: olo-ordering
+      actions: [create, get, list]
+      description: Submitted order injected into the restaurant POS.
+    - name: Menu
+      api: olo-ordering
+      actions: [get]
+      description: Restaurant menu with categories, items, and modifiers.
+    - name: Restaurant
+      api: olo-ordering
+      actions: [get, list]
+      description: Restaurant location with hours, configuration, and capabilities.
+    - name: GiftCard
+      api: olo-ordering
+      actions: [check-balance, apply]
+      description: Gift card balance and redemption.
+    - name: Coupon
+      api: olo-ordering
+      actions: [apply, validate]
+      description: Promotional discount code applied to a basket.
+    - name: RailsOrder
+      api: olo-rails
+      actions: [inject, update-status, cancel]
+      description: Order originated on a third-party marketplace and injected into the restaurant POS.
+    - name: DispatchQuote
+      api: olo-dispatch
+      actions: [request, accept]
+      description: Delivery cost / time quote from a DSP.
+    - name: DispatchDelivery
+      api: olo-dispatch
+      actions: [create, get, cancel, status]
+      description: Active delivery being fulfilled by a DSP.
+    - name: PosTicket
+      api: olo-omnivore
+      actions: [list, get, create, void]
+      description: Open or closed ticket at the POS.
+    - name: PosMenu
+      api: olo-omnivore
+      actions: [get, sync]
+      description: Menu state retrieved from the POS.
+    - name: PosEmployee
+      api: olo-omnivore
+      actions: [list, get]
+      description: POS employee / cashier record.
+    - name: PaymentMethod
+      api: olo-pay
+      actions: [tokenize, charge, refund]
+      description: PCI-compliant payment card or digital wallet token.
+    - name: DigitalWallet
+      api: olo-pay
+      actions: [tokenize, charge]
+      description: Apple Pay / Google Pay digital wallet payment instrument.
+    - name: GuestProfile
+      api: olo-marketing
+      actions: [get, search, update]
+      description: Unified first-party guest profile in GDP.
+    - name: Audience
+      api: olo-marketing
+      actions: [create, get, list, refresh]
+      description: Segment of guests built from GDP attributes and events.
+    - name: Campaign
+      api: olo-marketing
+      actions: [create, get, list, send]
+      description: Lifecycle marketing campaign targeting an audience.
+    - name: LoyaltyAccount
+      api: olo-loyalty
+      actions: [get, accrue, redeem]
+      description: Guest loyalty membership with point balance and tier.
+    - name: Reservation
+      api: olo-host
+      actions: [create, get, update, cancel]
+      description: Guest reservation tied to a restaurant location.
+    - name: WaitlistEntry
+      api: olo-host
+      actions: [create, get, update, remove]
+      description: Active waitlist entry at the host stand.
+    - name: SentimentSignal
+      api: olo-sentiment
+      actions: [list, get]
+      description: Aggregated guest feedback signal (survey, review, mention).
+    - name: WebhookEvent
+      api: olo-webhooks
+      actions: [emit, verify]
+      description: HMAC-signed outbound event delivered to partner endpoint.
+
+  actions:
+    - name: list
+      httpMethod: GET
+      pattern: read
+      description: List or search a collection of resources.
+    - name: get
+      httpMethod: GET
+      pattern: read
+      description: Retrieve a single resource.
+    - name: create
+      httpMethod: POST
+      pattern: create
+      description: Create a new resource.
+    - name: update
+      httpMethod: PUT
+      pattern: update
+      description: Replace or update an existing resource.
+    - name: delete
+      httpMethod: DELETE
+      pattern: delete
+      description: Delete or cancel a resource.
+    - name: submit
+      httpMethod: POST
+      pattern: action
+      description: Submit a basket as an order.
+    - name: validate
+      httpMethod: POST
+      pattern: action
+      description: Validate a resource without committing it.
+    - name: tokenize
+      httpMethod: POST
+      pattern: action
+      description: Convert sensitive payment data into a network or platform token.
+    - name: charge
+      httpMethod: POST
+      pattern: action
+      description: Capture funds for a payment.
+    - name: refund
+      httpMethod: POST
+      pattern: action
+      description: Reverse or partially reverse a captured payment.
+
+capabilities:
+  domains:
+    - name: ordering
+      description: Custom order injection, basket construction, menus, and restaurants.
+      apis: [olo-ordering, olo-pos-interface, olo-omnivore]
+    - name: marketplace
+      description: Third-party marketplace order acceptance and normalization.
+      apis: [olo-rails]
+    - name: delivery
+      description: Direct delivery orchestration across DSPs.
+      apis: [olo-dispatch]
+    - name: payments
+      description: PCI card capture, tokenization, and digital wallet acceptance.
+      apis: [olo-pay]
+    - name: guest
+      description: Guest profile, audiences, campaigns, loyalty, and feedback.
+      apis: [olo-marketing, olo-loyalty, olo-sentiment]
+    - name: hospitality
+      description: Reservations, waitlist, and host-stand workflows.
+      apis: [olo-host]
+    - name: distribution
+      description: Second-party ordering channels (super-apps, voice, AI assistants).
+      apis: [olo-network]
+    - name: events
+      description: HMAC-signed outbound webhooks across all surfaces.
+      apis: [olo-webhooks]
+
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

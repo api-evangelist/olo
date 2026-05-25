@@ -1,0 +1,52 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Olo
+providerId: olo
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - Food Service
+  - Restaurants
+  - Online Ordering
+  - Rate Limiting
+description: Olo's developer documentation is gated behind the Olo Developer Portal and partner certification,
+  so per-second or per-minute rate-limit specifications are not publicly reconcilable. What is publicly known
+  is the scale Olo operates at (Omnivore alone handles 5.6M API calls per day across 23,000+ locations) and
+  that throttle ceilings exist per API and per partner under the Connect Partner Program's developer terms.
+sources:
+  - https://developer.olo.com/
+  - https://www.olo.com/api-usage-terms/
+  - https://www.olo.com/omnivoreapi
+notes: Public docs do not publish specific request-per-second ceilings. Limits are documented inside the
+  developer portal and partner agreements. Olo's API Terms of Use state that abusive or non-conforming usage
+  may be throttled or revoked.
+limits:
+  - name: Olo Ordering API partner limits
+    scope: partner-credential
+    metric: requests
+    limit: not publicly published; defined per partner agreement
+  - name: Olo Rails API partner limits
+    scope: rails-partner
+    metric: requests
+    limit: not publicly published; defined per Rails partner agreement
+  - name: Omnivore POS API partner limits
+    scope: omnivore-account
+    metric: requests
+    limit: not publicly published; aggregate platform handles 5.6M calls/day across 23k+ locations
+  - name: Olo Pay tokenization
+    scope: app-instance
+    metric: tokenizations
+    limit: governed by mobile SDK throttles and processor limits
+policies:
+  - name: Partner Program Limits
+    description: Rate limits for Ordering, Rails, Dispatch, Marketing, Loyalty, Host, Sentiment, and Network
+      APIs are negotiated and communicated through Olo's Connect Partner Program. Public reconciliation is
+      not possible without partner credentials.
+  - name: Webhook Delivery
+    description: Outbound webhooks are HMAC-signed; consumers are expected to respond within Olo's documented
+      timeout window (published inside the developer portal) to avoid retry suppression.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,103 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Olo
+providerId: olo
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - Food Service
+  - Restaurants
+  - Online Ordering
+  - Delivery
+  - Payments
+description: Olo is an enterprise restaurant-commerce platform sold direct to restaurant brands and to certified
+  integration partners through the Olo Connect Partner Program. There is no self-service, list-priced developer
+  tier - access to the Ordering, Rails, Dispatch, POS Interface, and Marketing surfaces requires partner
+  certification or a brand contract. Olo Pay is sold as an embedded payments service to brands using Olo's stack.
+  Pricing is sales-led and varies by brand size, location count, and module mix.
+sources:
+  - https://www.olo.com/
+  - https://partners.olo.com/
+  - https://developer.olo.com/
+  - https://www.olo.com/api-usage-terms/
+notes: Olo does not publish list pricing. The Connect Partner Program has three tiers (Standard, Gold, Platinum)
+  governing certification and co-marketing rather than per-call API pricing.
+plans:
+  - id: olo-brand-platform
+    name: Olo Restaurant Platform (Brand Contract)
+    type: enterprise
+    description: Olo's core platform contract sold to restaurant brands - bundles Ordering, Rails, Dispatch,
+      POS Interface, GDP / Marketing, and (optionally) Pay, Host, Loyalty, Sentiment, Catering+, Network, and
+      Switchboard. Pricing is configured per brand based on locations, modules, and order volume.
+    entries:
+      - label: Platform & Module Subscription
+        name: brand_subscription
+        type: subscription
+        metric: varies
+        limit: -1
+        timeFrame: usage
+        geo: US
+        unit: 1
+        price: contact sales
+        userMultiplied: false
+    elements:
+      - name: Ordering API
+      - name: Rails Marketplace Integration
+      - name: Dispatch Direct Delivery
+      - name: Olo POS Interface (OloCloud)
+      - name: Marketing / GDP
+      - name: Loyalty
+      - name: Host
+      - name: Sentiment
+      - name: Catering+
+      - name: Network
+      - name: Switchboard
+  - id: olo-pay-embedded-payments
+    name: Olo Pay (Embedded Payments)
+    type: enterprise
+    description: Olo Pay is sold as an embedded payments service to brands on Olo - card capture, tokenization,
+      Apple Pay / Google Pay, and fraud prevention. Take-rate and per-transaction fees are quoted by Olo's
+      payments team and not published publicly.
+    entries:
+      - label: Card-Present and Card-Not-Present Processing
+        name: pay_processing
+        type: usage
+        metric: transaction
+        limit: -1
+        timeFrame: usage
+        geo: US
+        unit: 1
+        price: contact sales
+        userMultiplied: false
+  - id: olo-omnivore-partner
+    name: Omnivore POS Partner API
+    type: partner
+    description: The Omnivore Universal POS API is offered to technology partners who need a single integration
+      across 12+ POS systems. Pricing has historically been quoted per integration / per location and is not
+      publicly listed.
+    entries:
+      - label: Multi-POS Integration Access
+        name: omnivore_access
+        type: subscription
+        metric: location
+        limit: -1
+        timeFrame: monthly
+        geo: US
+        unit: 1
+        price: contact sales
+        userMultiplied: false
+  - id: olo-connect-partner-program
+    name: Olo Connect Partner Program
+    type: partner
+    description: Certification and distribution program (Standard / Gold / Platinum tiers) for technology
+      partners that integrate with Olo. Governs certification, co-marketing, and access to partner-only API
+      surfaces. Not a developer pricing tier - certification is required before API credentials are issued.
+    elements:
+      - name: Standard Tier
+      - name: Gold Tier
+      - name: Platinum Tier
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,75 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "olo": "https://www.olo.com/ns#",
+    "schema": "https://schema.org/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Provider": "schema:Organization",
+    "Brand": "schema:Brand",
+    "Restaurant": "schema:Restaurant",
+    "Location": "schema:Place",
+
+    "Basket": "olo:Basket",
+    "Order": "schema:Order",
+    "OrderItem": "schema:OrderItem",
+    "Menu": "schema:Menu",
+    "MenuSection": "schema:MenuSection",
+    "MenuItem": "schema:MenuItem",
+    "Modifier": "olo:Modifier",
+    "Coupon": "olo:Coupon",
+    "GiftCard": "olo:GiftCard",
+
+    "PaymentMethod": "schema:PaymentMethod",
+    "DigitalWallet": "olo:DigitalWallet",
+    "Payment": "olo:Payment",
+    "Refund": "olo:Refund",
+
+    "Delivery": "schema:DeliveryEvent",
+    "DispatchQuote": "olo:DispatchQuote",
+    "DispatchDelivery": "olo:DispatchDelivery",
+    "DeliveryServiceProvider": "olo:DeliveryServiceProvider",
+
+    "MarketplaceOrder": "olo:MarketplaceOrder",
+    "Marketplace": "olo:Marketplace",
+
+    "Guest": "olo:Guest",
+    "GuestProfile": "olo:GuestProfile",
+    "Audience": "olo:Audience",
+    "Campaign": "olo:Campaign",
+    "LoyaltyAccount": "olo:LoyaltyAccount",
+    "LoyaltyTransaction": "olo:LoyaltyTransaction",
+
+    "Reservation": "schema:FoodEstablishmentReservation",
+    "WaitlistEntry": "olo:WaitlistEntry",
+
+    "SentimentSignal": "olo:SentimentSignal",
+    "Review": "schema:Review",
+
+    "WebhookEvent": "olo:WebhookEvent",
+
+    "id": "@id",
+    "type": "@type",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "identifier": "schema:identifier",
+    "created": "dcterms:created",
+    "modified": "dcterms:modified",
+    "price": "schema:price",
+    "priceCurrency": "schema:priceCurrency",
+    "quantity": "schema:quantity",
+    "status": "olo:status",
+    "fulfillmentMethod": "olo:fulfillmentMethod",
+    "channel": "olo:channel",
+    "vendor": "schema:provider",
+    "location": "schema:location",
+    "guest": "olo:guest",
+    "restaurant": "olo:restaurant",
+    "basket": "olo:basket",
+    "order": "olo:order",
+    "payment": "olo:payment",
+    "delivery": "olo:delivery"
+  }
+}
