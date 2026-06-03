@@ -1,0 +1,145 @@
+openapi: 3.1.0
+info:
+  title: Olo Ordering API
+  description: >-
+    The Olo Ordering API is the platform's order-injection surface, enabling
+    certified partner apps and branded restaurant clients to retrieve brand and
+    menu data, build and validate baskets, and submit orders into Olo's network of
+    restaurant locations. Requests are authorized with an HMAC-SHA256 signature
+    over a canonical message (client id, HTTP verb, content type, base64 SHA-256 of
+    the body, path and query, and the Date header), sent in the Authorization header
+    as "OloSignature {clientId}:{signature}" alongside an RFC 1123 Date header.
+    Sandbox credentials are issued through the Olo Developer Portal after partner
+    certification. The operations documented here are sourced from Olo's official
+    signature-authorization code samples (github.com/ololabs/dev-support-code-samples).
+    The full reference is gated behind the Olo Developer Portal.
+  version: '1.1'
+  contact:
+    name: Olo Developer Support
+    url: https://developer.olo.com/
+externalDocs:
+  description: Olo Developer Portal
+  url: https://developer.olo.com/
+servers:
+  - url: https://ordering.api.olosandbox.com
+    description: Olo Ordering API sandbox
+  - url: https://ordering.api.olo.com
+    description: Olo Ordering API production
+security:
+  - OloSignature: []
+tags:
+  - name: Brand
+    description: Brand-level configuration and metadata
+  - name: Users
+    description: Guest account lookups
+  - name: Rails
+    description: Marketplace Rails partner export and order injection operations
+paths:
+  /v1.1/brand:
+    get:
+      tags:
+        - Brand
+      summary: Get Brand
+      description: Retrieve configuration and metadata for the brand associated with the authenticated partner credentials.
+      operationId: getBrand
+      responses:
+        '200':
+          description: Brand configuration and metadata.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /v1.1/users/exists:
+    post:
+      tags:
+        - Users
+      summary: Check User Exists
+      description: Check whether a guest account already exists for a given email address.
+      operationId: checkUserExists
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: The email address to check for an existing guest account.
+              required:
+                - email
+      responses:
+        '200':
+          description: Whether a user exists for the supplied email.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /v1.1/vendorexport/status:
+    get:
+      tags:
+        - Rails
+      summary: Get Vendor Export Status
+      description: Retrieve the status of the Rails vendor (restaurant) export for the authenticated marketplace partner.
+      operationId: getVendorExportStatus
+      responses:
+        '200':
+          description: The vendor export status.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /v1.1/baskets/create:
+    post:
+      tags:
+        - Rails
+      summary: Create Basket
+      description: Create a new basket for a vendor (restaurant) location to begin assembling an order for injection.
+      operationId: createBasket
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                vendorid:
+                  type: integer
+                  description: The Olo vendor (restaurant) identifier the basket is created for.
+              required:
+                - vendorid
+      responses:
+        '200':
+          description: The created basket.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  securitySchemes:
+    OloSignature:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >-
+        HMAC-SHA256 signature authorization. The signed message is the newline-joined
+        concatenation of clientId, HTTP verb, content type, base64-encoded SHA-256 hash
+        of the request body, path and query, and the RFC 1123 timestamp. The result is
+        base64-encoded and sent as "OloSignature {clientId}:{signature}" in the
+        Authorization header, with the matching timestamp in the Date header.
+  responses:
+    Unauthorized:
+      description: The request signature was invalid or missing.

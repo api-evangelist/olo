@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/olo/main/json-schema/olo-promotions-request-schema.json",
+  "title": "Olo Promotions Request",
+  "description": "The shared request payload sent by Olo to a promotions provider for the Validate Promotions and Redeem Promotions operations, describing an order, its totals, and its basket contents.",
+  "type": "object",
+  "required": ["subtotal", "total", "basket"],
+  "properties": {
+    "orderId": { "type": ["string", "null"], "description": "The ID of the order, only populated once the order has been placed." },
+    "accountId": { "type": ["string", "null"], "description": "The loyalty account's unique identifier in the provider's system." },
+    "source": { "type": "string", "enum": ["Web", "MobileWeb", "iOS", "Android", "Kiosk", "Other"], "description": "The source of the order." },
+    "handoff": { "type": ["string", "null"], "enum": ["Pickup", "Curbside", "Delivery", "Dispatch", "Drivethru", "Dinein", null], "description": "The handoff method for the order." },
+    "currency": { "type": "string", "description": "A three-letter ISO 4217 currency code; defaults to USD." },
+    "placed": { "type": ["string", "null"], "format": "date-time", "description": "A UTC RFC 3339 date-time representing when the order was created." },
+    "wanted": { "type": ["string", "null"], "format": "date-time", "description": "A UTC RFC 3339 date-time representing when the guest wants their food." },
+    "storeNumber": { "type": "string", "description": "The ID of the store as provided by the restaurant." },
+    "restaurant": { "type": "string", "description": "A unique ID representing the vendor restaurant in Olo's system." },
+    "brand": { "type": "string", "description": "A unique ID representing the restaurant brand in Olo's system." },
+    "subtotal": { "type": "number", "description": "The cost of the food before any tax, tip, fees or discounts." },
+    "tax": { "type": ["number", "null"], "description": "The amount of tax applied to the order." },
+    "tip": { "type": ["number", "null"], "description": "The amount the customer tipped on the order." },
+    "delivery": { "type": ["number", "null"], "description": "The delivery fee for the order." },
+    "customFees": { "type": ["number", "null"], "description": "The sum of any custom fees applied to the order." },
+    "discount": { "type": ["number", "null"], "description": "The sum of any discounts applied to the order." },
+    "total": { "type": "number", "description": "The final total for the order after tax, tip, fees and discounts." },
+    "address": {
+      "type": ["object", "null"],
+      "description": "The destination address of the order.",
+      "properties": {
+        "street": { "type": "string", "description": "The street address." },
+        "city": { "type": "string", "description": "The name of the city." },
+        "code": { "type": "string", "description": "The zip code." },
+        "country": { "type": "string", "description": "A three-letter ISO 3166-1 country code." }
+      }
+    },
+    "payments": {
+      "type": ["array", "null"],
+      "description": "Any payments applied to the order.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "tender": { "type": "string", "enum": ["Cash", "Check", "Credit", "Debit", "Prepaid", "Transfer", "Value", "Other"] },
+          "issuer": { "type": "string", "enum": ["Amex", "Diners", "Discover", "JCB", "MasterCard", "PayPal", "Visa"] },
+          "suffix": { "type": "string", "description": "The credit card suffix; only when tender is Credit." },
+          "amount": { "type": "number", "description": "The payment amount for this payment method." }
+        }
+      }
+    },
+    "basket": {
+      "type": "object",
+      "description": "The basket contents for an order.",
+      "properties": {
+        "id": { "type": "string", "description": "The ID of the basket; the unique order identifier until an order ID is generated." },
+        "rewards": { "type": "array", "description": "Any loyalty rewards applied to the basket.", "items": { "type": "object" } },
+        "coupons": { "type": "array", "description": "Any coupons applied to the basket.", "items": { "type": "object" } },
+        "entries": { "type": "array", "description": "The Olo representations of the basket items.", "items": { "type": "object" } },
+        "posEntries": { "type": "array", "description": "The POS representations of the basket items.", "items": { "type": "object" } }
+      }
+    }
+  }
+}

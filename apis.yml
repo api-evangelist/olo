@@ -25,7 +25,7 @@ tags:
   - Loyalty
   - Marketing
 created: '2026-05-25'
-modified: '2026-05-25'
+modified: '2026-06-03'
 url: https://raw.githubusercontent.com/api-evangelist/olo/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
@@ -50,6 +50,18 @@ apis:
         url: https://github.com/ololabs/dev-support-code-samples
       - type: CodeExamples
         url: https://github.com/ololabs/dev-support-code-samples
+      - type: OpenAPI
+        url: openapi/olo-ordering-openapi.yml
+      - type: Example
+        url: examples/olo-ordering-check-user-exists-example.json
+      - type: Example
+        url: examples/olo-ordering-create-basket-example.json
+      - type: NaftikoCapability
+        url: capabilities/ordering-brand.yaml
+      - type: NaftikoCapability
+        url: capabilities/ordering-users.yaml
+      - type: NaftikoCapability
+        url: capabilities/ordering-rails.yaml
   - aid: olo:olo-rails
     name: Olo Rails API
     description: Olo Rails is the marketplace-delivery integration surface, accepting orders originated on third-party
@@ -70,6 +82,12 @@ apis:
         url: https://github.com/ololabs/dev-support-code-samples
       - type: CodeExamples
         url: https://github.com/ololabs/dev-support-code-samples
+      - type: OpenAPI
+        url: openapi/olo-ordering-openapi.yml
+      - type: Example
+        url: examples/olo-ordering-create-basket-example.json
+      - type: NaftikoCapability
+        url: capabilities/ordering-rails.yaml
   - aid: olo:olo-dispatch
     name: Olo Dispatch API
     description: The Olo Dispatch API orchestrates direct delivery for restaurants by routing orders to a network of
@@ -196,6 +214,26 @@ apis:
     properties:
       - type: Documentation
         url: https://www.olo.com/products/olo-loyalty
+      - type: OpenAPI
+        url: openapi/olo-promotions-openapi.yml
+      - type: SDK
+        url: https://github.com/ololabs/promotions-sdk
+      - type: Example
+        url: examples/olo-promotions-validate-example.json
+      - type: Example
+        url: examples/olo-promotions-account-example.json
+      - type: JSONSchema
+        url: json-schema/olo-promotions-account-schema.json
+      - type: JSONSchema
+        url: json-schema/olo-promotions-request-schema.json
+      - type: JSONStructure
+        url: json-structure/olo-promotions-structure.json
+      - type: NaftikoCapability
+        url: capabilities/promotions-accounts.yaml
+      - type: NaftikoCapability
+        url: capabilities/promotions-promotions.yaml
+      - type: NaftikoCapability
+        url: capabilities/promotions-accruals.yaml
   - aid: olo:olo-host
     name: Olo Host API
     description: Olo Host (acquired from Wisely) provides reservations, waitlist, table management, and host-stand
@@ -241,6 +279,8 @@ apis:
         url: https://github.com/ololabs/dev-support-code-samples
       - type: CodeExamples
         url: https://github.com/ololabs/dev-support-code-samples
+      - type: AsyncAPI
+        url: asyncapi/olo-webhooks-asyncapi.yml
 common:
   - type: Portal
     url: https://www.olo.com/
@@ -268,6 +308,14 @@ common:
     url: https://www.olo.com/blog
   - type: GitHubOrganization
     url: https://github.com/ololabs
+  - type: GitHubRepository
+    url: https://github.com/ololabs/dev-support-code-samples
+  - type: GitHubRepository
+    url: https://github.com/ololabs/promotions-sdk
+  - type: GitHubRepository
+    url: https://github.com/ololabs/olo-serve-gtm-templates
+  - type: SpectralRules
+    url: rules/olo-spectral-rules.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/olo
   - type: X

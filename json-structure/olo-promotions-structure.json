@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/olo/main/json-structure/olo-promotions-structure.json",
+  "name": "OloPromotions",
+  "description": "JSON Structure documentation for the core entities of the Olo Promotions Specification: loyalty accounts, promotion requests, baskets, and transactions exchanged between Olo and a promotions provider.",
+  "type": "object",
+  "properties": {
+    "account": {
+      "type": "object",
+      "description": "A guest's loyalty account.",
+      "properties": {
+        "id": { "type": "string" },
+        "status": { "type": "string", "enum": ["Active", "Inactive"] },
+        "balance": {
+          "type": "object",
+          "properties": {
+            "quantity": { "type": "number" },
+            "target": { "type": "number" },
+            "unit": { "type": "string" }
+          }
+        },
+        "rewards": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "description": { "type": "string" },
+              "quantity": { "type": "int32" },
+              "currency": { "type": "string" },
+              "expiration": { "type": "string", "format": "date-time" },
+              "type": { "type": "string" },
+              "imageUrl": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "basket": {
+      "type": "object",
+      "description": "The basket contents for an order.",
+      "properties": {
+        "id": { "type": "string" },
+        "rewards": { "type": "array", "items": { "type": "object" } },
+        "coupons": { "type": "array", "items": { "type": "object" } },
+        "entries": { "type": "array", "items": { "type": "object" } },
+        "posEntries": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "transaction": {
+      "type": "object",
+      "description": "The result of a Promotions operation, optionally including validated or redeemed promotions.",
+      "properties": {
+        "id": { "type": "string" },
+        "promotions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "type": { "type": "string", "enum": ["Coupon", "Reward"] },
+              "discount": { "type": "number" },
+              "reference": {
+                "type": "object",
+                "properties": {
+                  "type": { "type": "string", "enum": ["Promo", "Comp"] },
+                  "code": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

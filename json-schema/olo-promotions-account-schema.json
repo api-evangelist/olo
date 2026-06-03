@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/olo/main/json-schema/olo-promotions-account-schema.json",
+  "title": "Olo Promotions Account",
+  "description": "A guest's loyalty account in a promotions provider's system, as defined by the Olo Promotions Specification.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The account's unique identifier in the provider's system."
+    },
+    "status": {
+      "type": "string",
+      "description": "Whether the loyalty account is active or inactive.",
+      "enum": ["Active", "Inactive"]
+    },
+    "balance": {
+      "type": "object",
+      "description": "The loyalty account's points balance.",
+      "properties": {
+        "quantity": {
+          "type": "number",
+          "description": "The amount of points in the user's loyalty account."
+        },
+        "target": {
+          "type": "number",
+          "description": "The points required to unlock the next step in the loyalty account."
+        },
+        "unit": {
+          "type": "string",
+          "default": "points",
+          "description": "The unit used to describe the quantity of a loyalty account balance."
+        }
+      }
+    },
+    "rewards": {
+      "type": "array",
+      "description": "The rewards available in the loyalty account.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "description": "A unique identifier for the loyalty reward." },
+          "name": { "type": "string", "description": "The name of the loyalty reward." },
+          "description": { "type": "string", "description": "A description of the loyalty reward." },
+          "quantity": { "type": "integer", "description": "The quantity of the reward available in the account." },
+          "currency": { "type": "string", "description": "A three-letter ISO 4217 currency code; defaults to USD." },
+          "expiration": { "type": "string", "format": "date-time", "description": "A UTC RFC 3339 date-time when the reward expires." },
+          "reference": {
+            "type": "object",
+            "description": "Data used to identify the loyalty reward on the POS.",
+            "properties": {
+              "type": { "type": "string", "enum": ["Promo", "Comp"], "description": "The POS reference type." },
+              "code": { "type": "string", "description": "The POS reference value." }
+            }
+          },
+          "type": { "type": "string", "description": "Provider-defined category for the reward; not interpreted by Olo." },
+          "imageUrl": { "type": "string", "description": "An image URL representing the reward." },
+          "customFields": { "type": "string", "description": "Custom provider metadata echoed back in subsequent requests." }
+        }
+      }
+    }
+  }
+}

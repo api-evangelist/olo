@@ -1,0 +1,266 @@
+# Olo API Spectral Ruleset
+# Opinionated rules derived from Olo's documented Ordering, Rails, and Promotions
+# API surfaces (github.com/ololabs/dev-support-code-samples and
+# github.com/ololabs/promotions-sdk). Enforces Olo's signature-auth, versioned
+# path, camelCase operationId, and Title Case tag conventions.
+rules:
+
+  # ── INFO / METADATA ──────────────────────────────────────────────
+  info-title-required:
+    description: API must have a title.
+    severity: error
+    given: $.info
+    then:
+      field: title
+      function: truthy
+  info-title-olo-prefix:
+    description: API title should begin with "Olo".
+    severity: warn
+    given: $.info.title
+    then:
+      function: pattern
+      functionOptions:
+        match: "^Olo"
+  info-description-required:
+    description: API must have a meaningful description (min 40 chars).
+    severity: warn
+    given: $.info
+    then:
+      field: description
+      function: length
+      functionOptions:
+        min: 40
+  info-version-required:
+    description: API must declare a version.
+    severity: error
+    given: $.info
+    then:
+      field: version
+      function: truthy
+  info-contact-required:
+    description: API should declare a contact.
+    severity: info
+    given: $.info
+    then:
+      field: contact
+      function: truthy
+
+  # ── OPENAPI VERSION ──────────────────────────────────────────────
+  openapi-version-3-1:
+    description: Specs should use OpenAPI 3.1.x.
+    severity: warn
+    given: $.openapi
+    then:
+      function: pattern
+      functionOptions:
+        match: "^3\\.1\\."
+
+  # ── SERVERS ──────────────────────────────────────────────────────
+  servers-defined:
+    description: At least one server must be defined.
+    severity: error
+    given: $.servers
+    then:
+      function: truthy
+  servers-https-only:
+    description: Server URLs must use HTTPS.
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
+
+  # ── PATHS — NAMING CONVENTIONS ───────────────────────────────────
+  paths-no-trailing-slash:
+    description: Paths must not end with a trailing slash.
+    severity: warn
+    given: $.paths.*~
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: ".+/$"
+  paths-lowercase:
+    description: Path segments should be lowercase (Olo uses lowercase resource paths).
+    severity: warn
+    given: $.paths.*~
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z0-9/_.{}-]+$"
+  paths-no-query-string:
+    description: Paths must not contain query strings.
+    severity: error
+    given: $.paths.*~
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "\\?"
+
+  # ── OPERATIONS ───────────────────────────────────────────────────
+  operation-summary-required:
+    description: Every operation must have a summary.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: summary
+      function: truthy
+  operation-summary-title-case:
+    description: Operation summaries should be Title Case.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z]"
+  operation-description-required:
+    description: Every operation should have a description.
+    severity: info
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: description
+      function: truthy
+  operation-operationid-required:
+    description: Every operation must have an operationId.
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: operationId
+      function: truthy
+  operation-operationid-camelcase:
+    description: operationId should be camelCase (Olo convention, e.g. createAccount).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].operationId
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]+$"
+  operation-tags-required:
+    description: Every operation must have at least one tag.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: tags
+      function: truthy
+
+  # ── TAGS ─────────────────────────────────────────────────────────
+  tags-defined-globally:
+    description: A global tags array should be defined.
+    severity: info
+    given: $
+    then:
+      field: tags
+      function: truthy
+  tag-title-case:
+    description: Tag names should be Title Case (e.g. "Accounts", "Promotions").
+    severity: warn
+    given: $.tags[*].name
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][A-Za-z0-9 ]*$"
+
+  # ── PARAMETERS ───────────────────────────────────────────────────
+  parameter-description-required:
+    description: Parameters should have descriptions.
+    severity: warn
+    given: $.paths[*][*].parameters[*]
+    then:
+      field: description
+      function: truthy
+  parameter-camelcase:
+    description: Parameter names should be camelCase (Olo convention, e.g. membershipNumber).
+    severity: info
+    given: $.paths[*][*].parameters[*].name
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-zA-Z][a-zA-Z0-9]*$"
+
+  # ── REQUEST BODIES ───────────────────────────────────────────────
+  request-body-json:
+    description: Request bodies should offer application/json content.
+    severity: warn
+    given: $.paths[*][post,put,patch,delete].requestBody.content
+    then:
+      field: application/json
+      function: truthy
+
+  # ── RESPONSES ────────────────────────────────────────────────────
+  response-success-defined:
+    description: Operations must define a successful (200/201/204) response.
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete].responses
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          anyOf:
+            - required: ["200"]
+            - required: ["201"]
+            - required: ["204"]
+  response-unauthorized-defined:
+    description: Signature-authorized operations should document a 401 response.
+    severity: info
+    given: $.paths[*][get,post,put,patch,delete].responses
+    then:
+      field: "401"
+      function: truthy
+  response-description-required:
+    description: Every response must have a description.
+    severity: warn
+    given: $.paths[*][*].responses[*]
+    then:
+      field: description
+      function: truthy
+
+  # ── SCHEMAS — PROPERTY NAMING ────────────────────────────────────
+  schema-property-camelcase:
+    description: Schema property names should be camelCase (Olo convention).
+    severity: info
+    given: $.components.schemas[*].properties.*~
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+  schema-description-required:
+    description: Top-level component schemas should have descriptions.
+    severity: info
+    given: $.components.schemas[*]
+    then:
+      field: description
+      function: truthy
+
+  # ── SECURITY ─────────────────────────────────────────────────────
+  security-scheme-defined:
+    description: Security schemes must be defined.
+    severity: warn
+    given: $.components.securitySchemes
+    then:
+      function: truthy
+  security-scheme-described:
+    description: Security schemes should describe the auth mechanism (Olo uses HMAC signatures).
+    severity: info
+    given: $.components.securitySchemes[*]
+    then:
+      field: description
+      function: truthy
+
+  # ── HTTP METHOD CONVENTIONS ──────────────────────────────────────
+  get-no-request-body:
+    description: GET operations must not declare a request body.
+    severity: error
+    given: $.paths[*].get
+    then:
+      field: requestBody
+      function: falsy
+
+  # ── GENERAL QUALITY ──────────────────────────────────────────────
+  external-docs-encouraged:
+    description: APIs should link to external documentation (the Olo Developer Portal).
+    severity: info
+    given: $
+    then:
+      field: externalDocs
+      function: truthy

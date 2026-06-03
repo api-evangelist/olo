@@ -1,0 +1,26 @@
+{
+  "id": "044d8de0-0978-40f2-aab6-07aadea2a876",
+  "status": "Active",
+  "balance": {
+    "quantity": 250,
+    "target": 500,
+    "unit": "points"
+  },
+  "rewards": [
+    {
+      "id": "abcd1234",
+      "name": "Free Chocolate Shake",
+      "description": "Redeem 250 points for a free chocolate shake.",
+      "quantity": 1,
+      "currency": "USD",
+      "expiration": "2026-12-31T23:59:59Z",
+      "reference": {
+        "type": "Comp",
+        "code": "SHAKE-FREE"
+      },
+      "type": "loyalty",
+      "imageUrl": "https://cdn.example.com/rewards/shake.png",
+      "customFields": null
+    }
+  ]
+}

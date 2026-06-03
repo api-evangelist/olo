@@ -1,0 +1,886 @@
+openapi: 3.1.0
+info:
+  title: Olo Promotions API
+  description: >-
+    The Olo Promotions Specification defines the HTTP contract that a third-party
+    promotions / loyalty provider implements so Olo can validate and redeem coupons
+    and loyalty rewards, accrue loyalty points, and manage loyalty accounts during
+    the Olo ordering flow. Olo acts as the client and calls the provider-hosted
+    endpoints described here. Requests are authenticated with an HMAC-SHA256
+    signature computed over the request URL concatenated with the raw request body,
+    encoded as URL-safe base64 without padding (or with HTTP Basic for key-based
+    auth). This specification is published at https://developer.olo.com/docs and
+    modeled directly from Olo's official open-source Promotions SDK
+    (github.com/ololabs/promotions-sdk).
+  version: '1.0'
+  contact:
+    name: Olo Developer Support
+    url: https://developer.olo.com/
+  license:
+    name: Olo Promotions SDK License
+    url: https://github.com/ololabs/promotions-sdk/blob/main/LICENSE.md
+externalDocs:
+  description: Olo Promotions Specification
+  url: https://developer.olo.com/docs
+servers:
+  - url: https://{providerHost}
+    description: Provider-hosted Promotions endpoint implementing the Olo Promotions Specification
+    variables:
+      providerHost:
+        default: promotions.example.com
+        description: The promotions provider's host that implements this specification
+tags:
+  - name: Accounts
+    description: Loyalty account creation and lookup
+  - name: Promotions
+    description: Validation and redemption of coupons and loyalty rewards
+  - name: Accruals
+    description: Loyalty point accrual and void
+security:
+  - OloSignature: []
+paths:
+  /promotions/accounts:
+    post:
+      tags:
+        - Accounts
+      summary: Create Account
+      description: Create a new loyalty account in the provider's system for a guest.
+      operationId: createAccount
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAccountRequest'
+      responses:
+        '200':
+          description: The created loyalty account.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    get:
+      tags:
+        - Accounts
+      summary: Find Accounts
+      description: Find loyalty accounts matching a membership number or other guest identifier.
+      operationId: findAccounts
+      parameters:
+        - name: membershipNumber
+          in: query
+          required: true
+          description: The membership number used to locate the guest's loyalty account(s).
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The list of matching loyalty accounts.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Account'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /promotions/accounts/{accountId}:
+    get:
+      tags:
+        - Accounts
+      summary: Get Account
+      description: Retrieve a single loyalty account by its identifier in the provider's system.
+      operationId: getAccount
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          description: The loyalty account's unique identifier in the provider's system.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The requested loyalty account.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /promotions/validate:
+    post:
+      tags:
+        - Promotions
+      summary: Validate Promotions
+      description: >-
+        Validate the coupons and loyalty rewards applied to a basket. The provider
+        calculates discounts and returns the validated promotions with POS reference data.
+      operationId: validatePromotions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PromotionsRequest'
+      responses:
+        '200':
+          description: A transaction containing the validated promotions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionWithPromotionsEnvelope'
+        '400':
+          $ref: '#/components/responses/BadRequestWithCode'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /promotions/redemptions:
+    post:
+      tags:
+        - Promotions
+      summary: Redeem Promotions
+      description: >-
+        Redeem the coupons and loyalty rewards applied to a placed order, finalizing
+        the discounts calculated during validation.
+      operationId: redeemPromotions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PromotionsRequest'
+      responses:
+        '200':
+          description: A transaction containing the redeemed promotions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionWithPromotionsEnvelope'
+        '400':
+          $ref: '#/components/responses/BadRequestWithCode'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /promotions/redemptions/{redemptionId}:
+    delete:
+      tags:
+        - Promotions
+      summary: Void Redemption
+      description: Void a previously redeemed set of coupons and rewards for an order.
+      operationId: voidRedemption
+      parameters:
+        - name: redemptionId
+          in: path
+          required: true
+          description: The identifier of the redemption being voided.
+          schema:
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VoidRedemptionRequest'
+      responses:
+        '200':
+          description: A transaction confirming the voided redemption.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionEnvelope'
+        '400':
+          $ref: '#/components/responses/BadRequestWithCode'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /promotions/accruals:
+    post:
+      tags:
+        - Accruals
+      summary: Accrue Points
+      description: Accrue loyalty points for a placed order against a guest's loyalty account.
+      operationId: accruePoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccruePointsRequest'
+      responses:
+        '200':
+          description: A transaction confirming the accrual.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionEnvelope'
+        '400':
+          $ref: '#/components/responses/BadRequestWithCode'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /promotions/accruals/{accrualId}:
+    delete:
+      tags:
+        - Accruals
+      summary: Void Accrual
+      description: Void a previously recorded loyalty point accrual for an order.
+      operationId: voidAccrual
+      parameters:
+        - name: accrualId
+          in: path
+          required: true
+          description: The identifier of the accrual being voided.
+          schema:
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VoidAccrualRequest'
+      responses:
+        '200':
+          description: A transaction confirming the voided accrual.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionEnvelope'
+        '400':
+          $ref: '#/components/responses/BadRequestWithCode'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  securitySchemes:
+    OloSignature:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >-
+        HMAC-SHA256 signature over the request URL concatenated with the raw request
+        body, using the shared secret as the key, encoded as URL-safe base64 without
+        padding. HTTP Basic authorization (base64 of the shared secret) is also supported
+        for key-based auth.
+  responses:
+    Unauthorized:
+      description: The request signature was invalid or missing.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: The request was malformed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequestWithCode:
+      description: The request could not be processed; a machine-readable error code is included.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorCodeResponse'
+  schemas:
+    CreateAccountRequest:
+      type: object
+      description: Request payload to create a new loyalty account.
+      properties:
+        firstName:
+          type: string
+          description: First name for the user.
+        lastName:
+          type: string
+          description: Last name for the user.
+        phoneNumber:
+          type: string
+          description: Phone number for the user.
+        emailAddress:
+          type: string
+          description: Email address for the user.
+        externalIdentifier:
+          type: string
+          description: Unique external identifier for the user.
+    PromotionsRequest:
+      type: object
+      description: >-
+        Shared payload for the Validate Promotions and Redeem Promotions operations,
+        describing the order, its totals, and its basket contents.
+      properties:
+        orderId:
+          type: string
+          description: The ID of the order, only populated once the order has been placed.
+        accountId:
+          type: string
+          description: The loyalty account's unique identifier in the provider's system.
+        source:
+          $ref: '#/components/schemas/Source'
+        handoff:
+          $ref: '#/components/schemas/Handoff'
+        currency:
+          type: string
+          description: A three-letter ISO 4217 currency code. Defaults to USD when omitted.
+        placed:
+          type: string
+          format: date-time
+          description: A UTC RFC 3339 date-time representing when the order was created.
+        wanted:
+          type: string
+          format: date-time
+          description: A UTC RFC 3339 date-time representing when the guest wants to receive their food.
+        storeNumber:
+          type: string
+          description: The ID of the store as provided by the restaurant.
+        restaurant:
+          type: string
+          description: A unique ID representing the vendor restaurant in Olo's system.
+        brand:
+          type: string
+          description: A unique ID representing the restaurant brand in Olo's system.
+        subtotal:
+          type: number
+          description: The cost of the food before applying any tax, tip, fees or discounts.
+        tax:
+          type: number
+          description: The amount of tax applied to the order.
+        tip:
+          type: number
+          description: The amount the customer tipped on the order.
+        delivery:
+          type: number
+          description: The delivery fee for the order.
+        customFees:
+          type: number
+          description: The sum of any custom fees applied to the order.
+        discount:
+          type: number
+          description: The sum of any discounts applied to the order.
+        total:
+          type: number
+          description: The final total for the order after any tax, tip, fees and discounts.
+        address:
+          $ref: '#/components/schemas/Address'
+        payments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Payment'
+        basket:
+          $ref: '#/components/schemas/Basket'
+      required:
+        - subtotal
+        - total
+        - basket
+    AccruePointsRequest:
+      type: object
+      description: Request payload to accrue loyalty points for an order.
+      properties:
+        orderId:
+          type: string
+          description: The ID of the order, only populated once the order has been placed.
+        accountId:
+          type: string
+          description: The loyalty account's unique identifier in the provider's system.
+        source:
+          $ref: '#/components/schemas/Source'
+        handoff:
+          $ref: '#/components/schemas/Handoff'
+        currency:
+          type: string
+          description: A three-letter ISO 4217 currency code. Defaults to USD when omitted.
+        placed:
+          type: string
+          format: date-time
+          description: A UTC RFC 3339 date-time representing when the order was created.
+        wanted:
+          type: string
+          format: date-time
+          description: A UTC RFC 3339 date-time representing when the guest wants to receive their food.
+        storeNumber:
+          type: string
+          description: The ID of the store as provided by the restaurant.
+        restaurant:
+          type: string
+          description: A unique ID representing the vendor restaurant in Olo's system.
+        brand:
+          type: string
+          description: A unique ID representing the restaurant brand in Olo's system.
+        subtotal:
+          type: number
+          description: The cost of the food before applying any tax, tip, fees or discounts.
+        tax:
+          type: number
+          description: The amount of tax applied to the order.
+        tip:
+          type: number
+          description: The amount the customer tipped on the order.
+        delivery:
+          type: number
+          description: The delivery fee for the order.
+        customFees:
+          type: number
+          description: The sum of any custom fees applied to the order.
+        discount:
+          type: number
+          description: The sum of any discounts applied to the order.
+        total:
+          type: number
+          description: The final total for the order after any tax, tip, fees and discounts.
+        address:
+          $ref: '#/components/schemas/Address'
+        payments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Payment'
+        basket:
+          $ref: '#/components/schemas/Basket'
+      required:
+        - accountId
+        - subtotal
+        - total
+    VoidRedemptionRequest:
+      type: object
+      description: Request payload to void a previously redeemed set of promotions.
+      properties:
+        orderId:
+          type: string
+          description: The ID of the order being voided.
+        accountId:
+          type: string
+          description: The loyalty account's unique identifier in the provider's system.
+        couponCodes:
+          type: array
+          description: The coupon codes redeemed with the order that are being voided.
+          items:
+            type: string
+        rewardIds:
+          type: array
+          description: The IDs of the rewards redeemed with the order that are being voided.
+          items:
+            type: string
+        brand:
+          type: string
+          description: A unique ID representing the restaurant brand in Olo's system.
+        storeNumber:
+          type: string
+          description: The ID of the store as provided by the restaurant.
+        restaurant:
+          type: string
+          description: A unique ID representing the vendor restaurant in Olo's system.
+    VoidAccrualRequest:
+      type: object
+      description: Request payload to void a previously recorded loyalty point accrual.
+      properties:
+        orderId:
+          type: string
+          description: The ID of the order being voided.
+        accountId:
+          type: string
+          description: The loyalty account's unique identifier in the provider's system.
+        brand:
+          type: string
+          description: A unique ID representing the restaurant brand in Olo's system.
+        storeNumber:
+          type: string
+          description: The ID of the store as provided by the restaurant.
+        restaurant:
+          type: string
+          description: A unique ID representing the vendor restaurant in Olo's system.
+    Account:
+      type: object
+      description: A guest's loyalty account.
+      properties:
+        id:
+          type: string
+          description: The account's unique identifier in the provider's system.
+        status:
+          $ref: '#/components/schemas/AccountStatus'
+        balance:
+          $ref: '#/components/schemas/Balance'
+        rewards:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountReward'
+    AccountStatus:
+      type: string
+      description: Whether the loyalty account is active or inactive.
+      enum:
+        - Active
+        - Inactive
+    Balance:
+      type: object
+      description: A loyalty account's points balance.
+      properties:
+        quantity:
+          type: number
+          description: The amount of points in the user's loyalty account.
+        target:
+          type: number
+          description: The points required to unlock the next step in the loyalty account.
+        unit:
+          type: string
+          default: points
+          description: The unit used to describe the quantity of a loyalty account balance.
+    AccountReward:
+      type: object
+      description: A reward available in a loyalty account.
+      properties:
+        id:
+          type: string
+          description: A unique identifier for the loyalty reward in the provider's system.
+        name:
+          type: string
+          description: The name of the loyalty reward.
+        description:
+          type: string
+          description: A description of the loyalty reward.
+        quantity:
+          type: integer
+          description: The quantity of the reward available in the account.
+        currency:
+          type: string
+          description: A three-letter ISO 4217 currency code. Defaults to USD when omitted.
+        expiration:
+          type: string
+          format: date-time
+          description: A UTC RFC 3339 date-time representing when the reward expires.
+        reference:
+          $ref: '#/components/schemas/PosReference'
+        type:
+          type: string
+          description: Provider-defined category for the reward. Echoed back; not interpreted by Olo.
+        imageUrl:
+          type: string
+          description: An image URL representing the reward. Not interpreted by Olo.
+        customFields:
+          type: string
+          description: Custom provider metadata echoed back in subsequent requests.
+    Source:
+      type: string
+      description: The source of the order.
+      enum:
+        - Web
+        - MobileWeb
+        - iOS
+        - Android
+        - Kiosk
+        - Other
+    Handoff:
+      type: string
+      description: The handoff method for the order.
+      enum:
+        - Pickup
+        - Curbside
+        - Delivery
+        - Dispatch
+        - Drivethru
+        - Dinein
+    Address:
+      type: object
+      description: The destination address of the order.
+      properties:
+        street:
+          type: string
+          description: The street address.
+        city:
+          type: string
+          description: The name of the city.
+        code:
+          type: string
+          description: The zip code.
+        country:
+          type: string
+          description: A three-letter ISO 3166-1 country code.
+    Payment:
+      type: object
+      description: A payment applied to the order.
+      properties:
+        tender:
+          $ref: '#/components/schemas/Tender'
+        issuer:
+          $ref: '#/components/schemas/Issuer'
+        suffix:
+          type: string
+          description: The credit card suffix. Only populated when tender is Credit.
+        amount:
+          type: number
+          description: The payment amount for this payment method.
+    Tender:
+      type: string
+      description: A payment tender type.
+      enum:
+        - Cash
+        - Check
+        - Credit
+        - Debit
+        - Prepaid
+        - Transfer
+        - Value
+        - Other
+    Issuer:
+      type: string
+      description: The credit card issuer. Only populated when tender is Credit.
+      enum:
+        - Amex
+        - Diners
+        - Discover
+        - JCB
+        - MasterCard
+        - PayPal
+        - Visa
+    Basket:
+      type: object
+      description: The basket contents for an order.
+      properties:
+        id:
+          type: string
+          description: The ID of the basket; the unique order identifier until an order ID is generated.
+        rewards:
+          type: array
+          description: Any loyalty rewards applied to the basket.
+          items:
+            $ref: '#/components/schemas/BasketReward'
+        coupons:
+          type: array
+          description: Any coupons applied to the basket.
+          items:
+            $ref: '#/components/schemas/Coupon'
+        entries:
+          type: array
+          description: The Olo representations of the basket items.
+          items:
+            $ref: '#/components/schemas/OloEntry'
+        posEntries:
+          type: array
+          description: The POS representations of the basket items.
+          items:
+            $ref: '#/components/schemas/PosEntry'
+    DiscountLevel:
+      type: string
+      description: The level at which a discount is applied.
+      enum:
+        - Item
+        - Basket
+    Coupon:
+      type: object
+      description: A coupon applied to a basket.
+      properties:
+        id:
+          type: string
+          description: The coupon's code.
+        provider:
+          type: string
+          description: The name of the coupon's provider.
+        level:
+          $ref: '#/components/schemas/DiscountLevel'
+        product:
+          type: string
+          description: The Olo product ID the coupon is applied to. Only populated for item-level coupons.
+        discount:
+          type: number
+          description: The discount amount for the coupon. Only populated once the basket is validated.
+    BasketReward:
+      type: object
+      description: A loyalty reward applied to a basket.
+      properties:
+        id:
+          type: string
+          description: The ID of the reward in the loyalty provider's system.
+        provider:
+          type: string
+          description: The name of the reward's loyalty provider.
+        level:
+          $ref: '#/components/schemas/DiscountLevel'
+        product:
+          type: string
+          description: The Olo product ID the reward is applied to. Only populated for item-level rewards.
+        discount:
+          type: number
+          description: The discount amount for the reward. Only populated once the basket is validated.
+        type:
+          type: string
+          description: Provider-defined category for the reward. Echoed back; not interpreted by Olo.
+        imageUrl:
+          type: string
+          description: An image URL representing the reward. Not interpreted by Olo.
+        customFields:
+          type: string
+          description: Custom provider metadata echoed back in subsequent requests.
+    OloEntry:
+      type: object
+      description: An Olo-represented basket item entry.
+      properties:
+        quantity:
+          type: number
+          description: The quantity of the item in the basket.
+        item:
+          $ref: '#/components/schemas/OloItem'
+    OloItem:
+      type: object
+      description: An Olo-represented basket item.
+      properties:
+        product:
+          type: string
+          description: The Olo product ID.
+        label:
+          type: string
+          description: The name of the product in Olo's system.
+        cost:
+          type: number
+          description: The per-unit cost of the product in Olo's system.
+    PosEntry:
+      type: object
+      description: A POS-represented basket item entry.
+      properties:
+        quantity:
+          type: number
+          description: The quantity of the item in the basket.
+        posItem:
+          $ref: '#/components/schemas/PosItem'
+    PosItem:
+      type: object
+      description: A POS-represented basket item.
+      properties:
+        product:
+          type: string
+          description: The POS product ID.
+        categories:
+          type: array
+          description: The POS category IDs for the product.
+          items:
+            type: string
+        modifiers:
+          type: array
+          description: The modifiers applied to the product.
+          items:
+            $ref: '#/components/schemas/Modifier'
+        label:
+          type: string
+          description: The name of the product on the POS.
+        cost:
+          type: number
+          description: The per-unit cost of the product on the POS.
+    Modifier:
+      type: object
+      description: A POS modifier applied to a product, supporting nested modifiers.
+      properties:
+        id:
+          type: string
+          description: The POS modifier ID.
+        quantity:
+          type: number
+          description: The quantity of the modifier applied to the product.
+        product:
+          type: string
+          description: The POS product ID the modifier is applied to.
+        categories:
+          type: array
+          description: The POS category IDs for the modifier.
+          items:
+            type: string
+        label:
+          type: string
+          description: The name of the modifier on the POS.
+        cost:
+          type: number
+          description: The per-unit cost of the modifier on the POS.
+        modifiers:
+          type: array
+          description: The modifiers applied to the modifier.
+          items:
+            $ref: '#/components/schemas/Modifier'
+    TransactionEnvelope:
+      type: object
+      description: An envelope wrapping a transaction result.
+      properties:
+        transaction:
+          $ref: '#/components/schemas/Transaction'
+    TransactionWithPromotionsEnvelope:
+      type: object
+      description: An envelope wrapping a transaction result that includes validated or redeemed promotions.
+      properties:
+        transaction:
+          $ref: '#/components/schemas/TransactionWithPromotions'
+    Transaction:
+      type: object
+      description: The result of a Promotions operation.
+      properties:
+        id:
+          type: string
+          description: A unique identifier for the transaction in the provider's system.
+    TransactionWithPromotions:
+      allOf:
+        - $ref: '#/components/schemas/Transaction'
+        - type: object
+          properties:
+            promotions:
+              type: array
+              description: The details of the validated or redeemed promotions.
+              items:
+                $ref: '#/components/schemas/Promotion'
+    Promotion:
+      type: object
+      description: A validated or redeemed promotion.
+      properties:
+        id:
+          type: string
+          description: The promotion's identifier; the coupon code for coupons or the reward ID for loyalty rewards.
+        type:
+          $ref: '#/components/schemas/PromotionType'
+        discount:
+          type: number
+          description: The provider-calculated discount for the validated promotion.
+        reference:
+          $ref: '#/components/schemas/PosReference'
+    PromotionType:
+      type: string
+      description: The type of a promotion.
+      enum:
+        - Coupon
+        - Reward
+    PosReference:
+      type: object
+      description: Data used to identify a promotion or reward on the POS.
+      properties:
+        type:
+          $ref: '#/components/schemas/PosReferenceType'
+        code:
+          type: string
+          description: The value of the POS reference.
+    PosReferenceType:
+      type: string
+      description: The type of a POS reference.
+      enum:
+        - Promo
+        - Comp
+    ErrorResponse:
+      type: object
+      description: Returned for error responses.
+      properties:
+        id:
+          type: string
+          description: A unique identifier for the error in the provider's system.
+        details:
+          type: string
+          description: Additional details used to help troubleshoot the error.
+        message:
+          type: string
+          description: An error message to be shown to the customer.
+    ErrorCodeResponse:
+      allOf:
+        - $ref: '#/components/schemas/ErrorResponse'
+        - type: object
+          properties:
+            code:
+              $ref: '#/components/schemas/ErrorCode'
+    ErrorCode:
+      type: string
+      description: A machine-readable code identifying the issue with the request.
+      enum:
+        - EXPIRED_PROMOTION
+        - INVALID_PROMOTION
+        - MISSING_ITEM
+        - INVALID_TOTAL
+        - INVALID_HANDOFF
+        - INVALID_ACCOUNT
+        - OTHER

@@ -12,7 +12,7 @@ Olo is a leading on-demand commerce platform powering the digital experience for
 ## Timestamps
 
 - **Created:** 2026-05-25
-- **Modified:** 2026-05-25
+- **Modified:** 2026-06-03
 
 ## APIs
 
@@ -30,6 +30,12 @@ The Olo Ordering API is the platform's flagship order-injection surface, enablin
 - [DeveloperPortal](https://developer.olo.com/)
 - [Authentication](https://github.com/ololabs/dev-support-code-samples)
 - [CodeExamples](https://github.com/ololabs/dev-support-code-samples)
+- [OpenAPI](openapi/olo-ordering-openapi.yml)
+- [Example - Check User Exists](examples/olo-ordering-check-user-exists-example.json)
+- [Example - Create Basket](examples/olo-ordering-create-basket-example.json)
+- [NaftikoCapability - Brand](capabilities/ordering-brand.yaml)
+- [NaftikoCapability - Users](capabilities/ordering-users.yaml)
+- [NaftikoCapability - Rails](capabilities/ordering-rails.yaml)
 
 ### Olo Rails API
 Olo Rails is the marketplace-delivery integration surface, accepting orders originated on third-party delivery marketplaces (DoorDash, Uber Eats, Grubhub, Google, and 25+ other channels) and injecting them into the restaurant's POS through Olo.
@@ -45,6 +51,9 @@ Olo Rails is the marketplace-delivery integration surface, accepting orders orig
 - [Documentation](https://www.olo.com/products/rails)
 - [Authentication](https://github.com/ololabs/dev-support-code-samples)
 - [CodeExamples](https://github.com/ololabs/dev-support-code-samples)
+- [OpenAPI](openapi/olo-ordering-openapi.yml)
+- [Example - Create Basket](examples/olo-ordering-create-basket-example.json)
+- [NaftikoCapability - Rails](capabilities/ordering-rails.yaml)
 
 ### Olo Dispatch API
 The Olo Dispatch API orchestrates direct delivery for restaurants by routing orders to a network of delivery service providers (DSPs) such as DoorDash Drive, Uber Direct, Postmates, and Relay.
@@ -144,6 +153,16 @@ Olo Loyalty (formerly OloEngage) lets restaurant brands run rewards programs tha
 #### Properties
 
 - [Documentation](https://www.olo.com/products/olo-loyalty)
+- [OpenAPI](openapi/olo-promotions-openapi.yml)
+- [SDK](https://github.com/ololabs/promotions-sdk)
+- [Example - Validate Promotions](examples/olo-promotions-validate-example.json)
+- [Example - Account](examples/olo-promotions-account-example.json)
+- [JSONSchema - Account](json-schema/olo-promotions-account-schema.json)
+- [JSONSchema - Promotions Request](json-schema/olo-promotions-request-schema.json)
+- [JSONStructure - Promotions](json-structure/olo-promotions-structure.json)
+- [NaftikoCapability - Accounts](capabilities/promotions-accounts.yaml)
+- [NaftikoCapability - Promotions](capabilities/promotions-promotions.yaml)
+- [NaftikoCapability - Accruals](capabilities/promotions-accruals.yaml)
 
 ### Olo Host API
 Olo Host (acquired from Wisely) provides reservations, waitlist, table management, and host-stand workflows for restaurants.
@@ -184,6 +203,7 @@ Olo exposes outbound webhooks that fire on order lifecycle events (placed, confi
 
 - [Documentation](https://github.com/ololabs/dev-support-code-samples)
 - [CodeExamples](https://github.com/ololabs/dev-support-code-samples)
+- [AsyncAPI](asyncapi/olo-webhooks-asyncapi.yml)
 
 ## Common Properties
 
@@ -198,6 +218,10 @@ Olo exposes outbound webhooks that fire on order lifecycle events (placed, confi
 - [Support](https://olosupport.zendesk.com/hc/en-us)
 - [Blog](https://www.olo.com/blog)
 - [GitHubOrganization](https://github.com/ololabs)
+- [GitHubRepository - Dev Support Code Samples](https://github.com/ololabs/dev-support-code-samples)
+- [GitHubRepository - Promotions SDK](https://github.com/ololabs/promotions-sdk)
+- [GitHubRepository - Serve GTM Templates](https://github.com/ololabs/olo-serve-gtm-templates)
+- [SpectralRules](rules/olo-spectral-rules.yml)
 - [LinkedIn](https://www.linkedin.com/company/olo)
 - [X](https://twitter.com/olo)
 - [YouTube](https://www.youtube.com/@OloRestaurantTech)
@@ -307,9 +331,55 @@ Olo exposes outbound webhooks that fire on order lifecycle events (placed, confi
 
 - [Olo Linked Data Context](json-ld/olo-context.jsonld) - Cross-surface JSON-LD context aligning Olo concepts (Basket, Order, Menu, MenuItem, Restaurant, GuestProfile, Audience, Campaign, LoyaltyAccount, Reservation, WebhookEvent, etc.) with schema.org and dcterms.
 
+## Artifacts
+
+Machine-readable API specifications organized by format. All artifacts are generated only from genuinely documented surfaces — Olo's official open-source SDKs and code samples — never fabricated. The Ordering/Rails/Promotions surfaces below come from `github.com/ololabs/dev-support-code-samples` (signature-auth samples with real paths) and `github.com/ololabs/promotions-sdk` (the Olo Promotions Specification models). Dispatch, Marketing/GDP, Host, Sentiment, Network, Omnivore, and the POS Interface remain gated behind the Olo Developer Portal and partner certification, so no specs are generated for them.
+
+### OpenAPI
+
+- [Olo Ordering API](openapi/olo-ordering-openapi.yml) — Brand, Users, and Rails operations sourced from Olo's signature-authorization code samples.
+- [Olo Promotions API](openapi/olo-promotions-openapi.yml) — The Olo Promotions Specification (accounts, validate, redeem, accrue, void) modeled from the official Promotions SDK.
+
+### AsyncAPI
+
+- [Olo Webhooks](asyncapi/olo-webhooks-asyncapi.yml) — HMAC-signed order, loyalty, gift-card, and tender webhook events.
+
+### JSON Schema
+
+- [Promotions Account](json-schema/olo-promotions-account-schema.json)
+- [Promotions Request](json-schema/olo-promotions-request-schema.json)
+
+### JSON Structure
+
+- [Promotions Entities](json-structure/olo-promotions-structure.json)
+
+### Examples
+
+- [Promotions — Validate Promotions](examples/olo-promotions-validate-example.json)
+- [Promotions — Account](examples/olo-promotions-account-example.json)
+- [Ordering — Create Basket](examples/olo-ordering-create-basket-example.json)
+- [Ordering — Check User Exists](examples/olo-ordering-check-user-exists-example.json)
+
+## Capabilities
+
+Self-contained Naftiko capabilities, one per business surface (OpenAPI tag), each with inline REST and MCP exposers.
+
+| Capability | API | Operations |
+|------------|-----|-----------|
+| [Promotions — Accounts](capabilities/promotions-accounts.yaml) | Olo Promotions | 3 |
+| [Promotions — Promotions](capabilities/promotions-promotions.yaml) | Olo Promotions | 3 |
+| [Promotions — Accruals](capabilities/promotions-accruals.yaml) | Olo Promotions | 2 |
+| [Ordering — Brand](capabilities/ordering-brand.yaml) | Olo Ordering | 1 |
+| [Ordering — Users](capabilities/ordering-users.yaml) | Olo Ordering | 1 |
+| [Ordering — Rails](capabilities/ordering-rails.yaml) | Olo Ordering / Rails | 2 |
+
+## Rules
+
+- [Olo Spectral Ruleset](rules/olo-spectral-rules.yml) — 31 rules across 13 categories enforcing Olo's signature-auth, versioned-path, camelCase operationId, and Title Case tag conventions.
+
 ## Notes
 
-OpenAPI specifications, JSON Schemas, JSON Structures, examples, Spectral rules, and Naftiko capabilities are intentionally NOT generated for Olo: the Ordering, Rails, Dispatch, Marketing, Loyalty, Host, Sentiment, Network, and Omnivore reference documentation is gated behind the Olo Developer Portal login and partner certification, and per the pipeline rules a real-content prerequisite must be satisfied before producing those artifacts. Once partner credentials make the contracts available, those subfolders can be populated against the live specs.
+MCP servers and Claude Code skills: none are published by Olo (checked the ololabs GitHub org, the MCP registry, and package registries) — no Tools properties were fabricated. Dispatch's DSP reference (dispatch-dsp.readme.io) advertises an OpenAPI spec but does not expose fetchable paths publicly, so no Dispatch spec was generated.
 
 ## Maintainers
 

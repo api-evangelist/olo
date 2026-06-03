@@ -1,0 +1,200 @@
+asyncapi: 3.0.0
+info:
+  title: Olo Webhooks
+  version: '1.0'
+  description: >-
+    Olo emits outbound HTTP webhooks to partner-registered endpoints for order
+    lifecycle, loyalty, gift-card, tender, and marketplace status events. Each
+    delivery includes an X-Olo-Message-Id header (a unique message UUID), an
+    X-Olo-Timestamp header (number of ticks since 0001-01-01T00:00:00Z UTC), and
+    an HMAC-SHA256 signature computed over the newline-joined concatenation of the
+    webhook URL, the raw request body, the message id, and the timestamp, using a
+    shared secret. Reference signature-validation samples are published in C#, Java,
+    PHP, Ruby, JavaScript, and Python in github.com/ololabs/dev-support-code-samples.
+    The event catalog and field-level schemas are documented behind the gated Olo
+    Developer Portal; the channels below model the documented event families.
+  externalDocs:
+    description: Olo webhook signature validation samples
+    url: https://github.com/ololabs/dev-support-code-samples
+defaultContentType: application/json
+servers:
+  partnerEndpoint:
+    host: partner.example.com
+    protocol: https
+    description: Partner-hosted HTTPS endpoint registered to receive Olo webhooks.
+channels:
+  orderEvents:
+    address: /webhooks/orders
+    description: Order lifecycle events for orders placed through Olo.
+    messages:
+      orderEvent:
+        $ref: '#/components/messages/OrderEvent'
+  loyaltyEvents:
+    address: /webhooks/loyalty
+    description: Loyalty accrual and redemption events.
+    messages:
+      loyaltyEvent:
+        $ref: '#/components/messages/LoyaltyEvent'
+  giftCardEvents:
+    address: /webhooks/gift-cards
+    description: Gift-card activity events.
+    messages:
+      giftCardEvent:
+        $ref: '#/components/messages/GiftCardEvent'
+  tenderEvents:
+    address: /webhooks/tenders
+    description: Tender (payment) events for orders.
+    messages:
+      tenderEvent:
+        $ref: '#/components/messages/TenderEvent'
+operations:
+  receiveOrderEvent:
+    action: receive
+    channel:
+      $ref: '#/channels/orderEvents'
+    summary: Receive Order Lifecycle Event
+    description: Handle an order lifecycle webhook (placed, confirmed, ready, completed, refunded).
+  receiveLoyaltyEvent:
+    action: receive
+    channel:
+      $ref: '#/channels/loyaltyEvents'
+    summary: Receive Loyalty Event
+    description: Handle a loyalty accrual or redemption webhook.
+  receiveGiftCardEvent:
+    action: receive
+    channel:
+      $ref: '#/channels/giftCardEvents'
+    summary: Receive Gift Card Event
+    description: Handle a gift-card activity webhook.
+  receiveTenderEvent:
+    action: receive
+    channel:
+      $ref: '#/channels/tenderEvents'
+    summary: Receive Tender Event
+    description: Handle a tender (payment) webhook.
+components:
+  messageTraits:
+    signedWebhook:
+      headers:
+        type: object
+        properties:
+          X-Olo-Message-Id:
+            type: string
+            format: uuid
+            description: A unique identifier for the webhook message.
+          X-Olo-Timestamp:
+            type: string
+            description: Number of ticks since 0001-01-01T00:00:00Z UTC when the message was generated.
+          Authorization:
+            type: string
+            description: >-
+              HMAC-SHA256 signature over url + body + message id + timestamp (newline-joined),
+              base64-encoded, validated against the shared secret.
+  messages:
+    OrderEvent:
+      name: orderEvent
+      title: Order Event
+      summary: An order lifecycle event.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/signedWebhook'
+      payload:
+        $ref: '#/components/schemas/OrderEventPayload'
+    LoyaltyEvent:
+      name: loyaltyEvent
+      title: Loyalty Event
+      summary: A loyalty accrual or redemption event.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/signedWebhook'
+      payload:
+        $ref: '#/components/schemas/LoyaltyEventPayload'
+    GiftCardEvent:
+      name: giftCardEvent
+      title: Gift Card Event
+      summary: A gift-card activity event.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/signedWebhook'
+      payload:
+        $ref: '#/components/schemas/GiftCardEventPayload'
+    TenderEvent:
+      name: tenderEvent
+      title: Tender Event
+      summary: A tender (payment) event.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/signedWebhook'
+      payload:
+        $ref: '#/components/schemas/TenderEventPayload'
+  schemas:
+    OrderEventPayload:
+      type: object
+      description: Payload for an order lifecycle webhook.
+      properties:
+        eventType:
+          type: string
+          description: The order lifecycle event type.
+          enum:
+            - placed
+            - confirmed
+            - ready
+            - completed
+            - refunded
+        orderId:
+          type: string
+          description: The Olo order identifier.
+        brand:
+          type: string
+          description: The restaurant brand identifier in Olo's system.
+        storeNumber:
+          type: string
+          description: The store identifier as provided by the restaurant.
+        timestamp:
+          type: string
+          format: date-time
+          description: When the event occurred.
+    LoyaltyEventPayload:
+      type: object
+      description: Payload for a loyalty accrual or redemption webhook.
+      properties:
+        eventType:
+          type: string
+          enum:
+            - accrual
+            - redemption
+        orderId:
+          type: string
+          description: The associated Olo order identifier.
+        accountId:
+          type: string
+          description: The loyalty account identifier.
+        timestamp:
+          type: string
+          format: date-time
+    GiftCardEventPayload:
+      type: object
+      description: Payload for a gift-card activity webhook.
+      properties:
+        eventType:
+          type: string
+          description: The gift-card event type.
+        orderId:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    TenderEventPayload:
+      type: object
+      description: Payload for a tender (payment) webhook.
+      properties:
+        eventType:
+          type: string
+        orderId:
+          type: string
+        amount:
+          type: number
+          description: The tender amount.
+        timestamp:
+          type: string
+          format: date-time
