@@ -1,0 +1,618 @@
+{
+  "item": [
+    {
+      "id": "8ad56e15-e623-40c2-b6df-e8e034645eb7",
+      "name": "Brand",
+      "description": {
+        "content": "Brand-level configuration and metadata",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f269a59b-e2ea-4fcc-a4c9-15c852494fd0",
+          "name": "Get Brand",
+          "request": {
+            "name": "Get Brand",
+            "description": {
+              "content": "Retrieve configuration and metadata for the brand associated with the authenticated partner credentials.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.1",
+                "brand"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46c9c028-367b-44d6-8845-ae48e770bbb6",
+              "name": "Brand configuration and metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.1",
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 3210.7941853729894,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "766869b1-bcc8-49e7-af2a-71faca23b059",
+              "name": "The request signature was invalid or missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.1",
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "edeba277-63b2-4644-bf7d-43f9dd455cba",
+      "name": "Users",
+      "description": {
+        "content": "Guest account lookups",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c4a36a51-6825-4754-a5c3-5f930133ea01",
+          "name": "Check User Exists",
+          "request": {
+            "name": "Check User Exists",
+            "description": {
+              "content": "Check whether a guest account already exists for a given email address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.1",
+                "users",
+                "exists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<email>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "64754df5-6e84-4e55-b2f2-18bc0dbd8ea5",
+              "name": "Whether a user exists for the supplied email.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.1",
+                    "users",
+                    "exists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<email>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 3210.7941853729894,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cbaa3d4-5054-47fe-9f6f-7e26df4715f9",
+              "name": "The request signature was invalid or missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.1",
+                    "users",
+                    "exists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<email>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "47d609e1-02f3-401b-86d2-489bb3ed85fb",
+      "name": "Rails",
+      "description": {
+        "content": "Marketplace Rails partner export and order injection operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fd492dc8-d8cb-4a92-814e-8c394044a280",
+          "name": "Get Vendor Export Status",
+          "request": {
+            "name": "Get Vendor Export Status",
+            "description": {
+              "content": "Retrieve the status of the Rails vendor (restaurant) export for the authenticated marketplace partner.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.1",
+                "vendorexport",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "71641f4c-a139-401d-bf89-a8498b22416e",
+              "name": "The vendor export status.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.1",
+                    "vendorexport",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 3210.7941853729894,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bae7c892-d056-4aba-a991-1c0b1c0d6456",
+              "name": "The request signature was invalid or missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.1",
+                    "vendorexport",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b2666b7-dcac-41f2-a207-95673083c15c",
+          "name": "Create Basket",
+          "request": {
+            "name": "Create Basket",
+            "description": {
+              "content": "Create a new basket for a vendor (restaurant) location to begin assembling an order for injection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.1",
+                "baskets",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendorid\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1f011c1a-6fc1-4477-9a35-a289718781d0",
+              "name": "The created basket.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.1",
+                    "baskets",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendorid\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 3210.7941853729894,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd615b0e-6577-4b30-8b80-a03b01e94e7a",
+              "name": "The request signature was invalid or missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.1",
+                    "baskets",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendorid\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ordering.api.olosandbox.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "38b92906-5393-4e71-9618-ffb186c39266",
+    "name": "Olo Ordering API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Olo Ordering API is the platform's order-injection surface, enabling certified partner apps and branded restaurant clients to retrieve brand and menu data, build and validate baskets, and submit orders into Olo's network of restaurant locations. Requests are authorized with an HMAC-SHA256 signature over a canonical message (client id, HTTP verb, content type, base64 SHA-256 of the body, path and query, and the Date header), sent in the Authorization header as \"OloSignature {clientId}:{signature}\" alongside an RFC 1123 Date header. Sandbox credentials are issued through the Olo Developer Portal after partner certification. The operations documented here are sourced from Olo's official signature-authorization code samples (github.com/ololabs/dev-support-code-samples). The full reference is gated behind the Olo Developer Portal.\n\nContact Support:\n Name: Olo Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Olo Ordering API",
+    "version": "1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Brand",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Brand",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ordering.api.olosandbox.com/v1.1/brand"
+          },
+          "docs": "Retrieve configuration and metadata for the brand associated with the authenticated partner credentials."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check User Exists",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ordering.api.olosandbox.com/v1.1/users/exists",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check whether a guest account already exists for a given email address."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Rails",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Vendor Export Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ordering.api.olosandbox.com/v1.1/vendorexport/status"
+          },
+          "docs": "Retrieve the status of the Rails vendor (restaurant) export for the authenticated marketplace partner."
+        },
+        {
+          "info": {
+            "name": "Create Basket",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ordering.api.olosandbox.com/v1.1/baskets/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new basket for a vendor (restaurant) location to begin assembling an order for injection."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
