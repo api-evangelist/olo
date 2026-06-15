@@ -1,0 +1,1086 @@
+"""
+Olo GraphQL Schema
+Conceptual schema derived from the Olo REST API covering digital ordering,
+menus, baskets, restaurant locations, delivery dispatching, guest management,
+and webhook integrations for online ordering at scale.
+"""
+
+# ─── Scalars ─────────────────────────────────────────────────────────────────
+
+scalar DateTime
+scalar Date
+scalar Decimal
+scalar JSON
+scalar URL
+
+# ─── Enums ───────────────────────────────────────────────────────────────────
+
+enum OrderStatus {
+  PLACED
+  CONFIRMED
+  IN_PROGRESS
+  READY
+  COMPLETED
+  CANCELLED
+  REFUNDED
+}
+
+enum FulfillmentType {
+  PICKUP
+  CURBSIDE
+  DELIVERY
+  DINE_IN
+  DRIVE_THROUGH
+}
+
+enum PaymentType {
+  CREDIT_CARD
+  GIFT_CARD
+  APPLE_PAY
+  GOOGLE_PAY
+  CASH
+  LOYALTY_POINTS
+  COUPON
+}
+
+enum DeliveryStatus {
+  PENDING
+  ASSIGNED
+  PICKED_UP
+  EN_ROUTE
+  DELIVERED
+  FAILED
+  CANCELLED
+}
+
+enum GuestAuthProvider {
+  OLO
+  FACEBOOK
+  GOOGLE
+  APPLE
+}
+
+enum LoyaltyActionType {
+  ACCRUAL
+  REDEMPTION
+  ADJUSTMENT
+  EXPIRATION
+}
+
+enum WebhookEventType {
+  ORDER_PLACED
+  ORDER_CONFIRMED
+  ORDER_READY
+  ORDER_COMPLETED
+  ORDER_CANCELLED
+  ORDER_REFUNDED
+  LOYALTY_ACCRUAL
+  LOYALTY_REDEMPTION
+  GIFT_CARD_ACTIVATED
+  GIFT_CARD_REDEEMED
+  TENDER_EVENT
+  MARKETPLACE_STATUS_CHANGED
+}
+
+enum MenuItemCategory {
+  FOOD
+  BEVERAGE
+  DESSERT
+  SIDE
+  COMBO
+  MODIFIER
+  ALCOHOL
+}
+
+enum RestaurantStatus {
+  OPEN
+  CLOSED
+  TEMPORARILY_CLOSED
+  EIGHTY_SIXED
+}
+
+enum BasketStatus {
+  OPEN
+  VALIDATED
+  SUBMITTED
+  EXPIRED
+}
+
+enum MarketplaceChannel {
+  DOORDASH
+  UBER_EATS
+  GRUBHUB
+  GOOGLE
+  POSTMATES
+  INSTACART
+  CAVIAR
+  OLO_NETWORK
+  DIRECT
+}
+
+enum DispatchProviderType {
+  DOORDASH_DRIVE
+  UBER_DIRECT
+  POSTMATES
+  RELAY
+  NASH
+}
+
+enum TierLevel {
+  STANDARD
+  GOLD
+  PLATINUM
+}
+
+enum SentimentSource {
+  POST_ORDER_SURVEY
+  GOOGLE_REVIEW
+  YELP_REVIEW
+  SOCIAL_MENTION
+}
+
+enum SentimentScore {
+  VERY_POSITIVE
+  POSITIVE
+  NEUTRAL
+  NEGATIVE
+  VERY_NEGATIVE
+}
+
+enum ReservationStatus {
+  PENDING
+  CONFIRMED
+  SEATED
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+enum WaitlistStatus {
+  WAITING
+  NOTIFIED
+  SEATED
+  LEFT
+  REMOVED
+}
+
+# ─── Core Types ──────────────────────────────────────────────────────────────
+
+type Restaurant {
+  id: ID!
+  slug: String!
+  name: String!
+  brandId: ID!
+  brand: Brand
+  address: Address!
+  phone: String
+  email: String
+  timezone: String!
+  status: RestaurantStatus!
+  isActive: Boolean!
+  supportsPickup: Boolean!
+  supportsDelivery: Boolean!
+  supportsCurbside: Boolean!
+  supportsDineIn: Boolean!
+  supportsDriveThrough: Boolean!
+  supportsScheduledOrders: Boolean!
+  supportsCatering: Boolean!
+  deliveryRadius: Float
+  minimumDeliveryOrder: Decimal
+  maximumDeliveryOrder: Decimal
+  hours: [OperatingHours!]!
+  specialHours: [SpecialHours!]
+  menu: Menu
+  attributes: [RestaurantAttribute!]
+  dispatchProviders: [DispatchProvider!]
+  posIntegration: POSIntegration
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  latitude: Float
+  longitude: Float
+  distance: Float
+}
+
+type Brand {
+  id: ID!
+  slug: String!
+  name: String!
+  description: String
+  logoUrl: URL
+  websiteUrl: URL
+  restaurants: [Restaurant!]!
+  menus: [Menu!]!
+  loyaltyProgram: LoyaltyProgram
+  marketplaceChannels: [MarketplaceChannel!]!
+}
+
+type Address {
+  street1: String!
+  street2: String
+  city: String!
+  state: String!
+  postalCode: String!
+  country: String!
+}
+
+type OperatingHours {
+  dayOfWeek: Int!
+  openTime: String!
+  closeTime: String!
+  fulfillmentType: FulfillmentType!
+}
+
+type SpecialHours {
+  date: Date!
+  openTime: String
+  closeTime: String
+  isClosed: Boolean!
+  reason: String
+}
+
+type RestaurantAttribute {
+  key: String!
+  value: String!
+}
+
+type POSIntegration {
+  id: ID!
+  restaurantId: ID!
+  posSystem: String!
+  isActive: Boolean!
+  lastSyncAt: DateTime
+}
+
+# ─── Menu Types ──────────────────────────────────────────────────────────────
+
+type Menu {
+  id: ID!
+  restaurantId: ID!
+  restaurant: Restaurant
+  name: String!
+  description: String
+  categories: [MenuCategory!]!
+  isActive: Boolean!
+  fulfillmentTypes: [FulfillmentType!]!
+  effectiveDate: Date
+  expirationDate: Date
+  version: String
+  updatedAt: DateTime!
+}
+
+type MenuCategory {
+  id: ID!
+  menuId: ID!
+  name: String!
+  description: String
+  imageUrl: URL
+  sortOrder: Int!
+  isHidden: Boolean!
+  items: [MenuItem!]!
+  metadata: JSON
+}
+
+type MenuItem {
+  id: ID!
+  categoryId: ID!
+  name: String!
+  description: String
+  imageUrl: URL
+  category: MenuItemCategory!
+  basePrice: Decimal!
+  calories: Int
+  minimumQuantity: Int!
+  maximumQuantity: Int
+  isAvailable: Boolean!
+  isModifiable: Boolean!
+  modifierGroups: [ModifierGroup!]
+  allergens: [String!]
+  tags: [String!]
+  nutritionFacts: NutritionFacts
+  metadata: JSON
+}
+
+type ModifierGroup {
+  id: ID!
+  menuItemId: ID!
+  name: String!
+  description: String
+  minimumSelections: Int!
+  maximumSelections: Int!
+  isMandatory: Boolean!
+  modifiers: [Modifier!]!
+}
+
+type Modifier {
+  id: ID!
+  modifierGroupId: ID!
+  name: String!
+  description: String
+  additionalCost: Decimal!
+  calories: Int
+  isAvailable: Boolean!
+  isDefault: Boolean!
+  childModifierGroups: [ModifierGroup!]
+}
+
+type NutritionFacts {
+  calories: Int
+  totalFat: Decimal
+  saturatedFat: Decimal
+  transFat: Decimal
+  cholesterol: Decimal
+  sodium: Decimal
+  totalCarbohydrates: Decimal
+  dietaryFiber: Decimal
+  totalSugars: Decimal
+  protein: Decimal
+  servingSize: String
+}
+
+# ─── Basket & Order Types ─────────────────────────────────────────────────────
+
+type Basket {
+  id: ID!
+  restaurantId: ID!
+  restaurant: Restaurant
+  guestId: ID
+  guest: Guest
+  status: BasketStatus!
+  fulfillmentType: FulfillmentType!
+  scheduledTime: DateTime
+  items: [BasketItem!]!
+  subtotal: Decimal!
+  tax: Decimal!
+  tip: Decimal
+  deliveryFee: Decimal
+  serviceFee: Decimal
+  discounts: [BasketDiscount!]
+  couponCodes: [String!]
+  giftCards: [GiftCardPayment!]
+  loyaltyRedemption: LoyaltyRedemption
+  deliveryAddress: Address
+  specialInstructions: String
+  channel: MarketplaceChannel!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  expiresAt: DateTime
+  total: Decimal!
+  validationErrors: [ValidationError!]
+}
+
+type BasketItem {
+  id: ID!
+  basketId: ID!
+  menuItemId: ID!
+  menuItem: MenuItem
+  quantity: Int!
+  unitPrice: Decimal!
+  totalPrice: Decimal!
+  selectedModifiers: [SelectedModifier!]
+  specialInstructions: String
+  recipient: String
+}
+
+type SelectedModifier {
+  modifierId: ID!
+  modifier: Modifier
+  quantity: Int!
+  additionalCost: Decimal!
+}
+
+type BasketDiscount {
+  id: ID!
+  type: String!
+  description: String!
+  amount: Decimal!
+  couponCode: String
+}
+
+type ValidationError {
+  code: String!
+  message: String!
+  field: String
+}
+
+type Order {
+  id: ID!
+  externalId: String
+  restaurantId: ID!
+  restaurant: Restaurant
+  guestId: ID
+  guest: Guest
+  basketId: ID
+  status: OrderStatus!
+  fulfillmentType: FulfillmentType!
+  scheduledTime: DateTime
+  confirmedTime: DateTime
+  readyTime: DateTime
+  completedTime: DateTime
+  items: [OrderItem!]!
+  subtotal: Decimal!
+  tax: Decimal!
+  tip: Decimal
+  deliveryFee: Decimal
+  serviceFee: Decimal
+  total: Decimal!
+  discounts: [OrderDiscount!]
+  payments: [OrderPayment!]!
+  deliveryAddress: Address
+  deliveryInfo: DeliveryInfo
+  specialInstructions: String
+  channel: MarketplaceChannel!
+  loyaltyTransaction: LoyaltyTransaction
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  refunds: [Refund!]
+}
+
+type OrderItem {
+  id: ID!
+  orderId: ID!
+  menuItemId: ID!
+  name: String!
+  quantity: Int!
+  unitPrice: Decimal!
+  totalPrice: Decimal!
+  modifiers: [OrderModifier!]
+  specialInstructions: String
+}
+
+type OrderModifier {
+  modifierId: ID!
+  name: String!
+  quantity: Int!
+  additionalCost: Decimal!
+}
+
+type OrderDiscount {
+  id: ID!
+  type: String!
+  description: String!
+  amount: Decimal!
+}
+
+type OrderPayment {
+  id: ID!
+  type: PaymentType!
+  amount: Decimal!
+  cardLast4: String
+  cardBrand: String
+  giftCardId: ID
+  loyaltyPoints: Int
+  status: String!
+  transactionId: String
+}
+
+type Refund {
+  id: ID!
+  orderId: ID!
+  amount: Decimal!
+  reason: String
+  status: String!
+  createdAt: DateTime!
+}
+
+# ─── Delivery & Dispatch Types ────────────────────────────────────────────────
+
+type DeliveryInfo {
+  id: ID!
+  orderId: ID!
+  provider: DispatchProviderType
+  trackingUrl: URL
+  driverName: String
+  driverPhone: String
+  estimatedPickupTime: DateTime
+  estimatedDeliveryTime: DateTime
+  actualDeliveryTime: DateTime
+  status: DeliveryStatus!
+  events: [DeliveryEvent!]
+}
+
+type DeliveryEvent {
+  id: ID!
+  deliveryInfoId: ID!
+  status: DeliveryStatus!
+  description: String
+  latitude: Float
+  longitude: Float
+  occurredAt: DateTime!
+}
+
+type DispatchProvider {
+  id: ID!
+  type: DispatchProviderType!
+  name: String!
+  isActive: Boolean!
+  minimumDeliveryOrder: Decimal
+  maximumDeliveryRadius: Float
+}
+
+type DeliveryQuote {
+  id: ID!
+  restaurantId: ID!
+  deliveryAddress: Address!
+  provider: DispatchProviderType!
+  estimatedDeliveryMinutes: Int!
+  fee: Decimal!
+  expiresAt: DateTime!
+}
+
+# ─── Guest Types ──────────────────────────────────────────────────────────────
+
+type Guest {
+  id: ID!
+  externalId: String
+  email: String!
+  firstName: String
+  lastName: String
+  phone: String
+  authProvider: GuestAuthProvider!
+  loyaltyMembership: LoyaltyMembership
+  savedAddresses: [SavedAddress!]
+  savedPaymentMethods: [SavedPaymentMethod!]
+  orderHistory: [Order!]
+  giftCards: [GiftCard!]
+  preferences: GuestPreferences
+  marketingConsent: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type GuestPreferences {
+  guestId: ID!
+  favoriteRestaurants: [ID!]
+  dietaryRestrictions: [String!]
+  defaultFulfillmentType: FulfillmentType
+  defaultAddress: SavedAddress
+}
+
+type SavedAddress {
+  id: ID!
+  guestId: ID!
+  label: String
+  address: Address!
+  deliveryInstructions: String
+  isDefault: Boolean!
+}
+
+type SavedPaymentMethod {
+  id: ID!
+  guestId: ID!
+  type: PaymentType!
+  label: String
+  cardLast4: String
+  cardBrand: String
+  expirationMonth: Int
+  expirationYear: Int
+  isDefault: Boolean!
+  billingAddress: Address
+}
+
+# ─── Loyalty Types ────────────────────────────────────────────────────────────
+
+type LoyaltyProgram {
+  id: ID!
+  brandId: ID!
+  name: String!
+  description: String
+  provider: String
+  pointsPerDollar: Decimal!
+  dollarsPerPoint: Decimal!
+  tiers: [LoyaltyTier!]
+  isActive: Boolean!
+}
+
+type LoyaltyTier {
+  id: ID!
+  programId: ID!
+  name: String!
+  level: TierLevel!
+  minimumPoints: Int!
+  benefits: [String!]!
+}
+
+type LoyaltyMembership {
+  id: ID!
+  guestId: ID!
+  programId: ID!
+  program: LoyaltyProgram
+  memberId: String!
+  currentPoints: Int!
+  lifetimePoints: Int!
+  tier: LoyaltyTier
+  expirationDate: Date
+  transactions: [LoyaltyTransaction!]
+}
+
+type LoyaltyTransaction {
+  id: ID!
+  membershipId: ID!
+  orderId: ID
+  actionType: LoyaltyActionType!
+  points: Int!
+  dollarValue: Decimal
+  description: String
+  createdAt: DateTime!
+}
+
+type LoyaltyRedemption {
+  membershipId: ID!
+  pointsToRedeem: Int!
+  dollarValue: Decimal!
+  rewardId: String
+}
+
+type LoyaltyReward {
+  id: ID!
+  programId: ID!
+  name: String!
+  description: String
+  pointsCost: Int!
+  dollarValue: Decimal
+  expirationDate: Date
+  isAvailable: Boolean!
+}
+
+# ─── Gift Card Types ──────────────────────────────────────────────────────────
+
+type GiftCard {
+  id: ID!
+  cardNumber: String!
+  balance: Decimal!
+  brandId: ID!
+  isActive: Boolean!
+  createdAt: DateTime!
+  expiresAt: DateTime
+  transactions: [GiftCardTransaction!]
+}
+
+type GiftCardTransaction {
+  id: ID!
+  giftCardId: ID!
+  orderId: ID
+  amount: Decimal!
+  type: String!
+  balanceAfter: Decimal!
+  createdAt: DateTime!
+}
+
+type GiftCardPayment {
+  giftCardId: ID!
+  amount: Decimal!
+}
+
+# ─── Coupon & Promotion Types ─────────────────────────────────────────────────
+
+type Coupon {
+  id: ID!
+  code: String!
+  description: String!
+  discountType: String!
+  discountValue: Decimal!
+  minimumOrderAmount: Decimal
+  maximumDiscountAmount: Decimal
+  brandId: ID
+  restaurantId: ID
+  validFrom: DateTime!
+  validUntil: DateTime
+  usageLimit: Int
+  usageCount: Int!
+  isActive: Boolean!
+  applicableItems: [ID!]
+}
+
+# ─── Host / Reservations Types ────────────────────────────────────────────────
+
+type Reservation {
+  id: ID!
+  restaurantId: ID!
+  restaurant: Restaurant
+  guestId: ID
+  guest: Guest
+  partySize: Int!
+  reservationTime: DateTime!
+  status: ReservationStatus!
+  tableId: ID
+  table: DiningTable
+  specialRequests: String
+  confirmationCode: String!
+  guestTags: [String!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type WaitlistEntry {
+  id: ID!
+  restaurantId: ID!
+  guestId: ID
+  guestName: String!
+  guestPhone: String!
+  partySize: Int!
+  status: WaitlistStatus!
+  quotedWaitMinutes: Int
+  addedAt: DateTime!
+  notifiedAt: DateTime
+  seatedAt: DateTime
+}
+
+type DiningTable {
+  id: ID!
+  restaurantId: ID!
+  tableNumber: String!
+  capacity: Int!
+  section: String
+  isAvailable: Boolean!
+}
+
+# ─── Sentiment Types ──────────────────────────────────────────────────────────
+
+type SentimentRecord {
+  id: ID!
+  restaurantId: ID!
+  orderId: ID
+  guestId: ID
+  source: SentimentSource!
+  score: SentimentScore!
+  rating: Decimal
+  reviewText: String
+  tags: [String!]
+  isResolved: Boolean!
+  resolvedAt: DateTime
+  resolutionNote: String
+  createdAt: DateTime!
+}
+
+# ─── Webhook Types ────────────────────────────────────────────────────────────
+
+type WebhookSubscription {
+  id: ID!
+  brandId: ID!
+  url: URL!
+  secret: String!
+  eventTypes: [WebhookEventType!]!
+  isActive: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type WebhookDelivery {
+  id: ID!
+  subscriptionId: ID!
+  eventType: WebhookEventType!
+  payload: JSON!
+  httpStatus: Int
+  attempts: Int!
+  succeededAt: DateTime
+  lastAttemptAt: DateTime
+  nextRetryAt: DateTime
+}
+
+# ─── Pagination Types ─────────────────────────────────────────────────────────
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+  totalCount: Int!
+}
+
+type RestaurantConnection {
+  edges: [RestaurantEdge!]!
+  pageInfo: PageInfo!
+}
+
+type RestaurantEdge {
+  node: Restaurant!
+  cursor: String!
+}
+
+type OrderConnection {
+  edges: [OrderEdge!]!
+  pageInfo: PageInfo!
+}
+
+type OrderEdge {
+  node: Order!
+  cursor: String!
+}
+
+type SentimentConnection {
+  edges: [SentimentEdge!]!
+  pageInfo: PageInfo!
+}
+
+type SentimentEdge {
+  node: SentimentRecord!
+  cursor: String!
+}
+
+# ─── Input Types ──────────────────────────────────────────────────────────────
+
+input AddressInput {
+  street1: String!
+  street2: String
+  city: String!
+  state: String!
+  postalCode: String!
+  country: String!
+}
+
+input CreateBasketInput {
+  restaurantId: ID!
+  fulfillmentType: FulfillmentType!
+  scheduledTime: DateTime
+  channel: MarketplaceChannel
+  guestId: ID
+  deliveryAddress: AddressInput
+}
+
+input AddBasketItemInput {
+  basketId: ID!
+  menuItemId: ID!
+  quantity: Int!
+  selectedModifiers: [SelectedModifierInput!]
+  specialInstructions: String
+  recipient: String
+}
+
+input SelectedModifierInput {
+  modifierId: ID!
+  quantity: Int!
+}
+
+input UpdateBasketItemInput {
+  basketItemId: ID!
+  quantity: Int
+  selectedModifiers: [SelectedModifierInput!]
+  specialInstructions: String
+}
+
+input ValidateBasketInput {
+  basketId: ID!
+  couponCodes: [String!]
+  giftCardNumbers: [String!]
+  loyaltyRedemption: LoyaltyRedemptionInput
+  tip: Decimal
+}
+
+input LoyaltyRedemptionInput {
+  membershipId: ID!
+  pointsToRedeem: Int!
+  rewardId: String
+}
+
+input SubmitOrderInput {
+  basketId: ID!
+  payments: [PaymentInput!]!
+  specialInstructions: String
+}
+
+input PaymentInput {
+  type: PaymentType!
+  amount: Decimal!
+  token: String
+  giftCardNumber: String
+  giftCardPin: String
+  loyaltyPoints: Int
+}
+
+input RestaurantSearchInput {
+  latitude: Float
+  longitude: Float
+  radius: Float
+  postalCode: String
+  city: String
+  state: String
+  fulfillmentType: FulfillmentType
+  channel: MarketplaceChannel
+  isOpen: Boolean
+  first: Int
+  after: String
+}
+
+input CreateGuestInput {
+  email: String!
+  firstName: String
+  lastName: String
+  phone: String
+  authProvider: GuestAuthProvider!
+  marketingConsent: Boolean
+}
+
+input UpdateGuestInput {
+  firstName: String
+  lastName: String
+  phone: String
+  marketingConsent: Boolean
+}
+
+input CreateReservationInput {
+  restaurantId: ID!
+  guestId: ID
+  guestName: String
+  guestEmail: String
+  guestPhone: String
+  partySize: Int!
+  reservationTime: DateTime!
+  specialRequests: String
+}
+
+input JoinWaitlistInput {
+  restaurantId: ID!
+  guestId: ID
+  guestName: String!
+  guestPhone: String!
+  partySize: Int!
+}
+
+input DeliveryQuoteInput {
+  restaurantId: ID!
+  deliveryAddress: AddressInput!
+}
+
+input CreateWebhookSubscriptionInput {
+  brandId: ID!
+  url: URL!
+  eventTypes: [WebhookEventType!]!
+}
+
+input OrderFilterInput {
+  restaurantId: ID
+  guestId: ID
+  status: OrderStatus
+  channel: MarketplaceChannel
+  fromDate: DateTime
+  toDate: DateTime
+}
+
+input SentimentFilterInput {
+  restaurantId: ID
+  source: SentimentSource
+  score: SentimentScore
+  isResolved: Boolean
+  fromDate: DateTime
+  toDate: DateTime
+}
+
+# ─── Query Root ───────────────────────────────────────────────────────────────
+
+type Query {
+  # Restaurant queries
+  restaurant(id: ID!): Restaurant
+  restaurantBySlug(slug: String!): Restaurant
+  restaurants(input: RestaurantSearchInput!): RestaurantConnection!
+  restaurantMenu(restaurantId: ID!, fulfillmentType: FulfillmentType): Menu
+
+  # Basket queries
+  basket(id: ID!): Basket
+
+  # Order queries
+  order(id: ID!): Order
+  orders(filter: OrderFilterInput, first: Int, after: String): OrderConnection!
+
+  # Guest queries
+  guest(id: ID!): Guest
+  guestByEmail(email: String!): Guest
+  me: Guest
+
+  # Menu queries
+  menuItem(id: ID!): MenuItem
+  modifier(id: ID!): Modifier
+
+  # Loyalty queries
+  loyaltyProgram(id: ID!): LoyaltyProgram
+  loyaltyMembership(guestId: ID!, programId: ID!): LoyaltyMembership
+  loyaltyRewards(programId: ID!): [LoyaltyReward!]!
+
+  # Gift card queries
+  giftCardBalance(cardNumber: String!, pin: String): GiftCard
+
+  # Coupon queries
+  validateCoupon(code: String!, restaurantId: ID!, basketId: ID): Coupon
+
+  # Delivery queries
+  deliveryQuotes(input: DeliveryQuoteInput!): [DeliveryQuote!]!
+  deliveryInfo(orderId: ID!): DeliveryInfo
+
+  # Host / Reservations queries
+  reservation(id: ID!): Reservation
+  reservationsByRestaurant(restaurantId: ID!, date: Date!): [Reservation!]!
+  waitlist(restaurantId: ID!): [WaitlistEntry!]!
+  availableTables(restaurantId: ID!, partySize: Int!, reservationTime: DateTime!): [DiningTable!]!
+
+  # Sentiment queries
+  sentimentRecords(filter: SentimentFilterInput, first: Int, after: String): SentimentConnection!
+  sentimentRecord(id: ID!): SentimentRecord
+
+  # Webhook queries
+  webhookSubscription(id: ID!): WebhookSubscription
+  webhookSubscriptions(brandId: ID!): [WebhookSubscription!]!
+  webhookDeliveries(subscriptionId: ID!, first: Int, after: String): [WebhookDelivery!]!
+
+  # Brand queries
+  brand(id: ID!): Brand
+  brandBySlug(slug: String!): Brand
+}
+
+# ─── Mutation Root ────────────────────────────────────────────────────────────
+
+type Mutation {
+  # Basket mutations
+  createBasket(input: CreateBasketInput!): Basket!
+  addItemToBasket(input: AddBasketItemInput!): Basket!
+  updateBasketItem(input: UpdateBasketItemInput!): Basket!
+  removeItemFromBasket(basketId: ID!, basketItemId: ID!): Basket!
+  applyCouponToBasket(basketId: ID!, couponCode: String!): Basket!
+  removeCouponFromBasket(basketId: ID!, couponCode: String!): Basket!
+  applyGiftCardToBasket(basketId: ID!, cardNumber: String!, pin: String): Basket!
+  removeGiftCardFromBasket(basketId: ID!, giftCardId: ID!): Basket!
+  applyLoyaltyRedemption(basketId: ID!, input: LoyaltyRedemptionInput!): Basket!
+  removeLoyaltyRedemption(basketId: ID!): Basket!
+  setBasketTip(basketId: ID!, tip: Decimal!): Basket!
+  setDeliveryAddress(basketId: ID!, address: AddressInput!): Basket!
+  validateBasket(input: ValidateBasketInput!): Basket!
+  submitOrder(input: SubmitOrderInput!): Order!
+
+  # Order mutations
+  cancelOrder(orderId: ID!, reason: String): Order!
+  refundOrder(orderId: ID!, amount: Decimal, reason: String): Refund!
+
+  # Guest mutations
+  createGuest(input: CreateGuestInput!): Guest!
+  updateGuest(id: ID!, input: UpdateGuestInput!): Guest!
+  deleteGuest(id: ID!): Boolean!
+  addSavedAddress(guestId: ID!, address: AddressInput!, label: String, isDefault: Boolean): SavedAddress!
+  removeSavedAddress(addressId: ID!): Boolean!
+  addSavedPaymentMethod(guestId: ID!, token: String!, type: PaymentType!, isDefault: Boolean): SavedPaymentMethod!
+  removeSavedPaymentMethod(paymentMethodId: ID!): Boolean!
+
+  # Loyalty mutations
+  enrollInLoyalty(guestId: ID!, programId: ID!): LoyaltyMembership!
+  awardLoyaltyPoints(membershipId: ID!, points: Int!, description: String): LoyaltyTransaction!
+
+  # Gift card mutations
+  activateGiftCard(cardNumber: String!, pin: String, amount: Decimal!): GiftCard!
+  reloadGiftCard(cardNumber: String!, pin: String, amount: Decimal!, paymentToken: String!): GiftCard!
+
+  # Host / Reservations mutations
+  createReservation(input: CreateReservationInput!): Reservation!
+  updateReservation(id: ID!, status: ReservationStatus, reservationTime: DateTime, partySize: Int): Reservation!
+  cancelReservation(id: ID!, reason: String): Reservation!
+  seatGuest(reservationId: ID!, tableId: ID!): Reservation!
+  joinWaitlist(input: JoinWaitlistInput!): WaitlistEntry!
+  updateWaitlistEntry(id: ID!, status: WaitlistStatus!): WaitlistEntry!
+  removeFromWaitlist(id: ID!): Boolean!
+
+  # Sentiment mutations
+  submitSentiment(restaurantId: ID!, orderId: ID, rating: Decimal!, reviewText: String, tags: [String!]): SentimentRecord!
+  resolveSentiment(id: ID!, note: String): SentimentRecord!
+
+  # Webhook mutations
+  createWebhookSubscription(input: CreateWebhookSubscriptionInput!): WebhookSubscription!
+  updateWebhookSubscription(id: ID!, url: URL, eventTypes: [WebhookEventType!], isActive: Boolean): WebhookSubscription!
+  deleteWebhookSubscription(id: ID!): Boolean!
+  retryWebhookDelivery(deliveryId: ID!): WebhookDelivery!
+}
