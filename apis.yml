@@ -54,9 +54,9 @@ apis:
         url: https://github.com/ololabs/dev-support-code-samples
       - type: OpenAPI
         url: openapi/olo-ordering-openapi.yml
-      - type: Example
+      - type: Examples
         url: examples/olo-ordering-check-user-exists-example.json
-      - type: Example
+      - type: Examples
         url: examples/olo-ordering-create-basket-example.json
   - aid: olo:olo-rails
     name: Olo Rails API
@@ -81,7 +81,7 @@ apis:
         url: https://github.com/ololabs/dev-support-code-samples
       - type: OpenAPI
         url: openapi/olo-ordering-openapi.yml
-      - type: Example
+      - type: Examples
         url: examples/olo-ordering-create-basket-example.json
   - aid: olo:olo-dispatch
     name: Olo Dispatch API
@@ -154,17 +154,17 @@ apis:
     properties:
       - type: Documentation
         url: https://www.olo.com/products/pay
-      - type: SDK
+      - type: SDKs
         url: https://github.com/ololabs/olo-pay-ios-sdk-releases
-      - type: SDK
+      - type: SDKs
         url: https://github.com/ololabs/olo-pay-android-sdk-releases
-      - type: SDK
+      - type: SDKs
         url: https://github.com/ololabs/olo-pay-flutter-sdk-releases
-      - type: SDK
+      - type: SDKs
         url: https://github.com/ololabs/pay-digitalwallets-ios-sdk-releases
-      - type: SDK
+      - type: SDKs
         url: https://github.com/ololabs/pay-digitalwallets-android-sdk-releases
-      - type: SDK
+      - type: SDKs
         url: https://github.com/ololabs/pay-digitalwallets-flutter-sdk-releases
   - aid: olo:olo-network
     name: Olo Network API
@@ -218,11 +218,11 @@ apis:
         url: https://www.olo.com/products/olo-loyalty
       - type: OpenAPI
         url: openapi/olo-promotions-openapi.yml
-      - type: SDK
+      - type: SDKs
         url: https://github.com/ololabs/promotions-sdk
-      - type: Example
+      - type: Examples
         url: examples/olo-promotions-validate-example.json
-      - type: Example
+      - type: Examples
         url: examples/olo-promotions-account-example.json
       - type: JSONSchema
         url: json-schema/olo-promotions-account-schema.json
@@ -285,7 +285,7 @@ common:
     url: https://www.olo.com/
   - type: DeveloperPortal
     url: https://developer.olo.com/
-  - type: SignUp
+  - type: Signup
     url: https://developer.olo.com/Account/Register
   - type: Login
     url: https://developer.olo.com/Account/Login
@@ -327,17 +327,17 @@ common:
     url: https://trust.olo.com/
   - type: CodeExamples
     url: https://github.com/ololabs/dev-support-code-samples
-  - type: SDK
+  - type: SDKs
     url: https://github.com/ololabs/olo-pay-ios-sdk-releases
-  - type: SDK
+  - type: SDKs
     url: https://github.com/ololabs/olo-pay-android-sdk-releases
-  - type: SDK
+  - type: SDKs
     url: https://github.com/ololabs/olo-pay-flutter-sdk-releases
-  - type: SDK
+  - type: SDKs
     url: https://github.com/ololabs/pay-digitalwallets-ios-sdk-releases
-  - type: SDK
+  - type: SDKs
     url: https://github.com/ololabs/pay-digitalwallets-android-sdk-releases
-  - type: SDK
+  - type: SDKs
     url: https://github.com/ololabs/pay-digitalwallets-flutter-sdk-releases
   - type: GraphQL
     url: graphql/olo-graphql.md

@@ -2,17 +2,20 @@
   "repo": "olo",
   "feeds": [
     {
-      "source": "https://www.olo.com/blog",
+      "source": "https://www.olo.com/blog/rss.xml",
       "feed_url": "https://www.olo.com/blog/rss.xml",
       "title": "",
-      "saved": 0,
-      "method": "discovered"
+      "saved": 1,
+      "method": "feed"
     },
     {
       "source": "https://olosupport.zendesk.com/hc/en-us",
-      "error": "HTTPError"
+      "feed_url": "https://olosupport.zendesk.com/hc/en-us",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "post_count": 1,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 2,
+  "fetched": "2026-06-27T12:03:07Z"
 }
