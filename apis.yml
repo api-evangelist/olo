@@ -281,6 +281,12 @@ apis:
       - type: AsyncAPI
         url: asyncapi/olo-webhooks-asyncapi.yml
 common:
+  - type: TrustCenter
+    url: security/olo-trust-center.yml
+  - type: DomainSecurity
+    url: security/olo-domain-security.yml
+  - type: Authentication
+    url: authentication/olo-authentication.yml
   - type: Portal
     url: https://www.olo.com/
   - type: DeveloperPortal

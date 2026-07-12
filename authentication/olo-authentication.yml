@@ -1,0 +1,21 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/olo-ordering-openapi.yml, openapi/olo-promotions-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: OloSignature
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: HMAC-SHA256 signature authorization. The signed message is the newline-joined
+    concatenation of clientId, HTTP verb, content type, base64-encoded SHA-256 hash of the request
+    body, path and query, and the RFC 1123 timestamp. The result is base64-encoded and sent
+    as "OloSignature {clientId}:{signature}" in the Authorization header, with the matching
+    timestamp in the Date header.
+  sources:
+  - openapi/olo-ordering-openapi.yml
+  - openapi/olo-promotions-openapi.yml
