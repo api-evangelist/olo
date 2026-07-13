@@ -1,11 +1,22 @@
-# Olo API Spectral Ruleset
-# Opinionated rules derived from Olo's documented Ordering, Rails, and Promotions
-# API surfaces (github.com/ololabs/dev-support-code-samples and
-# github.com/ololabs/promotions-sdk). Enforces Olo's signature-auth, versioned
-# path, camelCase operationId, and Title Case tag conventions.
+# olo — Spectral ruleset (strengthened)
+# Plain Spectral. Existing hand-authored rules preserved; measured rules added
+# from this provider's own OpenAPI conventions by strengthen_ruleset.py,
+# then self-validated against the spec.
+#
+# Provenance:
+#   - servers-https-only: 100% of servers already https (error)
+#   - path-params-casing: camel @ 100% (n=3)
+#   - operationid-casing: camel @ 100% (n=12)
+#   - schema-names-casing: pascal @ 100% (n=35)
+#   - schema-properties-casing: snake @ 79% (n=131)
+#   - security: global (root) — NOT emitting operation-security-required
+#   - error-schema-defined: ErrorResponse
+#   - operation-documents-401: 100% adherence
+#   - merge: kept 31 existing, added 5 measured, upgraded 0
+#   - added: path-params-casing, schema-names-casing, schema-properties-casing, error-schema-defined, no-empty-descriptions
+extends:
+  - spectral:oas
 rules:
-
-  # ── INFO / METADATA ──────────────────────────────────────────────
   info-title-required:
     description: API must have a title.
     severity: error
@@ -20,7 +31,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^Olo"
+        match: ^Olo
   info-description-required:
     description: API must have a meaningful description (min 40 chars).
     severity: warn
@@ -44,8 +55,6 @@ rules:
     then:
       field: contact
       function: truthy
-
-  # ── OPENAPI VERSION ──────────────────────────────────────────────
   openapi-version-3-1:
     description: Specs should use OpenAPI 3.1.x.
     severity: warn
@@ -53,9 +62,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^3\\.1\\."
-
-  # ── SERVERS ──────────────────────────────────────────────────────
+        match: ^3\.1\.
   servers-defined:
     description: At least one server must be defined.
     severity: error
@@ -69,9 +76,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^https://"
-
-  # ── PATHS — NAMING CONVENTIONS ───────────────────────────────────
+        match: ^https://
   paths-no-trailing-slash:
     description: Paths must not end with a trailing slash.
     severity: warn
@@ -79,7 +84,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        notMatch: ".+/$"
+        notMatch: .+/$
   paths-lowercase:
     description: Path segments should be lowercase (Olo uses lowercase resource paths).
     severity: warn
@@ -87,7 +92,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^[a-z0-9/_.{}-]+$"
+        match: ^[a-z0-9/_.{}-]+$
   paths-no-query-string:
     description: Paths must not contain query strings.
     severity: error
@@ -95,9 +100,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        notMatch: "\\?"
-
-  # ── OPERATIONS ───────────────────────────────────────────────────
+        notMatch: \?
   operation-summary-required:
     description: Every operation must have a summary.
     severity: warn
@@ -112,7 +115,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^[A-Z]"
+        match: ^[A-Z]
   operation-description-required:
     description: Every operation should have a description.
     severity: info
@@ -134,7 +137,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^[a-z][a-zA-Z0-9]+$"
+        match: ^[a-z][a-zA-Z0-9]+$
   operation-tags-required:
     description: Every operation must have at least one tag.
     severity: warn
@@ -142,8 +145,6 @@ rules:
     then:
       field: tags
       function: truthy
-
-  # ── TAGS ─────────────────────────────────────────────────────────
   tags-defined-globally:
     description: A global tags array should be defined.
     severity: info
@@ -158,9 +159,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^[A-Z][A-Za-z0-9 ]*$"
-
-  # ── PARAMETERS ───────────────────────────────────────────────────
+        match: ^[A-Z][A-Za-z0-9 ]*$
   parameter-description-required:
     description: Parameters should have descriptions.
     severity: warn
@@ -175,9 +174,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^[a-zA-Z][a-zA-Z0-9]*$"
-
-  # ── REQUEST BODIES ───────────────────────────────────────────────
+        match: ^[a-zA-Z][a-zA-Z0-9]*$
   request-body-json:
     description: Request bodies should offer application/json content.
     severity: warn
@@ -185,8 +182,6 @@ rules:
     then:
       field: application/json
       function: truthy
-
-  # ── RESPONSES ────────────────────────────────────────────────────
   response-success-defined:
     description: Operations must define a successful (200/201/204) response.
     severity: error
@@ -197,15 +192,18 @@ rules:
         schema:
           type: object
           anyOf:
-            - required: ["200"]
-            - required: ["201"]
-            - required: ["204"]
+          - required:
+            - '200'
+          - required:
+            - '201'
+          - required:
+            - '204'
   response-unauthorized-defined:
     description: Signature-authorized operations should document a 401 response.
     severity: info
     given: $.paths[*][get,post,put,patch,delete].responses
     then:
-      field: "401"
+      field: '401'
       function: truthy
   response-description-required:
     description: Every response must have a description.
@@ -214,8 +212,6 @@ rules:
     then:
       field: description
       function: truthy
-
-  # ── SCHEMAS — PROPERTY NAMING ────────────────────────────────────
   schema-property-camelcase:
     description: Schema property names should be camelCase (Olo convention).
     severity: info
@@ -223,7 +219,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^[a-z][a-zA-Z0-9]*$"
+        match: ^[a-z][a-zA-Z0-9]*$
   schema-description-required:
     description: Top-level component schemas should have descriptions.
     severity: info
@@ -231,8 +227,6 @@ rules:
     then:
       field: description
       function: truthy
-
-  # ── SECURITY ─────────────────────────────────────────────────────
   security-scheme-defined:
     description: Security schemes must be defined.
     severity: warn
@@ -246,8 +240,6 @@ rules:
     then:
       field: description
       function: truthy
-
-  # ── HTTP METHOD CONVENTIONS ──────────────────────────────────────
   get-no-request-body:
     description: GET operations must not declare a request body.
     severity: error
@@ -255,12 +247,49 @@ rules:
     then:
       field: requestBody
       function: falsy
-
-  # ── GENERAL QUALITY ──────────────────────────────────────────────
   external-docs-encouraged:
     description: APIs should link to external documentation (the Olo Developer Portal).
     severity: info
     given: $
     then:
       field: externalDocs
+      function: truthy
+  path-params-casing:
+    description: Path parameters should be camelCase (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*].parameters[?(@.in=='path')].name
+    then:
+      function: casing
+      functionOptions:
+        type: camel
+  schema-names-casing:
+    description: Component schema names should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.components.schemas
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: pascal
+  schema-properties-casing:
+    description: Schema properties should be snake_case (the dominant convention in this API).
+    severity: info
+    given: $.components.schemas[*].properties
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: snake
+  error-schema-defined:
+    description: A shared error schema (ErrorResponse) should be defined for error payloads.
+    severity: warn
+    given: $.components.schemas
+    then:
+      field: ErrorResponse
+      function: truthy
+  no-empty-descriptions:
+    description: Descriptions must not be empty strings.
+    severity: warn
+    given: $..description
+    then:
       function: truthy
