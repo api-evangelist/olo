@@ -281,6 +281,8 @@ apis:
       - type: AsyncAPI
         url: asyncapi/olo-webhooks-asyncapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/olo-agentic-access.yml
   - type: TrustCenter
     url: security/olo-trust-center.yml
   - type: DomainSecurity
