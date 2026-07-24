@@ -1,0 +1,234 @@
+openapi: 3.1.0
+info:
+  title: Olo Ordering Accounts API
+  description: The Olo Ordering API is the platform's order-injection surface, enabling certified partner apps and branded restaurant clients to retrieve brand and menu data, build and validate baskets, and submit orders into Olo's network of restaurant locations. Requests are authorized with an HMAC-SHA256 signature over a canonical message (client id, HTTP verb, content type, base64 SHA-256 of the body, path and query, and the Date header), sent in the Authorization header as "OloSignature {clientId}:{signature}" alongside an RFC 1123 Date header. Sandbox credentials are issued through the Olo Developer Portal after partner certification. The operations documented here are sourced from Olo's official signature-authorization code samples (github.com/ololabs/dev-support-code-samples). The full reference is gated behind the Olo Developer Portal.
+  version: '1.1'
+  contact:
+    name: Olo Developer Support
+    url: https://developer.olo.com/
+servers:
+- url: https://ordering.api.olosandbox.com
+  description: Olo Ordering API sandbox
+- url: https://ordering.api.olo.com
+  description: Olo Ordering API production
+security:
+- OloSignature: []
+tags:
+- name: Accounts
+  description: Loyalty account creation and lookup
+paths:
+  /promotions/accounts:
+    post:
+      tags:
+      - Accounts
+      summary: Create Account
+      description: Create a new loyalty account in the provider's system for a guest.
+      operationId: createAccount
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAccountRequest'
+      responses:
+        '200':
+          description: The created loyalty account.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    get:
+      tags:
+      - Accounts
+      summary: Find Accounts
+      description: Find loyalty accounts matching a membership number or other guest identifier.
+      operationId: findAccounts
+      parameters:
+      - name: membershipNumber
+        in: query
+        required: true
+        description: The membership number used to locate the guest's loyalty account(s).
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The list of matching loyalty accounts.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Account'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /promotions/accounts/{accountId}:
+    get:
+      tags:
+      - Accounts
+      summary: Get Account
+      description: Retrieve a single loyalty account by its identifier in the provider's system.
+      operationId: getAccount
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        description: The loyalty account's unique identifier in the provider's system.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The requested loyalty account.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    PosReference:
+      type: object
+      description: Data used to identify a promotion or reward on the POS.
+      properties:
+        type:
+          $ref: '#/components/schemas/PosReferenceType'
+        code:
+          type: string
+          description: The value of the POS reference.
+    AccountStatus:
+      type: string
+      description: Whether the loyalty account is active or inactive.
+      enum:
+      - Active
+      - Inactive
+    ErrorResponse:
+      type: object
+      description: Returned for error responses.
+      properties:
+        id:
+          type: string
+          description: A unique identifier for the error in the provider's system.
+        details:
+          type: string
+          description: Additional details used to help troubleshoot the error.
+        message:
+          type: string
+          description: An error message to be shown to the customer.
+    Account:
+      type: object
+      description: A guest's loyalty account.
+      properties:
+        id:
+          type: string
+          description: The account's unique identifier in the provider's system.
+        status:
+          $ref: '#/components/schemas/AccountStatus'
+        balance:
+          $ref: '#/components/schemas/Balance'
+        rewards:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountReward'
+    AccountReward:
+      type: object
+      description: A reward available in a loyalty account.
+      properties:
+        id:
+          type: string
+          description: A unique identifier for the loyalty reward in the provider's system.
+        name:
+          type: string
+          description: The name of the loyalty reward.
+        description:
+          type: string
+          description: A description of the loyalty reward.
+        quantity:
+          type: integer
+          description: The quantity of the reward available in the account.
+        currency:
+          type: string
+          description: A three-letter ISO 4217 currency code. Defaults to USD when omitted.
+        expiration:
+          type: string
+          format: date-time
+          description: A UTC RFC 3339 date-time representing when the reward expires.
+        reference:
+          $ref: '#/components/schemas/PosReference'
+        type:
+          type: string
+          description: Provider-defined category for the reward. Echoed back; not interpreted by Olo.
+        imageUrl:
+          type: string
+          description: An image URL representing the reward. Not interpreted by Olo.
+        customFields:
+          type: string
+          description: Custom provider metadata echoed back in subsequent requests.
+    PosReferenceType:
+      type: string
+      description: The type of a POS reference.
+      enum:
+      - Promo
+      - Comp
+    CreateAccountRequest:
+      type: object
+      description: Request payload to create a new loyalty account.
+      properties:
+        firstName:
+          type: string
+          description: First name for the user.
+        lastName:
+          type: string
+          description: Last name for the user.
+        phoneNumber:
+          type: string
+          description: Phone number for the user.
+        emailAddress:
+          type: string
+          description: Email address for the user.
+        externalIdentifier:
+          type: string
+          description: Unique external identifier for the user.
+    Balance:
+      type: object
+      description: A loyalty account's points balance.
+      properties:
+        quantity:
+          type: number
+          description: The amount of points in the user's loyalty account.
+        target:
+          type: number
+          description: The points required to unlock the next step in the loyalty account.
+        unit:
+          type: string
+          default: points
+          description: The unit used to describe the quantity of a loyalty account balance.
+  responses:
+    Unauthorized:
+      description: The request signature was invalid or missing.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: The request was malformed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  securitySchemes:
+    OloSignature:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: HMAC-SHA256 signature authorization. The signed message is the newline-joined concatenation of clientId, HTTP verb, content type, base64-encoded SHA-256 hash of the request body, path and query, and the RFC 1123 timestamp. The result is base64-encoded and sent as "OloSignature {clientId}:{signature}" in the Authorization header, with the matching timestamp in the Date header.
+externalDocs:
+  description: Olo Developer Portal
+  url: https://developer.olo.com/

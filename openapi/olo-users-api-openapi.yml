@@ -1,0 +1,62 @@
+openapi: 3.1.0
+info:
+  title: Olo Ordering Accounts Users API
+  description: The Olo Ordering API is the platform's order-injection surface, enabling certified partner apps and branded restaurant clients to retrieve brand and menu data, build and validate baskets, and submit orders into Olo's network of restaurant locations. Requests are authorized with an HMAC-SHA256 signature over a canonical message (client id, HTTP verb, content type, base64 SHA-256 of the body, path and query, and the Date header), sent in the Authorization header as "OloSignature {clientId}:{signature}" alongside an RFC 1123 Date header. Sandbox credentials are issued through the Olo Developer Portal after partner certification. The operations documented here are sourced from Olo's official signature-authorization code samples (github.com/ololabs/dev-support-code-samples). The full reference is gated behind the Olo Developer Portal.
+  version: '1.1'
+  contact:
+    name: Olo Developer Support
+    url: https://developer.olo.com/
+servers:
+- url: https://ordering.api.olosandbox.com
+  description: Olo Ordering API sandbox
+- url: https://ordering.api.olo.com
+  description: Olo Ordering API production
+security:
+- OloSignature: []
+tags:
+- name: Users
+  description: Guest account lookups
+paths:
+  /v1.1/users/exists:
+    post:
+      tags:
+      - Users
+      summary: Check User Exists
+      description: Check whether a guest account already exists for a given email address.
+      operationId: checkUserExists
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: The email address to check for an existing guest account.
+              required:
+              - email
+      responses:
+        '200':
+          description: Whether a user exists for the supplied email.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  responses:
+    Unauthorized:
+      description: The request signature was invalid or missing.
+  securitySchemes:
+    OloSignature:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: HMAC-SHA256 signature authorization. The signed message is the newline-joined concatenation of clientId, HTTP verb, content type, base64-encoded SHA-256 hash of the request body, path and query, and the RFC 1123 timestamp. The result is base64-encoded and sent as "OloSignature {clientId}:{signature}" in the Authorization header, with the matching timestamp in the Date header.
+externalDocs:
+  description: Olo Developer Portal
+  url: https://developer.olo.com/
