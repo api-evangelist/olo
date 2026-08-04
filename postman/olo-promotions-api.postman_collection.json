@@ -1,0 +1,754 @@
+{
+  "info": {
+    "_postman_id": "74e45a92-04af-4cf8-922c-12774ed136d3",
+    "name": "Olo Ordering Accounts Promotions API",
+    "description": "The Olo Ordering API is the platform's order-injection surface, enabling certified partner apps and branded restaurant clients to retrieve brand and menu data, build and validate baskets, and submit orders into Olo's network of restaurant locations. Requests are authorized with an HMAC-SHA256 signature over a canonical message (client id, HTTP verb, content type, base64 SHA-256 of the body, path and query, and the Date header), sent in the Authorization header as \"OloSignature {clientId}:{signature}\" alongside an RFC 1123 Date header. Sandbox credentials are issued through the Olo Developer Portal after partner certification. The operations documented here are sourced from Olo's official signature-authorization code samples (github.com/ololabs/dev-support-code-samples). The full reference is gated behind the Olo Developer Portal.\n\nContact Support:\n Name: Olo Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:25:02.000Z",
+    "updatedAt": "2026-07-28T02:25:03.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-74e45a92-04af-4cf8-922c-12774ed136d3"
+  },
+  "item": [
+    {
+      "name": "promotions",
+      "item": [
+        {
+          "name": "validate",
+          "item": [
+            {
+              "name": "Validate Promotions",
+              "id": "35a29d67-0a34-43fe-a250-fdd89d978522",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subtotal\": \"<number>\",\n  \"total\": \"<number>\",\n  \"basket\": {\n    \"id\": \"<string>\",\n    \"rewards\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      }\n    ],\n    \"coupons\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Basket\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      }\n    ],\n    \"entries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ],\n    \"posEntries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ]\n  },\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"source\": \"Android\",\n  \"handoff\": \"Curbside\",\n  \"currency\": \"<string>\",\n  \"placed\": \"<dateTime>\",\n  \"wanted\": \"<dateTime>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"tax\": \"<number>\",\n  \"tip\": \"<number>\",\n  \"delivery\": \"<number>\",\n  \"customFees\": \"<number>\",\n  \"discount\": \"<number>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"code\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"payments\": [\n    {\n      \"tender\": \"Credit\",\n      \"issuer\": \"MasterCard\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"tender\": \"Credit\",\n      \"issuer\": \"Amex\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/promotions/validate",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "promotions",
+                    "validate"
+                  ]
+                },
+                "description": "Validate the coupons and loyalty rewards applied to a basket. The provider calculates discounts and returns the validated promotions with POS reference data."
+              },
+              "response": [
+                {
+                  "id": "52f3c247-0c43-419d-beb7-0cadd806392a",
+                  "name": "A transaction containing the validated promotions.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"subtotal\": \"<number>\",\n  \"total\": \"<number>\",\n  \"basket\": {\n    \"id\": \"<string>\",\n    \"rewards\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      }\n    ],\n    \"coupons\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Basket\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      }\n    ],\n    \"entries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ],\n    \"posEntries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ]\n  },\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"source\": \"Android\",\n  \"handoff\": \"Curbside\",\n  \"currency\": \"<string>\",\n  \"placed\": \"<dateTime>\",\n  \"wanted\": \"<dateTime>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"tax\": \"<number>\",\n  \"tip\": \"<number>\",\n  \"delivery\": \"<number>\",\n  \"customFees\": \"<number>\",\n  \"discount\": \"<number>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"code\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"payments\": [\n    {\n      \"tender\": \"Credit\",\n      \"issuer\": \"MasterCard\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"tender\": \"Credit\",\n      \"issuer\": \"Amex\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/promotions/validate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "promotions",
+                        "validate"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"transaction\": {\n    \"id\": \"<string>\",\n    \"promotions\": [\n      {\n        \"id\": \"<string>\",\n        \"type\": \"Reward\",\n        \"discount\": \"<number>\",\n        \"reference\": {\n          \"type\": \"Comp\",\n          \"code\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"type\": \"Coupon\",\n        \"discount\": \"<number>\",\n        \"reference\": {\n          \"type\": \"Comp\",\n          \"code\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T02:25:03.000Z",
+                  "updatedAt": "2026-07-28T02:25:03.000Z",
+                  "uid": "35240-52f3c247-0c43-419d-beb7-0cadd806392a"
+                },
+                {
+                  "id": "0955c81b-aa69-416d-907d-40be4a22835f",
+                  "name": "The request could not be processed; a machine-readable error code is included.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"subtotal\": \"<number>\",\n  \"total\": \"<number>\",\n  \"basket\": {\n    \"id\": \"<string>\",\n    \"rewards\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      }\n    ],\n    \"coupons\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Basket\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      }\n    ],\n    \"entries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ],\n    \"posEntries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ]\n  },\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"source\": \"Android\",\n  \"handoff\": \"Curbside\",\n  \"currency\": \"<string>\",\n  \"placed\": \"<dateTime>\",\n  \"wanted\": \"<dateTime>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"tax\": \"<number>\",\n  \"tip\": \"<number>\",\n  \"delivery\": \"<number>\",\n  \"customFees\": \"<number>\",\n  \"discount\": \"<number>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"code\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"payments\": [\n    {\n      \"tender\": \"Credit\",\n      \"issuer\": \"MasterCard\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"tender\": \"Credit\",\n      \"issuer\": \"Amex\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/promotions/validate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "promotions",
+                        "validate"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\",\n  \"code\": \"INVALID_ACCOUNT\"\n}",
+                  "createdAt": "2026-07-28T02:25:03.000Z",
+                  "updatedAt": "2026-07-28T02:25:03.000Z",
+                  "uid": "35240-0955c81b-aa69-416d-907d-40be4a22835f"
+                },
+                {
+                  "id": "d058ecfa-1bee-49b4-ac3b-2215a663f6eb",
+                  "name": "The request signature was invalid or missing.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"subtotal\": \"<number>\",\n  \"total\": \"<number>\",\n  \"basket\": {\n    \"id\": \"<string>\",\n    \"rewards\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      }\n    ],\n    \"coupons\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Basket\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      }\n    ],\n    \"entries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ],\n    \"posEntries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ]\n  },\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"source\": \"Android\",\n  \"handoff\": \"Curbside\",\n  \"currency\": \"<string>\",\n  \"placed\": \"<dateTime>\",\n  \"wanted\": \"<dateTime>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"tax\": \"<number>\",\n  \"tip\": \"<number>\",\n  \"delivery\": \"<number>\",\n  \"customFees\": \"<number>\",\n  \"discount\": \"<number>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"code\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"payments\": [\n    {\n      \"tender\": \"Credit\",\n      \"issuer\": \"MasterCard\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"tender\": \"Credit\",\n      \"issuer\": \"Amex\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/promotions/validate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "promotions",
+                        "validate"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:25:03.000Z",
+                  "updatedAt": "2026-07-28T02:25:03.000Z",
+                  "uid": "35240-d058ecfa-1bee-49b4-ac3b-2215a663f6eb"
+                }
+              ],
+              "createdAt": "2026-07-28T02:25:03.000Z",
+              "updatedAt": "2026-07-28T02:25:03.000Z",
+              "uid": "35240-35a29d67-0a34-43fe-a250-fdd89d978522"
+            }
+          ],
+          "id": "e61b9196-274b-43fd-886d-151eefbbc21a",
+          "createdAt": "2026-07-28T02:25:03.000Z",
+          "updatedAt": "2026-07-28T02:25:03.000Z",
+          "uid": "35240-e61b9196-274b-43fd-886d-151eefbbc21a"
+        },
+        {
+          "name": "redemptions",
+          "item": [
+            {
+              "name": "{redemptionId}",
+              "item": [
+                {
+                  "name": "Void Redemption",
+                  "id": "8e7999a7-6e72-470f-90e7-65e7343234a0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"couponCodes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewardIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"brand\": \"<string>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/promotions/redemptions/:redemptionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "promotions",
+                        "redemptions",
+                        ":redemptionId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5fa1c6f3-7047-46cd-b7db-f0a88e74f5b2",
+                          "key": "redemptionId",
+                          "value": "<string>",
+                          "description": "(Required) The identifier of the redemption being voided."
+                        }
+                      ]
+                    },
+                    "description": "Void a previously redeemed set of coupons and rewards for an order."
+                  },
+                  "response": [
+                    {
+                      "id": "7760cf45-32f4-48e5-a479-840e62a1f84c",
+                      "name": "A transaction confirming the voided redemption.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"couponCodes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewardIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"brand\": \"<string>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/promotions/redemptions/:redemptionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "promotions",
+                            "redemptions",
+                            ":redemptionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "redemptionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"transaction\": {\n    \"id\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:25:03.000Z",
+                      "updatedAt": "2026-07-28T02:25:03.000Z",
+                      "uid": "35240-7760cf45-32f4-48e5-a479-840e62a1f84c"
+                    },
+                    {
+                      "id": "5f074332-d6eb-4fa5-85db-45ddc1876ca0",
+                      "name": "The request could not be processed; a machine-readable error code is included.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"couponCodes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewardIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"brand\": \"<string>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/promotions/redemptions/:redemptionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "promotions",
+                            "redemptions",
+                            ":redemptionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "redemptionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\",\n  \"code\": \"INVALID_ACCOUNT\"\n}",
+                      "createdAt": "2026-07-28T02:25:03.000Z",
+                      "updatedAt": "2026-07-28T02:25:03.000Z",
+                      "uid": "35240-5f074332-d6eb-4fa5-85db-45ddc1876ca0"
+                    },
+                    {
+                      "id": "9c985713-9d66-407f-9f41-e59c403a634e",
+                      "name": "The request signature was invalid or missing.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"couponCodes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewardIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"brand\": \"<string>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/promotions/redemptions/:redemptionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "promotions",
+                            "redemptions",
+                            ":redemptionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "redemptionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:25:03.000Z",
+                      "updatedAt": "2026-07-28T02:25:03.000Z",
+                      "uid": "35240-9c985713-9d66-407f-9f41-e59c403a634e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:25:03.000Z",
+                  "updatedAt": "2026-07-28T02:25:03.000Z",
+                  "uid": "35240-8e7999a7-6e72-470f-90e7-65e7343234a0"
+                }
+              ],
+              "id": "5d4d6f86-220e-4631-a1d5-5e14296b8f50",
+              "createdAt": "2026-07-28T02:25:03.000Z",
+              "updatedAt": "2026-07-28T02:25:03.000Z",
+              "uid": "35240-5d4d6f86-220e-4631-a1d5-5e14296b8f50"
+            },
+            {
+              "name": "Redeem Promotions",
+              "id": "3c370189-10ac-4190-89a3-efceccdbe52b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subtotal\": \"<number>\",\n  \"total\": \"<number>\",\n  \"basket\": {\n    \"id\": \"<string>\",\n    \"rewards\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      }\n    ],\n    \"coupons\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Basket\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      }\n    ],\n    \"entries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ],\n    \"posEntries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ]\n  },\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"source\": \"Android\",\n  \"handoff\": \"Curbside\",\n  \"currency\": \"<string>\",\n  \"placed\": \"<dateTime>\",\n  \"wanted\": \"<dateTime>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"tax\": \"<number>\",\n  \"tip\": \"<number>\",\n  \"delivery\": \"<number>\",\n  \"customFees\": \"<number>\",\n  \"discount\": \"<number>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"code\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"payments\": [\n    {\n      \"tender\": \"Credit\",\n      \"issuer\": \"MasterCard\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"tender\": \"Credit\",\n      \"issuer\": \"Amex\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/promotions/redemptions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "promotions",
+                    "redemptions"
+                  ]
+                },
+                "description": "Redeem the coupons and loyalty rewards applied to a placed order, finalizing the discounts calculated during validation."
+              },
+              "response": [
+                {
+                  "id": "4edcd406-7a86-4e12-b809-73a26e9f2db1",
+                  "name": "A transaction containing the redeemed promotions.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"subtotal\": \"<number>\",\n  \"total\": \"<number>\",\n  \"basket\": {\n    \"id\": \"<string>\",\n    \"rewards\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      }\n    ],\n    \"coupons\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Basket\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      }\n    ],\n    \"entries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ],\n    \"posEntries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ]\n  },\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"source\": \"Android\",\n  \"handoff\": \"Curbside\",\n  \"currency\": \"<string>\",\n  \"placed\": \"<dateTime>\",\n  \"wanted\": \"<dateTime>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"tax\": \"<number>\",\n  \"tip\": \"<number>\",\n  \"delivery\": \"<number>\",\n  \"customFees\": \"<number>\",\n  \"discount\": \"<number>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"code\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"payments\": [\n    {\n      \"tender\": \"Credit\",\n      \"issuer\": \"MasterCard\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"tender\": \"Credit\",\n      \"issuer\": \"Amex\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/promotions/redemptions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "promotions",
+                        "redemptions"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"transaction\": {\n    \"id\": \"<string>\",\n    \"promotions\": [\n      {\n        \"id\": \"<string>\",\n        \"type\": \"Reward\",\n        \"discount\": \"<number>\",\n        \"reference\": {\n          \"type\": \"Comp\",\n          \"code\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"type\": \"Coupon\",\n        \"discount\": \"<number>\",\n        \"reference\": {\n          \"type\": \"Comp\",\n          \"code\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T02:25:03.000Z",
+                  "updatedAt": "2026-07-28T02:25:03.000Z",
+                  "uid": "35240-4edcd406-7a86-4e12-b809-73a26e9f2db1"
+                },
+                {
+                  "id": "b124e758-18b1-4a60-8205-9a8b45cc2045",
+                  "name": "The request could not be processed; a machine-readable error code is included.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"subtotal\": \"<number>\",\n  \"total\": \"<number>\",\n  \"basket\": {\n    \"id\": \"<string>\",\n    \"rewards\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      }\n    ],\n    \"coupons\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Basket\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      }\n    ],\n    \"entries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ],\n    \"posEntries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ]\n  },\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"source\": \"Android\",\n  \"handoff\": \"Curbside\",\n  \"currency\": \"<string>\",\n  \"placed\": \"<dateTime>\",\n  \"wanted\": \"<dateTime>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"tax\": \"<number>\",\n  \"tip\": \"<number>\",\n  \"delivery\": \"<number>\",\n  \"customFees\": \"<number>\",\n  \"discount\": \"<number>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"code\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"payments\": [\n    {\n      \"tender\": \"Credit\",\n      \"issuer\": \"MasterCard\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"tender\": \"Credit\",\n      \"issuer\": \"Amex\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/promotions/redemptions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "promotions",
+                        "redemptions"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\",\n  \"code\": \"INVALID_ACCOUNT\"\n}",
+                  "createdAt": "2026-07-28T02:25:03.000Z",
+                  "updatedAt": "2026-07-28T02:25:03.000Z",
+                  "uid": "35240-b124e758-18b1-4a60-8205-9a8b45cc2045"
+                },
+                {
+                  "id": "335c44bd-1d56-488e-80fd-9a46a2faf003",
+                  "name": "The request signature was invalid or missing.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"subtotal\": \"<number>\",\n  \"total\": \"<number>\",\n  \"basket\": {\n    \"id\": \"<string>\",\n    \"rewards\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      }\n    ],\n    \"coupons\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Basket\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      }\n    ],\n    \"entries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ],\n    \"posEntries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ]\n  },\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"source\": \"Android\",\n  \"handoff\": \"Curbside\",\n  \"currency\": \"<string>\",\n  \"placed\": \"<dateTime>\",\n  \"wanted\": \"<dateTime>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"tax\": \"<number>\",\n  \"tip\": \"<number>\",\n  \"delivery\": \"<number>\",\n  \"customFees\": \"<number>\",\n  \"discount\": \"<number>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"code\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"payments\": [\n    {\n      \"tender\": \"Credit\",\n      \"issuer\": \"MasterCard\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"tender\": \"Credit\",\n      \"issuer\": \"Amex\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/promotions/redemptions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "promotions",
+                        "redemptions"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:25:03.000Z",
+                  "updatedAt": "2026-07-28T02:25:03.000Z",
+                  "uid": "35240-335c44bd-1d56-488e-80fd-9a46a2faf003"
+                }
+              ],
+              "createdAt": "2026-07-28T02:25:03.000Z",
+              "updatedAt": "2026-07-28T02:25:03.000Z",
+              "uid": "35240-3c370189-10ac-4190-89a3-efceccdbe52b"
+            }
+          ],
+          "id": "6892eb98-f9dc-4026-b987-7835f9fe3a87",
+          "createdAt": "2026-07-28T02:25:03.000Z",
+          "updatedAt": "2026-07-28T02:25:03.000Z",
+          "uid": "35240-6892eb98-f9dc-4026-b987-7835f9fe3a87"
+        }
+      ],
+      "id": "9e124cff-ffd8-4c51-afde-0628b8bdb883",
+      "createdAt": "2026-07-28T02:25:03.000Z",
+      "updatedAt": "2026-07-28T02:25:03.000Z",
+      "uid": "35240-9e124cff-ffd8-4c51-afde-0628b8bdb883"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://ordering.api.olosandbox.com"
+    }
+  ]
+}

@@ -1,0 +1,528 @@
+{
+  "info": {
+    "_postman_id": "b3c9f91f-626d-4315-a866-70850d97c7c7",
+    "name": "Olo Ordering Accounts Accruals API",
+    "description": "The Olo Ordering API is the platform's order-injection surface, enabling certified partner apps and branded restaurant clients to retrieve brand and menu data, build and validate baskets, and submit orders into Olo's network of restaurant locations. Requests are authorized with an HMAC-SHA256 signature over a canonical message (client id, HTTP verb, content type, base64 SHA-256 of the body, path and query, and the Date header), sent in the Authorization header as \"OloSignature {clientId}:{signature}\" alongside an RFC 1123 Date header. Sandbox credentials are issued through the Olo Developer Portal after partner certification. The operations documented here are sourced from Olo's official signature-authorization code samples (github.com/ololabs/dev-support-code-samples). The full reference is gated behind the Olo Developer Portal.\n\nContact Support:\n Name: Olo Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:25:00.000Z",
+    "updatedAt": "2026-07-28T02:25:00.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b3c9f91f-626d-4315-a866-70850d97c7c7"
+  },
+  "item": [
+    {
+      "name": "promotions",
+      "item": [
+        {
+          "name": "accruals",
+          "item": [
+            {
+              "name": "{accrualId}",
+              "item": [
+                {
+                  "name": "Void Accrual",
+                  "id": "8ad9a0e3-d995-4402-b774-ab19b8811991",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/promotions/accruals/:accrualId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "promotions",
+                        "accruals",
+                        ":accrualId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d1a376e6-092d-4225-8b16-8948fbdebc4e",
+                          "key": "accrualId",
+                          "value": "<string>",
+                          "description": "(Required) The identifier of the accrual being voided."
+                        }
+                      ]
+                    },
+                    "description": "Void a previously recorded loyalty point accrual for an order."
+                  },
+                  "response": [
+                    {
+                      "id": "9f46e3f2-0695-4367-8b46-8e8fff0c9acc",
+                      "name": "A transaction confirming the voided accrual.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/promotions/accruals/:accrualId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "promotions",
+                            "accruals",
+                            ":accrualId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "accrualId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"transaction\": {\n    \"id\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:25:01.000Z",
+                      "updatedAt": "2026-07-28T02:25:01.000Z",
+                      "uid": "35240-9f46e3f2-0695-4367-8b46-8e8fff0c9acc"
+                    },
+                    {
+                      "id": "8262b108-eebc-4826-9f9c-d4b13cad439b",
+                      "name": "The request could not be processed; a machine-readable error code is included.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/promotions/accruals/:accrualId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "promotions",
+                            "accruals",
+                            ":accrualId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "accrualId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\",\n  \"code\": \"MISSING_ITEM\"\n}",
+                      "createdAt": "2026-07-28T02:25:01.000Z",
+                      "updatedAt": "2026-07-28T02:25:01.000Z",
+                      "uid": "35240-8262b108-eebc-4826-9f9c-d4b13cad439b"
+                    },
+                    {
+                      "id": "9824e0ba-379d-40dc-8a8b-4c63bf189b15",
+                      "name": "The request signature was invalid or missing.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/promotions/accruals/:accrualId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "promotions",
+                            "accruals",
+                            ":accrualId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "accrualId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:25:01.000Z",
+                      "updatedAt": "2026-07-28T02:25:01.000Z",
+                      "uid": "35240-9824e0ba-379d-40dc-8a8b-4c63bf189b15"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:25:01.000Z",
+                  "updatedAt": "2026-07-28T02:25:01.000Z",
+                  "uid": "35240-8ad9a0e3-d995-4402-b774-ab19b8811991"
+                }
+              ],
+              "id": "aa410e7f-d36a-4501-ae01-880d7d715d4e",
+              "createdAt": "2026-07-28T02:25:01.000Z",
+              "updatedAt": "2026-07-28T02:25:01.000Z",
+              "uid": "35240-aa410e7f-d36a-4501-ae01-880d7d715d4e"
+            },
+            {
+              "name": "Accrue Points",
+              "id": "2daf4736-a2fb-41e1-b5d6-3430c868a6fe",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountId\": \"<string>\",\n  \"subtotal\": \"<number>\",\n  \"total\": \"<number>\",\n  \"orderId\": \"<string>\",\n  \"source\": \"Other\",\n  \"handoff\": \"Curbside\",\n  \"currency\": \"<string>\",\n  \"placed\": \"<dateTime>\",\n  \"wanted\": \"<dateTime>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"tax\": \"<number>\",\n  \"tip\": \"<number>\",\n  \"delivery\": \"<number>\",\n  \"customFees\": \"<number>\",\n  \"discount\": \"<number>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"code\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"payments\": [\n    {\n      \"tender\": \"Check\",\n      \"issuer\": \"MasterCard\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"tender\": \"Transfer\",\n      \"issuer\": \"JCB\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    }\n  ],\n  \"basket\": {\n    \"id\": \"<string>\",\n    \"rewards\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      }\n    ],\n    \"coupons\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      }\n    ],\n    \"entries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ],\n    \"posEntries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/promotions/accruals",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "promotions",
+                    "accruals"
+                  ]
+                },
+                "description": "Accrue loyalty points for a placed order against a guest's loyalty account."
+              },
+              "response": [
+                {
+                  "id": "77492563-4cd3-43a1-96fb-dedc21c9627e",
+                  "name": "A transaction confirming the accrual.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"accountId\": \"<string>\",\n  \"subtotal\": \"<number>\",\n  \"total\": \"<number>\",\n  \"orderId\": \"<string>\",\n  \"source\": \"Other\",\n  \"handoff\": \"Curbside\",\n  \"currency\": \"<string>\",\n  \"placed\": \"<dateTime>\",\n  \"wanted\": \"<dateTime>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"tax\": \"<number>\",\n  \"tip\": \"<number>\",\n  \"delivery\": \"<number>\",\n  \"customFees\": \"<number>\",\n  \"discount\": \"<number>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"code\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"payments\": [\n    {\n      \"tender\": \"Check\",\n      \"issuer\": \"MasterCard\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"tender\": \"Transfer\",\n      \"issuer\": \"JCB\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    }\n  ],\n  \"basket\": {\n    \"id\": \"<string>\",\n    \"rewards\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      }\n    ],\n    \"coupons\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      }\n    ],\n    \"entries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ],\n    \"posEntries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/promotions/accruals",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "promotions",
+                        "accruals"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"transaction\": {\n    \"id\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:25:01.000Z",
+                  "updatedAt": "2026-07-28T02:25:01.000Z",
+                  "uid": "35240-77492563-4cd3-43a1-96fb-dedc21c9627e"
+                },
+                {
+                  "id": "f3b1ef48-c15a-4f2a-8b77-ae94f93eac24",
+                  "name": "The request could not be processed; a machine-readable error code is included.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"accountId\": \"<string>\",\n  \"subtotal\": \"<number>\",\n  \"total\": \"<number>\",\n  \"orderId\": \"<string>\",\n  \"source\": \"Other\",\n  \"handoff\": \"Curbside\",\n  \"currency\": \"<string>\",\n  \"placed\": \"<dateTime>\",\n  \"wanted\": \"<dateTime>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"tax\": \"<number>\",\n  \"tip\": \"<number>\",\n  \"delivery\": \"<number>\",\n  \"customFees\": \"<number>\",\n  \"discount\": \"<number>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"code\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"payments\": [\n    {\n      \"tender\": \"Check\",\n      \"issuer\": \"MasterCard\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"tender\": \"Transfer\",\n      \"issuer\": \"JCB\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    }\n  ],\n  \"basket\": {\n    \"id\": \"<string>\",\n    \"rewards\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      }\n    ],\n    \"coupons\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      }\n    ],\n    \"entries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ],\n    \"posEntries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/promotions/accruals",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "promotions",
+                        "accruals"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\",\n  \"code\": \"MISSING_ITEM\"\n}",
+                  "createdAt": "2026-07-28T02:25:01.000Z",
+                  "updatedAt": "2026-07-28T02:25:01.000Z",
+                  "uid": "35240-f3b1ef48-c15a-4f2a-8b77-ae94f93eac24"
+                },
+                {
+                  "id": "f9416554-8919-4161-a0c3-73fc96fb4f64",
+                  "name": "The request signature was invalid or missing.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"accountId\": \"<string>\",\n  \"subtotal\": \"<number>\",\n  \"total\": \"<number>\",\n  \"orderId\": \"<string>\",\n  \"source\": \"Other\",\n  \"handoff\": \"Curbside\",\n  \"currency\": \"<string>\",\n  \"placed\": \"<dateTime>\",\n  \"wanted\": \"<dateTime>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"tax\": \"<number>\",\n  \"tip\": \"<number>\",\n  \"delivery\": \"<number>\",\n  \"customFees\": \"<number>\",\n  \"discount\": \"<number>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"code\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"payments\": [\n    {\n      \"tender\": \"Check\",\n      \"issuer\": \"MasterCard\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"tender\": \"Transfer\",\n      \"issuer\": \"JCB\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    }\n  ],\n  \"basket\": {\n    \"id\": \"<string>\",\n    \"rewards\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      }\n    ],\n    \"coupons\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"Item\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      }\n    ],\n    \"entries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ],\n    \"posEntries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"quantity\": \"<number>\",\n              \"product\": \"<string>\",\n              \"categories\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"label\": \"<string>\",\n              \"cost\": \"<number>\",\n              \"modifiers\": [\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                },\n                {\n                  \"value\": \"<Circular reference to #/components/schemas/Modifier detected>\"\n                }\n              ]\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/promotions/accruals",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "promotions",
+                        "accruals"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:25:01.000Z",
+                  "updatedAt": "2026-07-28T02:25:01.000Z",
+                  "uid": "35240-f9416554-8919-4161-a0c3-73fc96fb4f64"
+                }
+              ],
+              "createdAt": "2026-07-28T02:25:01.000Z",
+              "updatedAt": "2026-07-28T02:25:01.000Z",
+              "uid": "35240-2daf4736-a2fb-41e1-b5d6-3430c868a6fe"
+            }
+          ],
+          "id": "da311eea-80f1-485c-85e2-1b1937272dc8",
+          "createdAt": "2026-07-28T02:25:01.000Z",
+          "updatedAt": "2026-07-28T02:25:01.000Z",
+          "uid": "35240-da311eea-80f1-485c-85e2-1b1937272dc8"
+        }
+      ],
+      "id": "e46bac71-dd15-4e07-af20-d4925fbd7ef0",
+      "createdAt": "2026-07-28T02:25:01.000Z",
+      "updatedAt": "2026-07-28T02:25:01.000Z",
+      "uid": "35240-e46bac71-dd15-4e07-af20-d4925fbd7ef0"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://ordering.api.olosandbox.com"
+    }
+  ]
+}

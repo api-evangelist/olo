@@ -1,0 +1,661 @@
+{
+  "info": {
+    "_postman_id": "bebcd9c9-5c24-459f-839b-b34953faaa09",
+    "name": "Olo Ordering Accounts API",
+    "description": "The Olo Ordering API is the platform's order-injection surface, enabling certified partner apps and branded restaurant clients to retrieve brand and menu data, build and validate baskets, and submit orders into Olo's network of restaurant locations. Requests are authorized with an HMAC-SHA256 signature over a canonical message (client id, HTTP verb, content type, base64 SHA-256 of the body, path and query, and the Date header), sent in the Authorization header as \"OloSignature {clientId}:{signature}\" alongside an RFC 1123 Date header. Sandbox credentials are issued through the Olo Developer Portal after partner certification. The operations documented here are sourced from Olo's official signature-authorization code samples (github.com/ololabs/dev-support-code-samples). The full reference is gated behind the Olo Developer Portal.\n\nContact Support:\n Name: Olo Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:24:55.000Z",
+    "updatedAt": "2026-07-28T02:24:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bebcd9c9-5c24-459f-839b-b34953faaa09"
+  },
+  "item": [
+    {
+      "name": "promotions",
+      "item": [
+        {
+          "name": "accounts",
+          "item": [
+            {
+              "name": "{accountId}",
+              "item": [
+                {
+                  "name": "Get Account",
+                  "id": "d9a01ab1-98d3-4631-bef4-0ae6f1ecf2e5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/promotions/accounts/:accountId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "promotions",
+                        "accounts",
+                        ":accountId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5c10936e-e6c3-4efb-838d-ac5afbfc2d31",
+                          "key": "accountId",
+                          "value": "<string>",
+                          "description": "(Required) The loyalty account's unique identifier in the provider's system."
+                        }
+                      ]
+                    },
+                    "description": "Retrieve a single loyalty account by its identifier in the provider's system."
+                  },
+                  "response": [
+                    {
+                      "id": "37a4c288-6bc9-4aab-94a7-eb84369983b3",
+                      "name": "The requested loyalty account.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/promotions/accounts/:accountId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "promotions",
+                            "accounts",
+                            ":accountId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "accountId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"status\": \"Active\",\n  \"balance\": {\n    \"quantity\": \"<number>\",\n    \"target\": \"<number>\",\n    \"unit\": \"points\"\n  },\n  \"rewards\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"expiration\": \"<dateTime>\",\n      \"reference\": {\n        \"type\": \"Comp\",\n        \"code\": \"<string>\"\n      },\n      \"type\": \"<string>\",\n      \"imageUrl\": \"<string>\",\n      \"customFields\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"expiration\": \"<dateTime>\",\n      \"reference\": {\n        \"type\": \"Comp\",\n        \"code\": \"<string>\"\n      },\n      \"type\": \"<string>\",\n      \"imageUrl\": \"<string>\",\n      \"customFields\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:24:55.000Z",
+                      "updatedAt": "2026-07-28T02:24:55.000Z",
+                      "uid": "35240-37a4c288-6bc9-4aab-94a7-eb84369983b3"
+                    },
+                    {
+                      "id": "f5beb509-89f4-4e3a-ae48-5dbbfc8d57cc",
+                      "name": "The request was malformed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/promotions/accounts/:accountId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "promotions",
+                            "accounts",
+                            ":accountId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "accountId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:24:55.000Z",
+                      "updatedAt": "2026-07-28T02:24:55.000Z",
+                      "uid": "35240-f5beb509-89f4-4e3a-ae48-5dbbfc8d57cc"
+                    },
+                    {
+                      "id": "bbe153c0-007f-428a-8316-71a8fe8988fd",
+                      "name": "The request signature was invalid or missing.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/promotions/accounts/:accountId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "promotions",
+                            "accounts",
+                            ":accountId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "accountId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:24:55.000Z",
+                      "updatedAt": "2026-07-28T02:24:55.000Z",
+                      "uid": "35240-bbe153c0-007f-428a-8316-71a8fe8988fd"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:24:55.000Z",
+                  "updatedAt": "2026-07-28T02:24:55.000Z",
+                  "uid": "35240-d9a01ab1-98d3-4631-bef4-0ae6f1ecf2e5"
+                }
+              ],
+              "id": "d4e0a5b9-86fd-4811-83bb-17ea4dcef474",
+              "createdAt": "2026-07-28T02:24:55.000Z",
+              "updatedAt": "2026-07-28T02:24:55.000Z",
+              "uid": "35240-d4e0a5b9-86fd-4811-83bb-17ea4dcef474"
+            },
+            {
+              "name": "Create Account",
+              "id": "7e05b690-8e8f-4dc6-aeee-ae503326162b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"externalIdentifier\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/promotions/accounts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "promotions",
+                    "accounts"
+                  ]
+                },
+                "description": "Create a new loyalty account in the provider's system for a guest."
+              },
+              "response": [
+                {
+                  "id": "6cd59821-7451-4f2e-b167-928eee360ceb",
+                  "name": "The created loyalty account.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"externalIdentifier\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/promotions/accounts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "promotions",
+                        "accounts"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"status\": \"Active\",\n  \"balance\": {\n    \"quantity\": \"<number>\",\n    \"target\": \"<number>\",\n    \"unit\": \"points\"\n  },\n  \"rewards\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"expiration\": \"<dateTime>\",\n      \"reference\": {\n        \"type\": \"Comp\",\n        \"code\": \"<string>\"\n      },\n      \"type\": \"<string>\",\n      \"imageUrl\": \"<string>\",\n      \"customFields\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"expiration\": \"<dateTime>\",\n      \"reference\": {\n        \"type\": \"Comp\",\n        \"code\": \"<string>\"\n      },\n      \"type\": \"<string>\",\n      \"imageUrl\": \"<string>\",\n      \"customFields\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:24:55.000Z",
+                  "updatedAt": "2026-07-28T02:24:55.000Z",
+                  "uid": "35240-6cd59821-7451-4f2e-b167-928eee360ceb"
+                },
+                {
+                  "id": "9fdda926-ad6b-43c6-bee4-fc13671bca9a",
+                  "name": "The request was malformed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"externalIdentifier\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/promotions/accounts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "promotions",
+                        "accounts"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:24:55.000Z",
+                  "updatedAt": "2026-07-28T02:24:55.000Z",
+                  "uid": "35240-9fdda926-ad6b-43c6-bee4-fc13671bca9a"
+                },
+                {
+                  "id": "4569a05c-e1e0-4cb6-9403-9ea8a0215a33",
+                  "name": "The request signature was invalid or missing.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"externalIdentifier\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/promotions/accounts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "promotions",
+                        "accounts"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:24:55.000Z",
+                  "updatedAt": "2026-07-28T02:24:55.000Z",
+                  "uid": "35240-4569a05c-e1e0-4cb6-9403-9ea8a0215a33"
+                }
+              ],
+              "createdAt": "2026-07-28T02:24:55.000Z",
+              "updatedAt": "2026-07-28T02:24:55.000Z",
+              "uid": "35240-7e05b690-8e8f-4dc6-aeee-ae503326162b"
+            },
+            {
+              "name": "Find Accounts",
+              "id": "6fb9466e-0a58-48de-86e4-30cb211031d6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/promotions/accounts?membershipNumber=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "promotions",
+                    "accounts"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The membership number used to locate the guest's loyalty account(s).",
+                      "key": "membershipNumber",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Find loyalty accounts matching a membership number or other guest identifier."
+              },
+              "response": [
+                {
+                  "id": "81303319-8e94-4cf9-9ed2-8e9ffd959d67",
+                  "name": "The list of matching loyalty accounts.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/promotions/accounts?membershipNumber=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "promotions",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The membership number used to locate the guest's loyalty account(s).",
+                          "key": "membershipNumber",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<string>\",\n    \"status\": \"Active\",\n    \"balance\": {\n      \"quantity\": \"<number>\",\n      \"target\": \"<number>\",\n      \"unit\": \"points\"\n    },\n    \"rewards\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"quantity\": \"<integer>\",\n        \"currency\": \"<string>\",\n        \"expiration\": \"<dateTime>\",\n        \"reference\": {\n          \"type\": \"Promo\",\n          \"code\": \"<string>\"\n        },\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"quantity\": \"<integer>\",\n        \"currency\": \"<string>\",\n        \"expiration\": \"<dateTime>\",\n        \"reference\": {\n          \"type\": \"Promo\",\n          \"code\": \"<string>\"\n        },\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      }\n    ]\n  },\n  {\n    \"id\": \"<string>\",\n    \"status\": \"Active\",\n    \"balance\": {\n      \"quantity\": \"<number>\",\n      \"target\": \"<number>\",\n      \"unit\": \"points\"\n    },\n    \"rewards\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"quantity\": \"<integer>\",\n        \"currency\": \"<string>\",\n        \"expiration\": \"<dateTime>\",\n        \"reference\": {\n          \"type\": \"Promo\",\n          \"code\": \"<string>\"\n        },\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"quantity\": \"<integer>\",\n        \"currency\": \"<string>\",\n        \"expiration\": \"<dateTime>\",\n        \"reference\": {\n          \"type\": \"Promo\",\n          \"code\": \"<string>\"\n        },\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      }\n    ]\n  }\n]",
+                  "createdAt": "2026-07-28T02:24:55.000Z",
+                  "updatedAt": "2026-07-28T02:24:55.000Z",
+                  "uid": "35240-81303319-8e94-4cf9-9ed2-8e9ffd959d67"
+                },
+                {
+                  "id": "52a6f701-515a-42e6-b642-8bca8ed3f0d5",
+                  "name": "The request was malformed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/promotions/accounts?membershipNumber=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "promotions",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The membership number used to locate the guest's loyalty account(s).",
+                          "key": "membershipNumber",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:24:55.000Z",
+                  "updatedAt": "2026-07-28T02:24:55.000Z",
+                  "uid": "35240-52a6f701-515a-42e6-b642-8bca8ed3f0d5"
+                },
+                {
+                  "id": "be919ce5-41bd-46aa-b2c4-f425deb0ebb7",
+                  "name": "The request signature was invalid or missing.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/promotions/accounts?membershipNumber=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "promotions",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The membership number used to locate the guest's loyalty account(s).",
+                          "key": "membershipNumber",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:24:55.000Z",
+                  "updatedAt": "2026-07-28T02:24:55.000Z",
+                  "uid": "35240-be919ce5-41bd-46aa-b2c4-f425deb0ebb7"
+                }
+              ],
+              "createdAt": "2026-07-28T02:24:55.000Z",
+              "updatedAt": "2026-07-28T02:24:55.000Z",
+              "uid": "35240-6fb9466e-0a58-48de-86e4-30cb211031d6"
+            }
+          ],
+          "id": "70928c0d-695d-4f47-a93c-b26f2b6248bb",
+          "createdAt": "2026-07-28T02:24:55.000Z",
+          "updatedAt": "2026-07-28T02:24:55.000Z",
+          "uid": "35240-70928c0d-695d-4f47-a93c-b26f2b6248bb"
+        }
+      ],
+      "id": "b0fd46ed-0621-4a60-a467-eb6448f3c064",
+      "createdAt": "2026-07-28T02:24:55.000Z",
+      "updatedAt": "2026-07-28T02:24:55.000Z",
+      "uid": "35240-b0fd46ed-0621-4a60-a467-eb6448f3c064"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://ordering.api.olosandbox.com"
+    }
+  ]
+}

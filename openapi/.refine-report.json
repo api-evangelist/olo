@@ -1,0 +1,24 @@
+{
+  "provider": "olo",
+  "sources": [
+    "olo-accounts-api-openapi.yml",
+    "olo-accruals-api-openapi.yml",
+    "olo-brand-api-openapi.yml",
+    "olo-promotions-api-openapi.yml",
+    "olo-rails-api-openapi.yml",
+    "olo-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "olo-accounts-api-openapi.yml",
+    "olo-accruals-api-openapi.yml",
+    "olo-brand-api-openapi.yml",
+    "olo-promotions-api-openapi.yml",
+    "olo-rails-api-openapi.yml",
+    "olo-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
