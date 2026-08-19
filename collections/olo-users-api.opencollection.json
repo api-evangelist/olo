@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Olo Ordering Accounts Users API",
+    "version": "1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check User Exists",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ordering.api.olosandbox.com/v1.1/users/exists",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check whether a guest account already exists for a given email address."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Olo Ordering Accounts Brand API",
+    "version": "1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Brand",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Brand",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ordering.api.olosandbox.com/v1.1/brand"
+          },
+          "docs": "Retrieve configuration and metadata for the brand associated with the authenticated partner credentials."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Olo Ordering Accounts Promotions API",
+    "version": "1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Promotions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Validate Promotions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ordering.api.olosandbox.com/promotions/validate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validate the coupons and loyalty rewards applied to a basket. The provider calculates discounts and returns the validated promotions with POS reference data."
+        },
+        {
+          "info": {
+            "name": "Redeem Promotions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ordering.api.olosandbox.com/promotions/redemptions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Redeem the coupons and loyalty rewards applied to a placed order, finalizing the discounts calculated during validation."
+        },
+        {
+          "info": {
+            "name": "Void Redemption",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://ordering.api.olosandbox.com/promotions/redemptions/:redemptionId",
+            "params": [
+              {
+                "name": "redemptionId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the redemption being voided."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Void a previously redeemed set of coupons and rewards for an order."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Olo Ordering Accounts Accruals API",
+    "version": "1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Accruals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Accrue Points",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ordering.api.olosandbox.com/promotions/accruals",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Accrue loyalty points for a placed order against a guest's loyalty account."
+        },
+        {
+          "info": {
+            "name": "Void Accrual",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://ordering.api.olosandbox.com/promotions/accruals/:accrualId",
+            "params": [
+              {
+                "name": "accrualId",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the accrual being voided."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Void a previously recorded loyalty point accrual for an order."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

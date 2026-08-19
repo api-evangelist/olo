@@ -1,0 +1,495 @@
+{
+  "item": [
+    {
+      "id": "8220f126-a9f6-49ed-ae70-8dcc2d2cbc7e",
+      "name": "Accruals",
+      "description": {
+        "content": "Loyalty point accrual and void",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "361bf289-1d01-4d5a-83dd-563169925c9e",
+          "name": "Accrue Points",
+          "request": {
+            "name": "Accrue Points",
+            "description": {
+              "content": "Accrue loyalty points for a placed order against a guest's loyalty account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "promotions",
+                "accruals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountId\": \"<string>\",\n  \"subtotal\": \"<number>\",\n  \"total\": \"<number>\",\n  \"orderId\": \"<string>\",\n  \"source\": \"<string>\",\n  \"handoff\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"placed\": \"<dateTime>\",\n  \"wanted\": \"<dateTime>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"tax\": \"<number>\",\n  \"tip\": \"<number>\",\n  \"delivery\": \"<number>\",\n  \"customFees\": \"<number>\",\n  \"discount\": \"<number>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"code\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"payments\": [\n    {\n      \"tender\": \"<string>\",\n      \"issuer\": \"<string>\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    },\n    {\n      \"tender\": \"<string>\",\n      \"issuer\": \"<string>\",\n      \"suffix\": \"<string>\",\n      \"amount\": \"<number>\"\n    }\n  ],\n  \"basket\": {\n    \"id\": \"<string>\",\n    \"rewards\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"<string>\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"<string>\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\",\n        \"type\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"customFields\": \"<string>\"\n      }\n    ],\n    \"coupons\": [\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"<string>\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"level\": \"<string>\",\n        \"product\": \"<string>\",\n        \"discount\": \"<number>\"\n      }\n    ],\n    \"entries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"item\": {\n          \"product\": \"<string>\",\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ],\n    \"posEntries\": [\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      },\n      {\n        \"quantity\": \"<number>\",\n        \"posItem\": {\n          \"product\": \"<string>\",\n          \"categories\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"modifiers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"label\": \"<string>\",\n          \"cost\": \"<number>\"\n        }\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3918b7c6-c316-485b-963c-a0786b7afe23",
+              "name": "A transaction confirming the accrual.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "promotions",
+                    "accruals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountId\": \"<string>\",\n  \"subtotal\": \"<number>\",\n  \"total\": \"<number>\",\n  \"orderId\": \"<string>\",\n  \"source\": \"Web\",\n  \"handoff\": \"Delivery\",\n  \"currency\": \"<string>\",\n  \"placed\": \"<dateTime>\",\n  \"wanted\": \"<dateTime>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"tax\": \"<number>\",\n  \"tip\": \"<number>\",\n  \"delivery\": \"<number>\",\n  \"customFees\": \"<number>\",\n  \"discount\": \"<number>\",\n  \"address\": {\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"payments\": [\n    {\n      \"tender\": \"Transfer\",\n      \"issuer\": \"PayPal\",\n      \"suffix\": \"string\",\n      \"amount\": 681.391906858435\n    },\n    {\n      \"tender\": \"Other\",\n      \"issuer\": \"Visa\",\n      \"suffix\": \"string\",\n      \"amount\": 5619.918449680168\n    }\n  ],\n  \"basket\": {\n    \"id\": \"string\",\n    \"rewards\": [\n      {\n        \"id\": \"string\",\n        \"provider\": \"string\",\n        \"level\": \"Basket\",\n        \"product\": \"string\",\n        \"discount\": 3043.5106111571686,\n        \"type\": \"string\",\n        \"imageUrl\": \"string\",\n        \"customFields\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"provider\": \"string\",\n        \"level\": \"Item\",\n        \"product\": \"string\",\n        \"discount\": 8607.4678234563,\n        \"type\": \"string\",\n        \"imageUrl\": \"string\",\n        \"customFields\": \"string\"\n      }\n    ],\n    \"coupons\": [\n      {\n        \"id\": \"string\",\n        \"provider\": \"string\",\n        \"level\": \"Basket\",\n        \"product\": \"string\",\n        \"discount\": 7130.117970790141\n      },\n      {\n        \"id\": \"string\",\n        \"provider\": \"string\",\n        \"level\": \"Item\",\n        \"product\": \"string\",\n        \"discount\": 6049.003759978602\n      }\n    ],\n    \"entries\": [\n      {\n        \"quantity\": 4106.6286240750005,\n        \"item\": {\n          \"product\": \"string\",\n          \"label\": \"string\",\n          \"cost\": 1428.2717893362274\n        }\n      },\n      {\n        \"quantity\": 1507.0108121981884,\n        \"item\": {\n          \"product\": \"string\",\n          \"label\": \"string\",\n          \"cost\": 4590.145878005501\n        }\n      }\n    ],\n    \"posEntries\": [\n      {\n        \"quantity\": 675.4595139115916,\n        \"posItem\": {\n          \"product\": \"string\",\n          \"categories\": [\n            \"string\",\n            \"string\"\n          ],\n          \"modifiers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"label\": \"string\",\n          \"cost\": 8682.442758767813\n        }\n      },\n      {\n        \"quantity\": 2690.5479908518705,\n        \"posItem\": {\n          \"product\": \"string\",\n          \"categories\": [\n            \"string\",\n            \"string\"\n          ],\n          \"modifiers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"label\": \"string\",\n          \"cost\": 4627.985729542998\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transaction\": {\n    \"id\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85f97166-5f57-41d5-8ee4-6b5c68f9d86c",
+              "name": "The request could not be processed; a machine-readable error code is included.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "promotions",
+                    "accruals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountId\": \"<string>\",\n  \"subtotal\": \"<number>\",\n  \"total\": \"<number>\",\n  \"orderId\": \"<string>\",\n  \"source\": \"Web\",\n  \"handoff\": \"Delivery\",\n  \"currency\": \"<string>\",\n  \"placed\": \"<dateTime>\",\n  \"wanted\": \"<dateTime>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"tax\": \"<number>\",\n  \"tip\": \"<number>\",\n  \"delivery\": \"<number>\",\n  \"customFees\": \"<number>\",\n  \"discount\": \"<number>\",\n  \"address\": {\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"payments\": [\n    {\n      \"tender\": \"Transfer\",\n      \"issuer\": \"PayPal\",\n      \"suffix\": \"string\",\n      \"amount\": 681.391906858435\n    },\n    {\n      \"tender\": \"Other\",\n      \"issuer\": \"Visa\",\n      \"suffix\": \"string\",\n      \"amount\": 5619.918449680168\n    }\n  ],\n  \"basket\": {\n    \"id\": \"string\",\n    \"rewards\": [\n      {\n        \"id\": \"string\",\n        \"provider\": \"string\",\n        \"level\": \"Basket\",\n        \"product\": \"string\",\n        \"discount\": 3043.5106111571686,\n        \"type\": \"string\",\n        \"imageUrl\": \"string\",\n        \"customFields\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"provider\": \"string\",\n        \"level\": \"Item\",\n        \"product\": \"string\",\n        \"discount\": 8607.4678234563,\n        \"type\": \"string\",\n        \"imageUrl\": \"string\",\n        \"customFields\": \"string\"\n      }\n    ],\n    \"coupons\": [\n      {\n        \"id\": \"string\",\n        \"provider\": \"string\",\n        \"level\": \"Basket\",\n        \"product\": \"string\",\n        \"discount\": 7130.117970790141\n      },\n      {\n        \"id\": \"string\",\n        \"provider\": \"string\",\n        \"level\": \"Item\",\n        \"product\": \"string\",\n        \"discount\": 6049.003759978602\n      }\n    ],\n    \"entries\": [\n      {\n        \"quantity\": 4106.6286240750005,\n        \"item\": {\n          \"product\": \"string\",\n          \"label\": \"string\",\n          \"cost\": 1428.2717893362274\n        }\n      },\n      {\n        \"quantity\": 1507.0108121981884,\n        \"item\": {\n          \"product\": \"string\",\n          \"label\": \"string\",\n          \"cost\": 4590.145878005501\n        }\n      }\n    ],\n    \"posEntries\": [\n      {\n        \"quantity\": 675.4595139115916,\n        \"posItem\": {\n          \"product\": \"string\",\n          \"categories\": [\n            \"string\",\n            \"string\"\n          ],\n          \"modifiers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"label\": \"string\",\n          \"cost\": 8682.442758767813\n        }\n      },\n      {\n        \"quantity\": 2690.5479908518705,\n        \"posItem\": {\n          \"product\": \"string\",\n          \"categories\": [\n            \"string\",\n            \"string\"\n          ],\n          \"modifiers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"label\": \"string\",\n          \"cost\": 4627.985729542998\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"details\": \"string\",\n  \"message\": \"string\",\n  \"code\": \"INVALID_PROMOTION\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8bffc4f3-91b1-46e7-9f63-f29fb22451b5",
+              "name": "The request signature was invalid or missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "promotions",
+                    "accruals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountId\": \"<string>\",\n  \"subtotal\": \"<number>\",\n  \"total\": \"<number>\",\n  \"orderId\": \"<string>\",\n  \"source\": \"Web\",\n  \"handoff\": \"Delivery\",\n  \"currency\": \"<string>\",\n  \"placed\": \"<dateTime>\",\n  \"wanted\": \"<dateTime>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"tax\": \"<number>\",\n  \"tip\": \"<number>\",\n  \"delivery\": \"<number>\",\n  \"customFees\": \"<number>\",\n  \"discount\": \"<number>\",\n  \"address\": {\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"code\": \"string\",\n    \"country\": \"string\"\n  },\n  \"payments\": [\n    {\n      \"tender\": \"Transfer\",\n      \"issuer\": \"PayPal\",\n      \"suffix\": \"string\",\n      \"amount\": 681.391906858435\n    },\n    {\n      \"tender\": \"Other\",\n      \"issuer\": \"Visa\",\n      \"suffix\": \"string\",\n      \"amount\": 5619.918449680168\n    }\n  ],\n  \"basket\": {\n    \"id\": \"string\",\n    \"rewards\": [\n      {\n        \"id\": \"string\",\n        \"provider\": \"string\",\n        \"level\": \"Basket\",\n        \"product\": \"string\",\n        \"discount\": 3043.5106111571686,\n        \"type\": \"string\",\n        \"imageUrl\": \"string\",\n        \"customFields\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"provider\": \"string\",\n        \"level\": \"Item\",\n        \"product\": \"string\",\n        \"discount\": 8607.4678234563,\n        \"type\": \"string\",\n        \"imageUrl\": \"string\",\n        \"customFields\": \"string\"\n      }\n    ],\n    \"coupons\": [\n      {\n        \"id\": \"string\",\n        \"provider\": \"string\",\n        \"level\": \"Basket\",\n        \"product\": \"string\",\n        \"discount\": 7130.117970790141\n      },\n      {\n        \"id\": \"string\",\n        \"provider\": \"string\",\n        \"level\": \"Item\",\n        \"product\": \"string\",\n        \"discount\": 6049.003759978602\n      }\n    ],\n    \"entries\": [\n      {\n        \"quantity\": 4106.6286240750005,\n        \"item\": {\n          \"product\": \"string\",\n          \"label\": \"string\",\n          \"cost\": 1428.2717893362274\n        }\n      },\n      {\n        \"quantity\": 1507.0108121981884,\n        \"item\": {\n          \"product\": \"string\",\n          \"label\": \"string\",\n          \"cost\": 4590.145878005501\n        }\n      }\n    ],\n    \"posEntries\": [\n      {\n        \"quantity\": 675.4595139115916,\n        \"posItem\": {\n          \"product\": \"string\",\n          \"categories\": [\n            \"string\",\n            \"string\"\n          ],\n          \"modifiers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"label\": \"string\",\n          \"cost\": 8682.442758767813\n        }\n      },\n      {\n        \"quantity\": 2690.5479908518705,\n        \"posItem\": {\n          \"product\": \"string\",\n          \"categories\": [\n            \"string\",\n            \"string\"\n          ],\n          \"modifiers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"label\": \"string\",\n          \"cost\": 4627.985729542998\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d1ef1aa-54ce-44ff-95b1-630040ef4922",
+          "name": "Void Accrual",
+          "request": {
+            "name": "Void Accrual",
+            "description": {
+              "content": "Void a previously recorded loyalty point accrual for an order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "promotions",
+                "accruals",
+                ":accrualId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accrualId",
+                  "description": "(Required) The identifier of the accrual being voided."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ccb13d68-e0b2-4b2d-8696-5930fcdb730c",
+              "name": "A transaction confirming the voided accrual.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "promotions",
+                    "accruals",
+                    ":accrualId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accrualId",
+                      "description": "(Required) The identifier of the accrual being voided."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transaction\": {\n    \"id\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a747e30-e62b-42cc-b3ad-5a9352a9cd91",
+              "name": "The request could not be processed; a machine-readable error code is included.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "promotions",
+                    "accruals",
+                    ":accrualId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accrualId",
+                      "description": "(Required) The identifier of the accrual being voided."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"details\": \"string\",\n  \"message\": \"string\",\n  \"code\": \"INVALID_PROMOTION\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7326e244-47da-418a-9c4a-54bfc831c433",
+              "name": "The request signature was invalid or missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "promotions",
+                    "accruals",
+                    ":accrualId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accrualId",
+                      "description": "(Required) The identifier of the accrual being voided."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"storeNumber\": \"<string>\",\n  \"restaurant\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"details\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ordering.api.olosandbox.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ad179b25-339e-4659-836a-35682c67980d",
+    "name": "Olo Ordering Accounts Accruals API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Olo Ordering API is the platform's order-injection surface, enabling certified partner apps and branded restaurant clients to retrieve brand and menu data, build and validate baskets, and submit orders into Olo's network of restaurant locations. Requests are authorized with an HMAC-SHA256 signature over a canonical message (client id, HTTP verb, content type, base64 SHA-256 of the body, path and query, and the Date header), sent in the Authorization header as \"OloSignature {clientId}:{signature}\" alongside an RFC 1123 Date header. Sandbox credentials are issued through the Olo Developer Portal after partner certification. The operations documented here are sourced from Olo's official signature-authorization code samples (github.com/ololabs/dev-support-code-samples). The full reference is gated behind the Olo Developer Portal.\n\nContact Support:\n Name: Olo Developer Support",
+      "type": "text/plain"
+    }
+  }
+}
