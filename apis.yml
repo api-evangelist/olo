@@ -30,6 +30,16 @@ access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/olo.png
 tags:
   - Food Service
+  - Restaurant
+  - Online Ordering
+  - Delivery
+  - Point-of-Sale
+  - Hospitality
+  - Payments
+  - Loyalty
+  - Marketing
+tags_raw:
+  - Food Service
   - Restaurants
   - Online Ordering
   - Delivery
@@ -72,6 +82,10 @@ apis:
   humanURL: >-
     https://olosupport.zendesk.com/hc/en-us/articles/115002761943-Olo-POS-Interface-Specification-aka-OloCloud
   tags:
+  - Point-of-Sale
+  - Integration
+  - Menus
+  tags_raw:
   - POS
   - Point of Sale
   - Integration
@@ -90,6 +104,11 @@ apis:
     XPIENT, Maitre'D, NCR Cloud Connect, Simphony FE, and SimphonyCloud.
   humanURL: https://www.olo.com/omnivoreapi
   tags:
+  - Point-of-Sale
+  - Omnivore
+  - Tickets
+  - Multi-POS
+  tags_raw:
   - POS
   - Omnivore
   - Tickets
@@ -109,6 +128,11 @@ apis:
     Borderless Payments for cross-border transactions.
   humanURL: https://www.olo.com/products/pay
   tags:
+  - Payments
+  - Pay
+  - PCI
+  - Digital Wallet
+  tags_raw:
   - Payments
   - Pay
   - PCI
@@ -172,6 +196,11 @@ apis:
     guest profile used in ordering and marketing.
   humanURL: https://www.olo.com/products/host
   tags:
+  - Hosts
+  - Reservations
+  - Waitlist
+  - Dine-In
+  tags_raw:
   - Host
   - Reservations
   - Waitlist
@@ -203,6 +232,10 @@ apis:
     PHP, Ruby, JavaScript, and Python in the ololabs/dev-support-code-samples repository.
   humanURL: https://github.com/ololabs/dev-support-code-samples
   tags:
+  - Webhook
+  - Event
+  - Notification
+  tags_raw:
   - Webhooks
   - Events
   - Notifications
@@ -218,6 +251,8 @@ apis:
   description: Loyalty account creation and lookup
   humanURL: https://developer.olo.com/
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -393,6 +428,8 @@ apis:
   description: Guest account lookups
   humanURL: https://developer.olo.com/
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
