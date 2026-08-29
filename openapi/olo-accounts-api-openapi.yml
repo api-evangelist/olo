@@ -1,16 +1,21 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Olo Ordering Accounts API
-  description: The Olo Ordering API is the platform's order-injection surface, enabling certified partner apps and branded restaurant clients to retrieve brand and menu data, build and validate baskets, and submit orders into Olo's network of restaurant locations. Requests are authorized with an HMAC-SHA256 signature over a canonical message (client id, HTTP verb, content type, base64 SHA-256 of the body, path and query, and the Date header), sent in the Authorization header as "OloSignature {clientId}:{signature}" alongside an RFC 1123 Date header. Sandbox credentials are issued through the Olo Developer Portal after partner certification. The operations documented here are sourced from Olo's official signature-authorization code samples (github.com/ololabs/dev-support-code-samples). The full reference is gated behind the Olo Developer Portal.
-  version: '1.1'
+  title: Olo Promotions Accounts API
+  description: The Olo Promotions Specification defines the HTTP contract that a third-party promotions / loyalty provider implements so Olo can validate and redeem coupons and loyalty rewards, accrue loyalty points, and manage loyalty accounts during the Olo ordering flow. Olo acts as the client and calls the provider-hosted endpoints described here. Requests are authenticated with an HMAC-SHA256 signature computed over the request URL concatenated with the raw request body, encoded as URL-safe base64 without padding (or with HTTP Basic for key-based auth). This specification is published at https://developer.olo.com/docs and modeled directly from Olo's official open-source Promotions SDK (github.com/ololabs/promotions-sdk).
+  version: '1.0'
   contact:
     name: Olo Developer Support
     url: https://developer.olo.com/
+  license:
+    name: Olo Promotions SDK License
+    url: https://github.com/ololabs/promotions-sdk/blob/main/LICENSE.md
 servers:
-- url: https://ordering.api.olosandbox.com
-  description: Olo Ordering API sandbox
-- url: https://ordering.api.olo.com
-  description: Olo Ordering API production
+- url: https://{providerHost}
+  description: Provider-hosted Promotions endpoint implementing the Olo Promotions Specification
+  variables:
+    providerHost:
+      default: promotions.example.com
+      description: The promotions provider's host that implements this specification
 security:
 - OloSignature: []
 tags:
@@ -103,40 +108,6 @@ components:
         code:
           type: string
           description: The value of the POS reference.
-    AccountStatus:
-      type: string
-      description: Whether the loyalty account is active or inactive.
-      enum:
-      - Active
-      - Inactive
-    ErrorResponse:
-      type: object
-      description: Returned for error responses.
-      properties:
-        id:
-          type: string
-          description: A unique identifier for the error in the provider's system.
-        details:
-          type: string
-          description: Additional details used to help troubleshoot the error.
-        message:
-          type: string
-          description: An error message to be shown to the customer.
-    Account:
-      type: object
-      description: A guest's loyalty account.
-      properties:
-        id:
-          type: string
-          description: The account's unique identifier in the provider's system.
-        status:
-          $ref: '#/components/schemas/AccountStatus'
-        balance:
-          $ref: '#/components/schemas/Balance'
-        rewards:
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountReward'
     AccountReward:
       type: object
       description: A reward available in a loyalty account.
@@ -171,6 +142,54 @@ components:
         customFields:
           type: string
           description: Custom provider metadata echoed back in subsequent requests.
+    ErrorResponse:
+      type: object
+      description: Returned for error responses.
+      properties:
+        id:
+          type: string
+          description: A unique identifier for the error in the provider's system.
+        details:
+          type: string
+          description: Additional details used to help troubleshoot the error.
+        message:
+          type: string
+          description: An error message to be shown to the customer.
+    Balance:
+      type: object
+      description: A loyalty account's points balance.
+      properties:
+        quantity:
+          type: number
+          description: The amount of points in the user's loyalty account.
+        target:
+          type: number
+          description: The points required to unlock the next step in the loyalty account.
+        unit:
+          type: string
+          default: points
+          description: The unit used to describe the quantity of a loyalty account balance.
+    Account:
+      type: object
+      description: A guest's loyalty account.
+      properties:
+        id:
+          type: string
+          description: The account's unique identifier in the provider's system.
+        status:
+          $ref: '#/components/schemas/AccountStatus'
+        balance:
+          $ref: '#/components/schemas/Balance'
+        rewards:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountReward'
+    AccountStatus:
+      type: string
+      description: Whether the loyalty account is active or inactive.
+      enum:
+      - Active
+      - Inactive
     PosReferenceType:
       type: string
       description: The type of a POS reference.
@@ -196,20 +215,6 @@ components:
         externalIdentifier:
           type: string
           description: Unique external identifier for the user.
-    Balance:
-      type: object
-      description: A loyalty account's points balance.
-      properties:
-        quantity:
-          type: number
-          description: The amount of points in the user's loyalty account.
-        target:
-          type: number
-          description: The points required to unlock the next step in the loyalty account.
-        unit:
-          type: string
-          default: points
-          description: The unit used to describe the quantity of a loyalty account balance.
   responses:
     Unauthorized:
       description: The request signature was invalid or missing.
@@ -228,7 +233,7 @@ components:
       type: apiKey
       in: header
       name: Authorization
-      description: HMAC-SHA256 signature authorization. The signed message is the newline-joined concatenation of clientId, HTTP verb, content type, base64-encoded SHA-256 hash of the request body, path and query, and the RFC 1123 timestamp. The result is base64-encoded and sent as "OloSignature {clientId}:{signature}" in the Authorization header, with the matching timestamp in the Date header.
+      description: HMAC-SHA256 signature over the request URL concatenated with the raw request body, using the shared secret as the key, encoded as URL-safe base64 without padding. HTTP Basic authorization (base64 of the shared secret) is also supported for key-based auth.
 externalDocs:
-  description: Olo Developer Portal
-  url: https://developer.olo.com/
+  description: Olo Promotions Specification
+  url: https://developer.olo.com/docs

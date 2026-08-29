@@ -1,24 +1,31 @@
 {
   "provider": "olo",
   "sources": [
-    "olo-accounts-api-openapi.yml",
-    "olo-accruals-api-openapi.yml",
-    "olo-brand-api-openapi.yml",
-    "olo-promotions-api-openapi.yml",
-    "olo-rails-api-openapi.yml",
-    "olo-users-api-openapi.yml"
+    "_original/olo-ordering-openapi.yml",
+    "_original/olo-promotions-openapi.yml"
   ],
   "outputs": [
+    "olo-brand-api-openapi.yml",
+    "olo-rails-api-openapi.yml",
+    "olo-users-api-openapi.yml",
     "olo-accounts-api-openapi.yml",
     "olo-accruals-api-openapi.yml",
-    "olo-brand-api-openapi.yml",
-    "olo-promotions-api-openapi.yml",
-    "olo-rails-api-openapi.yml",
-    "olo-users-api-openapi.yml"
+    "olo-promotions-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "olo-ordering-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "olo-promotions-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0"
+  ],
+  "skipped": [
+    "olo-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "olo-accruals-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "olo-brand-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "olo-promotions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "olo-rails-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "olo-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
