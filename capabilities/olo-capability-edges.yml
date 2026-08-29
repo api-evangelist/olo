@@ -1,0 +1,38 @@
+slug: olo
+provider: Olo
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Travel & Hospitality
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Accounts
+  spec_file: olo-accounts-api-openapi.yml
+  capability_id: BC-420.40
+  capability_id_l1: BC-420
+  capability_name: Loyalty & Retention Management
+  confidence: 0.7
+  evidence: POST /promotions/accounts  createAccount; GET /promotions/accounts/{accountId}  getAccount;
+    schemas Account, AccountReward, Balance; "manage loyalty accounts during the Olo ordering flow"
+  reason: Creates and looks up loyalty member accounts with reward and point balances for a restaurant
+    ordering platform, i.e. loyalty programme administration. Used the cross-industry Loyalty & Retention
+    capability rather than the travel loyalty branch because the vendor's members are restaurant guests,
+    not travellers.
+- tag: Accruals
+  spec_file: olo-accruals-api-openapi.yml
+  capability_id: BC-420.40
+  capability_id_l1: BC-420
+  capability_name: Loyalty & Retention Management
+  confidence: 0.7
+  evidence: POST /promotions/accruals  accruePoints  Accrue Points; DELETE /promotions/accruals/{accrualId}  voidAccrual;
+    "accrue loyalty points"
+  reason: The operations run the points-earning engine of a loyalty programme (accrue and void accruals
+    against a basket), which is loyalty programme operation. Mapped cross-industry rather than to the
+    travel loyalty earn engine because this is restaurant ordering, not traveller stay/flight accrual.

@@ -474,6 +474,9 @@ apis:
   - type: JSONStructure
     url: json-structure/olo-promotions-structure.json
 common:
+  - type: CapabilityMap
+    url: capabilities/olo-capability-edges.yml
+    name: Olo Business Capability Map
   - type: IssueTracker
     url: https://github.com/ololabs/promotions-sdk/issues
   - type: Releases
