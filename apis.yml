@@ -95,7 +95,6 @@ apis:
   humanURL: >-
     https://olosupport.zendesk.com/hc/en-us/articles/115002761943-Olo-POS-Interface-Specification-aka-OloCloud
   tags:
-  - POS
   - Point-of-Sale
   - Integration
   - Menus
@@ -118,7 +117,7 @@ apis:
     XPIENT, Maitre'D, NCR Cloud Connect, Simphony FE, and SimphonyCloud.
   humanURL: https://www.olo.com/omnivoreapi
   tags:
-  - POS
+  - Point-of-Sale
   - Omnivore
   - Tickets
   - Multi-POS
