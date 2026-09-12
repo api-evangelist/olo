@@ -474,6 +474,8 @@ apis:
   - type: JSONStructure
     url: json-structure/olo-promotions-structure.json
 common:
+  - type: Website
+    url: https://www.olo.com/
   - type: CapabilityMap
     url: capabilities/olo-capability-edges.yml
     name: Olo Business Capability Map
