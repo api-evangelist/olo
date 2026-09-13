@@ -1,0 +1,53 @@
+generated: '2026-09-11'
+method: probed
+source: https://mcp.olo.com/mcp
+status: published
+server:
+  name: olo
+  transport: http
+  url: https://mcp.olo.com/mcp
+deployment:
+  mode: remote
+  endpoint: https://mcp.olo.com/mcp
+  verified: probed
+  probe: live
+  checked: '2026-09-11'
+  source: docs-check 2026-09-11 (endpoint found in the provider's own documentation, then probed)
+tools_count: 17
+tools:
+- name: search_restaurants
+  description: ''
+- name: get_restaurant
+  description: ''
+- name: search_catalog
+  description: ''
+- name: get_product
+  description: ''
+- name: lookup_catalog
+  description: ''
+- name: create_cart
+  description: ''
+- name: update_checkout
+  description: ''
+- name: update_cart
+  description: ''
+- name: cancel_cart
+  description: ''
+- name: create_checkout
+  description: ''
+- name: get_checkout
+  description: ''
+- name: get_cart
+  description: ''
+- name: complete_checkout
+  description: ''
+- name: cancel_checkout
+  description: ''
+- name: get_order
+  description: ''
+- name: notify_order_arrival
+  description: ''
+- name: cancel_order
+  description: ''
+tools_source: live tools/list via initialize handshake, 2026-09-11 (signals/audit_mcp_authorship.py --probe)
+authorship: provider
