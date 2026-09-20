@@ -11,8 +11,20 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 2
+edge_count: 3
 edges:
+- tag: Promotions
+  spec_file: olo-promotions-api-openapi.yml
+  capability_id: BC-440.30
+  capability_id_l1: BC-440
+  capability_name: Discount & Promotion Management
+  confidence: 0.78
+  evidence: POST /promotions/validate validatePromotions; POST /promotions/redemptions redeemPromotions;
+    "validate and redeem coupons and loyalty rewards"
+  reason: Operations validate and redeem coupons/promotions during ordering, which realises discount and
+    promotion administration. Some overlap with loyalty (BC-420.40) since rewards are also redeemed, hence
+    not higher confidence.
+  recovered_from: vertical-agriculture-food-production-edges.json
 - tag: Accounts
   spec_file: olo-accounts-api-openapi.yml
   capability_id: BC-420.40
