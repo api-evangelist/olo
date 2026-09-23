@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   title: Olo Promotions Accounts API
-  description: The Olo Promotions Specification defines the HTTP contract that a third-party promotions / loyalty provider implements so Olo can validate and redeem coupons and loyalty rewards, accrue loyalty points, and manage loyalty accounts during the Olo ordering flow. Olo acts as the client and calls the provider-hosted endpoints described here. Requests are authenticated with an HMAC-SHA256 signature computed over the request URL concatenated with the raw request body, encoded as URL-safe base64 without padding (or with HTTP Basic for key-based auth). This specification is published at https://developer.olo.com/docs and modeled directly from Olo's official open-source Promotions SDK (github.com/ololabs/promotions-sdk).
+  description: The Olo Promotions Specification defines the HTTP contract that a third-party promotions / loyalty provider implements so Olo can validate and redeem coupons and loyalty rewards, accrue loyalty points, and manage loyalty accounts during the Olo ordering flow.
   version: '1.0'
   contact:
     name: Olo Developer Support
@@ -98,16 +98,65 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  responses:
+    Unauthorized:
+      description: The request signature was invalid or missing.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: The request was malformed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   schemas:
-    PosReference:
+    CreateAccountRequest:
       type: object
-      description: Data used to identify a promotion or reward on the POS.
+      description: Request payload to create a new loyalty account.
       properties:
-        type:
-          $ref: '#/components/schemas/PosReferenceType'
-        code:
+        firstName:
           type: string
-          description: The value of the POS reference.
+          description: First name for the user.
+        lastName:
+          type: string
+          description: Last name for the user.
+        phoneNumber:
+          type: string
+          description: Phone number for the user.
+        emailAddress:
+          type: string
+          description: Email address for the user.
+        externalIdentifier:
+          type: string
+          description: Unique external identifier for the user.
+    PosReferenceType:
+      type: string
+      description: The type of a POS reference.
+      enum:
+      - Promo
+      - Comp
+    Balance:
+      type: object
+      description: A loyalty account's points balance.
+      properties:
+        quantity:
+          type: number
+          description: The amount of points in the user's loyalty account.
+        target:
+          type: number
+          description: The points required to unlock the next step in the loyalty account.
+        unit:
+          type: string
+          default: points
+          description: The unit used to describe the quantity of a loyalty account balance.
+    AccountStatus:
+      type: string
+      description: Whether the loyalty account is active or inactive.
+      enum:
+      - Active
+      - Inactive
     AccountReward:
       type: object
       description: A reward available in a loyalty account.
@@ -155,20 +204,6 @@ components:
         message:
           type: string
           description: An error message to be shown to the customer.
-    Balance:
-      type: object
-      description: A loyalty account's points balance.
-      properties:
-        quantity:
-          type: number
-          description: The amount of points in the user's loyalty account.
-        target:
-          type: number
-          description: The points required to unlock the next step in the loyalty account.
-        unit:
-          type: string
-          default: points
-          description: The unit used to describe the quantity of a loyalty account balance.
     Account:
       type: object
       description: A guest's loyalty account.
@@ -184,50 +219,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AccountReward'
-    AccountStatus:
-      type: string
-      description: Whether the loyalty account is active or inactive.
-      enum:
-      - Active
-      - Inactive
-    PosReferenceType:
-      type: string
-      description: The type of a POS reference.
-      enum:
-      - Promo
-      - Comp
-    CreateAccountRequest:
+    PosReference:
       type: object
-      description: Request payload to create a new loyalty account.
+      description: Data used to identify a promotion or reward on the POS.
       properties:
-        firstName:
+        type:
+          $ref: '#/components/schemas/PosReferenceType'
+        code:
           type: string
-          description: First name for the user.
-        lastName:
-          type: string
-          description: Last name for the user.
-        phoneNumber:
-          type: string
-          description: Phone number for the user.
-        emailAddress:
-          type: string
-          description: Email address for the user.
-        externalIdentifier:
-          type: string
-          description: Unique external identifier for the user.
-  responses:
-    Unauthorized:
-      description: The request signature was invalid or missing.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: The request was malformed.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
+          description: The value of the POS reference.
   securitySchemes:
     OloSignature:
       type: apiKey
