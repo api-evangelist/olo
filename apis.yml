@@ -560,8 +560,6 @@ common:
     url: https://github.com/ololabs/pay-digitalwallets-android-sdk-releases
   - type: SDKs
     url: https://github.com/ololabs/pay-digitalwallets-flutter-sdk-releases
-  - type: GraphQL
-    url: graphql/olo-graphql.md
   - type: Plans
     url: plans/olo-plans-pricing.yml
   - type: RateLimits
