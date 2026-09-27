@@ -13,17 +13,22 @@ description: >-
   - OLO) is headquartered in New York City and went public in March 2021.
 type: Index
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - ololabs/dev-support-code-samples
+    - ololabs/olo-serve-gtm-templates
+    - ololabs/promotions-sdk
   open_source: unknown
   commercial: true
   callable_host: true
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: unknown
@@ -78,6 +83,11 @@ apis:
   - Dispatch
   - Delivery
   - Logistics
+  - Last Mile Delivery
+  tags_raw:
+  - Dispatch
+  - Delivery
+  - Logistics
   - Last Mile
   properties:
   - type: Documentation
@@ -119,7 +129,7 @@ apis:
   tags:
   - Point-of-Sale
   - Omnivore
-  - Tickets
+  - Ticketing
   - Multi-POS
   tags_raw:
   - POS
