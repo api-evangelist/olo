@@ -16,38 +16,69 @@ deployment:
 tools_count: 17
 tools:
 - name: search_restaurants
-  description: ''
+  description: Find nearby restaurants by proximity to a set of coordinates, across ALL Olo App–enabled
+    brands. Returns slim per-restaurant summaries (each with its ID). With the Olo Network key, OMIT channelId
+    to search every enabled brand (cross-brand d
 - name: get_restaurant
-  description: ''
+  description: Get restaurant details by ID
 - name: search_catalog
-  description: ''
+  description: 'UCP: search the product catalog. Requires meta["ucp-agent"].profile and a catalog object.
+    Network-wide: catalog.query (e.g. "burrito") + a location (catalog.location string or catalog.latitude/longitude)
+    searches restaurants near there and'
 - name: get_product
-  description: ''
+  description: 'UCP: get a single catalog product with its option groups (modifiers). catalog.ids[0] is
+    the product id; supply catalog.restaurant_id to resolve the product''s title and price from the restaurant''s
+    menu (without it, only option groups are ret'
 - name: lookup_catalog
-  description: ''
+  description: 'UCP: batch-look up catalog products by id. catalog.ids[] (product ids, max 50) and catalog.restaurant_id
+    (Olo product ids are menu-scoped) are required. Unknown ids are omitted from products[] and marked
+    in inputs[]; the call still succeeds'
 - name: create_cart
-  description: ''
+  description: 'UCP: create a shopping cart at a restaurant (pre-checkout basket building). Requires meta["ucp-agent"].profile
+    and a cart object with line_items (item.id = product id) plus a restaurant id (cart.context.restaurant_id
+    or top-level restaurant'
 - name: update_checkout
-  description: ''
+  description: 'UCP: update a checkout session (full replacement). line_items become the exact new set
+    (products are added, re-quantified, or removed to match). fulfillment.handoff_mode sets pickup/curbside/dinein/drivethru;
+    fulfillment.delivery_address (s'
 - name: update_cart
-  description: ''
+  description: 'UCP: update a cart (full replacement — send the entire desired cart). line_items become
+    the exact new set. Returns the updated UCP cart.'
 - name: cancel_cart
-  description: ''
+  description: 'UCP: cancel (delete) a cart. Requires meta["ucp-agent"].profile. Returns the final cart
+    state; the underlying basket simply expires server-side (Olo has no basket delete).'
 - name: create_checkout
-  description: ''
+  description: 'UCP: create a checkout session at a restaurant. Requires meta["ucp-agent"].profile and
+    a checkout object with line_items (item.id = product id from the catalog/menu) plus a restaurant_id
+    (checkout.fulfillment.restaurant_id or top-level rest'
 - name: get_checkout
-  description: ''
+  description: 'UCP: fetch a checkout session by id (the id returned by create_checkout). Once the session
+    has line items and a handoff mode it is validated against the restaurant POS: status ready_for_complete
+    plus final tax/totals on success, recoverable'
 - name: get_cart
-  description: ''
+  description: 'UCP: fetch a cart by id (from create_cart). Requires meta["ucp-agent"].profile. Returns
+    the UCP cart; a missing/expired cart returns a not_found error result.'
 - name: complete_checkout
-  description: ''
+  description: 'UCP: complete a checkout session — PLACES A REAL ORDER and charges the payment credential.
+    Requires meta["ucp-agent"].profile AND meta["idempotency-key"] (UUID; replays return the recorded
+    result). instrument.handler_id picks the payment la'
 - name: cancel_checkout
-  description: ''
+  description: 'UCP: cancel an open (un-completed) checkout session. Requires meta["ucp-agent"].profile
+    AND meta["idempotency-key"] (UUID). The session is soft-canceled — Olo has no basket delete; the basket
+    simply expires server-side. A completed checkout'
 - name: get_order
-  description: ''
+  description: 'UCP: fetch a placed order by id (the order.id from complete_checkout). Requires meta["ucp-agent"].profile.
+    Returns the UCP order: line items with status, fulfillment expectations (method/ready time/location)
+    and events (the tracking log), a'
 - name: notify_order_arrival
-  description: ''
+  description: Notify the restaurant that the customer has ARRIVED to pick up a placed order, by its Olo
+    order GUID (from complete_checkout / get_order). This is the curbside/pickup "I'm here" signal. Optionally
+    include a short message (vehicle make/color
 - name: cancel_order
-  description: ''
+  description: 'CANCEL a placed order by its Olo order GUID (from complete_checkout / get_order). This
+    WRITES: it requests cancellation of a real order. Whether cancellation is allowed depends on how far
+    the order has progressed at the restaurant; the API'
 tools_source: live tools/list via initialize handshake, 2026-09-11 (signals/audit_mcp_authorship.py --probe)
 authorship: provider
+descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
+  --descriptions, 2026-09-28
