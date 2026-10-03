@@ -99,6 +99,75 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
+    PosReference:
+      type: object
+      description: Data used to identify a promotion or reward on the POS.
+      properties:
+        type:
+          $ref: '#/components/schemas/PosReferenceType'
+        code:
+          type: string
+          description: The value of the POS reference.
+    Balance:
+      type: object
+      description: A loyalty account's points balance.
+      properties:
+        quantity:
+          type: number
+          description: The amount of points in the user's loyalty account.
+        target:
+          type: number
+          description: The points required to unlock the next step in the loyalty account.
+        unit:
+          type: string
+          default: points
+          description: The unit used to describe the quantity of a loyalty account balance.
+    PosReferenceType:
+      type: string
+      description: The type of a POS reference.
+      enum:
+      - Promo
+      - Comp
+    AccountStatus:
+      type: string
+      description: Whether the loyalty account is active or inactive.
+      enum:
+      - Active
+      - Inactive
+    Account:
+      type: object
+      description: A guest's loyalty account.
+      properties:
+        id:
+          type: string
+          description: The account's unique identifier in the provider's system.
+        status:
+          $ref: '#/components/schemas/AccountStatus'
+        balance:
+          $ref: '#/components/schemas/Balance'
+        rewards:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountReward'
+    CreateAccountRequest:
+      type: object
+      description: Request payload to create a new loyalty account.
+      properties:
+        firstName:
+          type: string
+          description: First name for the user.
+        lastName:
+          type: string
+          description: Last name for the user.
+        phoneNumber:
+          type: string
+          description: Phone number for the user.
+        emailAddress:
+          type: string
+          description: Email address for the user.
+        externalIdentifier:
+          type: string
+          description: Unique external identifier for the user.
     AccountReward:
       type: object
       description: A reward available in a loyalty account.
@@ -133,69 +202,6 @@ components:
         customFields:
           type: string
           description: Custom provider metadata echoed back in subsequent requests.
-    CreateAccountRequest:
-      type: object
-      description: Request payload to create a new loyalty account.
-      properties:
-        firstName:
-          type: string
-          description: First name for the user.
-        lastName:
-          type: string
-          description: Last name for the user.
-        phoneNumber:
-          type: string
-          description: Phone number for the user.
-        emailAddress:
-          type: string
-          description: Email address for the user.
-        externalIdentifier:
-          type: string
-          description: Unique external identifier for the user.
-    PosReference:
-      type: object
-      description: Data used to identify a promotion or reward on the POS.
-      properties:
-        type:
-          $ref: '#/components/schemas/PosReferenceType'
-        code:
-          type: string
-          description: The value of the POS reference.
-    Balance:
-      type: object
-      description: A loyalty account's points balance.
-      properties:
-        quantity:
-          type: number
-          description: The amount of points in the user's loyalty account.
-        target:
-          type: number
-          description: The points required to unlock the next step in the loyalty account.
-        unit:
-          type: string
-          default: points
-          description: The unit used to describe the quantity of a loyalty account balance.
-    AccountStatus:
-      type: string
-      description: Whether the loyalty account is active or inactive.
-      enum:
-      - Active
-      - Inactive
-    Account:
-      type: object
-      description: A guest's loyalty account.
-      properties:
-        id:
-          type: string
-          description: The account's unique identifier in the provider's system.
-        status:
-          $ref: '#/components/schemas/AccountStatus'
-        balance:
-          $ref: '#/components/schemas/Balance'
-        rewards:
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountReward'
     ErrorResponse:
       type: object
       description: Returned for error responses.
@@ -209,12 +215,6 @@ components:
         message:
           type: string
           description: An error message to be shown to the customer.
-    PosReferenceType:
-      type: string
-      description: The type of a POS reference.
-      enum:
-      - Promo
-      - Comp
   responses:
     Unauthorized:
       description: The request signature was invalid or missing.
