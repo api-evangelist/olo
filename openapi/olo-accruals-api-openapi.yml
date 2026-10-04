@@ -78,73 +78,28 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  responses:
-    BadRequestWithCode:
-      description: The request could not be processed; a machine-readable error code is included.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorCodeResponse'
-    Unauthorized:
-      description: The request signature was invalid or missing.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
   schemas:
-    ErrorCodeResponse:
-      allOf:
-      - $ref: '#/components/schemas/ErrorResponse'
-      - type: object
-        properties:
-          code:
-            $ref: '#/components/schemas/ErrorCode'
-    OloItem:
+    Transaction:
       type: object
-      description: An Olo-represented basket item.
+      description: The result of a Promotions operation.
       properties:
-        product:
+        id:
           type: string
-          description: The Olo product ID.
-        label:
+          description: A unique identifier for the transaction in the provider's system.
+    Payment:
+      type: object
+      description: A payment applied to the order.
+      properties:
+        tender:
+          $ref: '#/components/schemas/Tender'
+        issuer:
+          $ref: '#/components/schemas/Issuer'
+        suffix:
           type: string
-          description: The name of the product in Olo's system.
-        cost:
+          description: The credit card suffix. Only populated when tender is Credit.
+        amount:
           type: number
-          description: The per-unit cost of the product in Olo's system.
-    Source:
-      type: string
-      description: The source of the order.
-      enum:
-      - Web
-      - MobileWeb
-      - iOS
-      - Android
-      - Kiosk
-      - Other
-    ErrorCode:
-      type: string
-      description: A machine-readable code identifying the issue with the request.
-      enum:
-      - EXPIRED_PROMOTION
-      - INVALID_PROMOTION
-      - MISSING_ITEM
-      - INVALID_TOTAL
-      - INVALID_HANDOFF
-      - INVALID_ACCOUNT
-      - OTHER
-    TransactionEnvelope:
-      type: object
-      description: An envelope wrapping a transaction result.
-      properties:
-        transaction:
-          $ref: '#/components/schemas/Transaction'
-    DiscountLevel:
-      type: string
-      description: The level at which a discount is applied.
-      enum:
-      - Item
-      - Basket
+          description: The payment amount for this payment method.
     Coupon:
       type: object
       description: A coupon applied to a basket.
@@ -163,86 +118,22 @@ components:
         discount:
           type: number
           description: The discount amount for the coupon. Only populated once the basket is validated.
-    VoidAccrualRequest:
+    Address:
       type: object
-      description: Request payload to void a previously recorded loyalty point accrual.
+      description: The destination address of the order.
       properties:
-        orderId:
+        street:
           type: string
-          description: The ID of the order being voided.
-        accountId:
+          description: The street address.
+        city:
           type: string
-          description: The loyalty account's unique identifier in the provider's system.
-        brand:
+          description: The name of the city.
+        code:
           type: string
-          description: A unique ID representing the restaurant brand in Olo's system.
-        storeNumber:
+          description: The zip code.
+        country:
           type: string
-          description: The ID of the store as provided by the restaurant.
-        restaurant:
-          type: string
-          description: A unique ID representing the vendor restaurant in Olo's system.
-    PosItem:
-      type: object
-      description: A POS-represented basket item.
-      properties:
-        product:
-          type: string
-          description: The POS product ID.
-        categories:
-          type: array
-          description: The POS category IDs for the product.
-          items:
-            type: string
-        modifiers:
-          type: array
-          description: The modifiers applied to the product.
-          items:
-            $ref: '#/components/schemas/Modifier'
-        label:
-          type: string
-          description: The name of the product on the POS.
-        cost:
-          type: number
-          description: The per-unit cost of the product on the POS.
-    Basket:
-      type: object
-      description: The basket contents for an order.
-      properties:
-        id:
-          type: string
-          description: The ID of the basket; the unique order identifier until an order ID is generated.
-        rewards:
-          type: array
-          description: Any loyalty rewards applied to the basket.
-          items:
-            $ref: '#/components/schemas/BasketReward'
-        coupons:
-          type: array
-          description: Any coupons applied to the basket.
-          items:
-            $ref: '#/components/schemas/Coupon'
-        entries:
-          type: array
-          description: The Olo representations of the basket items.
-          items:
-            $ref: '#/components/schemas/OloEntry'
-        posEntries:
-          type: array
-          description: The POS representations of the basket items.
-          items:
-            $ref: '#/components/schemas/PosEntry'
-    Issuer:
-      type: string
-      description: The credit card issuer. Only populated when tender is Credit.
-      enum:
-      - Amex
-      - Diners
-      - Discover
-      - JCB
-      - MasterCard
-      - PayPal
-      - Visa
+          description: A three-letter ISO 3166-1 country code.
     AccruePointsRequest:
       type: object
       description: Request payload to accrue loyalty points for an order.
@@ -310,6 +201,57 @@ components:
       - accountId
       - subtotal
       - total
+    Issuer:
+      type: string
+      description: The credit card issuer. Only populated when tender is Credit.
+      enum:
+      - Amex
+      - Diners
+      - Discover
+      - JCB
+      - MasterCard
+      - PayPal
+      - Visa
+    OloItem:
+      type: object
+      description: An Olo-represented basket item.
+      properties:
+        product:
+          type: string
+          description: The Olo product ID.
+        label:
+          type: string
+          description: The name of the product in Olo's system.
+        cost:
+          type: number
+          description: The per-unit cost of the product in Olo's system.
+    Basket:
+      type: object
+      description: The basket contents for an order.
+      properties:
+        id:
+          type: string
+          description: The ID of the basket; the unique order identifier until an order ID is generated.
+        rewards:
+          type: array
+          description: Any loyalty rewards applied to the basket.
+          items:
+            $ref: '#/components/schemas/BasketReward'
+        coupons:
+          type: array
+          description: Any coupons applied to the basket.
+          items:
+            $ref: '#/components/schemas/Coupon'
+        entries:
+          type: array
+          description: The Olo representations of the basket items.
+          items:
+            $ref: '#/components/schemas/OloEntry'
+        posEntries:
+          type: array
+          description: The POS representations of the basket items.
+          items:
+            $ref: '#/components/schemas/PosEntry'
     BasketReward:
       type: object
       description: A loyalty reward applied to a basket.
@@ -337,28 +279,40 @@ components:
         customFields:
           type: string
           description: Custom provider metadata echoed back in subsequent requests.
-    Tender:
+    VoidAccrualRequest:
+      type: object
+      description: Request payload to void a previously recorded loyalty point accrual.
+      properties:
+        orderId:
+          type: string
+          description: The ID of the order being voided.
+        accountId:
+          type: string
+          description: The loyalty account's unique identifier in the provider's system.
+        brand:
+          type: string
+          description: A unique ID representing the restaurant brand in Olo's system.
+        storeNumber:
+          type: string
+          description: The ID of the store as provided by the restaurant.
+        restaurant:
+          type: string
+          description: A unique ID representing the vendor restaurant in Olo's system.
+    DiscountLevel:
       type: string
-      description: A payment tender type.
+      description: The level at which a discount is applied.
       enum:
-      - Cash
-      - Check
-      - Credit
-      - Debit
-      - Prepaid
-      - Transfer
-      - Value
-      - Other
-    Handoff:
-      type: string
-      description: The handoff method for the order.
-      enum:
-      - Pickup
-      - Curbside
-      - Delivery
-      - Dispatch
-      - Drivethru
-      - Dinein
+      - Item
+      - Basket
+    OloEntry:
+      type: object
+      description: An Olo-represented basket item entry.
+      properties:
+        quantity:
+          type: number
+          description: The quantity of the item in the basket.
+        item:
+          $ref: '#/components/schemas/OloItem'
     ErrorResponse:
       type: object
       description: Returned for error responses.
@@ -372,6 +326,45 @@ components:
         message:
           type: string
           description: An error message to be shown to the customer.
+    ErrorCodeResponse:
+      allOf:
+      - $ref: '#/components/schemas/ErrorResponse'
+      - type: object
+        properties:
+          code:
+            $ref: '#/components/schemas/ErrorCode'
+    PosItem:
+      type: object
+      description: A POS-represented basket item.
+      properties:
+        product:
+          type: string
+          description: The POS product ID.
+        categories:
+          type: array
+          description: The POS category IDs for the product.
+          items:
+            type: string
+        modifiers:
+          type: array
+          description: The modifiers applied to the product.
+          items:
+            $ref: '#/components/schemas/Modifier'
+        label:
+          type: string
+          description: The name of the product on the POS.
+        cost:
+          type: number
+          description: The per-unit cost of the product on the POS.
+    PosEntry:
+      type: object
+      description: A POS-represented basket item entry.
+      properties:
+        quantity:
+          type: number
+          description: The quantity of the item in the basket.
+        posItem:
+          $ref: '#/components/schemas/PosItem'
     Modifier:
       type: object
       description: A POS modifier applied to a product, supporting nested modifiers.
@@ -401,61 +394,68 @@ components:
           description: The modifiers applied to the modifier.
           items:
             $ref: '#/components/schemas/Modifier'
-    Transaction:
+    Tender:
+      type: string
+      description: A payment tender type.
+      enum:
+      - Cash
+      - Check
+      - Credit
+      - Debit
+      - Prepaid
+      - Transfer
+      - Value
+      - Other
+    Source:
+      type: string
+      description: The source of the order.
+      enum:
+      - Web
+      - MobileWeb
+      - iOS
+      - Android
+      - Kiosk
+      - Other
+    TransactionEnvelope:
       type: object
-      description: The result of a Promotions operation.
+      description: An envelope wrapping a transaction result.
       properties:
-        id:
-          type: string
-          description: A unique identifier for the transaction in the provider's system.
-    Payment:
-      type: object
-      description: A payment applied to the order.
-      properties:
-        tender:
-          $ref: '#/components/schemas/Tender'
-        issuer:
-          $ref: '#/components/schemas/Issuer'
-        suffix:
-          type: string
-          description: The credit card suffix. Only populated when tender is Credit.
-        amount:
-          type: number
-          description: The payment amount for this payment method.
-    PosEntry:
-      type: object
-      description: A POS-represented basket item entry.
-      properties:
-        quantity:
-          type: number
-          description: The quantity of the item in the basket.
-        posItem:
-          $ref: '#/components/schemas/PosItem'
-    Address:
-      type: object
-      description: The destination address of the order.
-      properties:
-        street:
-          type: string
-          description: The street address.
-        city:
-          type: string
-          description: The name of the city.
-        code:
-          type: string
-          description: The zip code.
-        country:
-          type: string
-          description: A three-letter ISO 3166-1 country code.
-    OloEntry:
-      type: object
-      description: An Olo-represented basket item entry.
-      properties:
-        quantity:
-          type: number
-          description: The quantity of the item in the basket.
-        item:
-          $ref: '#/components/schemas/OloItem'
+        transaction:
+          $ref: '#/components/schemas/Transaction'
+    Handoff:
+      type: string
+      description: The handoff method for the order.
+      enum:
+      - Pickup
+      - Curbside
+      - Delivery
+      - Dispatch
+      - Drivethru
+      - Dinein
+    ErrorCode:
+      type: string
+      description: A machine-readable code identifying the issue with the request.
+      enum:
+      - EXPIRED_PROMOTION
+      - INVALID_PROMOTION
+      - MISSING_ITEM
+      - INVALID_TOTAL
+      - INVALID_HANDOFF
+      - INVALID_ACCOUNT
+      - OTHER
+  responses:
+    Unauthorized:
+      description: The request signature was invalid or missing.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequestWithCode:
+      description: The request could not be processed; a machine-readable error code is included.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorCodeResponse'
   securitySchemes:
     OloSignature:
       type: apiKey
