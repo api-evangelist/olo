@@ -423,7 +423,7 @@ apis:
   description: Marketplace Rails partner export and order injection operations
   humanURL: https://developer.olo.com/
   tags:
-  - Rail
+  - Rails
   tags_raw:
   - Rails
   properties:
