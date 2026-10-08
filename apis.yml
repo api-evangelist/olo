@@ -493,6 +493,8 @@ apis:
   - type: JSONStructure
     url: json-structure/olo-promotions-structure.json
 common:
+  - type: FinOps
+    url: finops/olo-finops.yml
   - type: Website
     url: https://www.olo.com/
   - type: CapabilityMap
