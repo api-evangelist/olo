@@ -1,5 +1,5 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/olo/integrations
 - https://n8n.io/integrations/olo/
@@ -9,8 +9,6632 @@ checked:
 - https://composio.dev/toolkits/olo
 - https://monid.ai/tools/olo
 - https://n8n.io/integrations/olo/
+- https://www.olo.com/partners
 - https://zapier.com/apps/olo/integrations
 summary: null
-marketplace_apps: []
-edges: []
+marketplace_apps:
+- marketplace: own
+  channel: partner-built
+  app: olo
+  url: https://www.olo.com/partners
+  app_count: 395
+  adapter: sweep-restaurant-pos.py:hubspot-sitemap
+  listed: 395
+edges:
+- partner_name: Paerpay
+  app: Paerpay
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/paerpay
+  category: Payments
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: LineLeap
+  app: LineLeap
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/lineleap
+  category: Omivore
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: EmployeeMetrics
+  app: EmployeeMetrics
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/employeemetrics
+  category: Data Analytics
+  partner_domain: employeemetrics.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Labor Management
+  - Omivore
+- partner_name: Focus
+  app: Focus
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/focus
+  category: POS
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Fastab
+  app: Fastab
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/fastab
+  category: Data Analytics
+  partner_domain: fastabpayments.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Omivore
+  - Payments
+- partner_name: Ovation
+  app: Ovation
+  partner: ovation
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/ovation
+  category: Guest Surveys
+  partner_domain: ovationup.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Standard
+- partner_name: SMG
+  app: SMG
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/smg
+  category: Guest Surveys
+  partner_domain: smg.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: ChatFood
+  app: ChatFood
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/chatfood
+  category: Digital Ordering
+  partner_domain: chatfood.io
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Loyalty
+  - Omivore
+  - Payments
+- partner_name: Emma
+  app: Emma
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/campaign-monitor
+  category: Marketing
+  partner_domain: myemma.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: ZeroStorefront
+  app: ZeroStorefront
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/zerostorefront
+  category: Chat
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Plein Air
+  app: Plein Air
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/plein-air
+  category: Mobile Apps
+  partner_domain: itspleinair.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Mobile Apps
+  - Websites
+- partner_name: Lunchbox
+  app: Lunchbox
+  partner: lunchbox
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/lunchbox
+  category: Marketing
+  partner_domain: lunchbox.io
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Marketing
+  - Websites
+- partner_name: Alpha Matter
+  app: Alpha Matter
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/alpha-matter
+  category: Consultant Services
+  partner_domain: alphamatter.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Gold
+- partner_name: ShiftForce
+  app: ShiftForce
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/shiftforce
+  category: Data Analytics
+  partner_domain: shiftforce.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Labor Management
+- partner_name: PAR POS
+  app: PAR POS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/partech-par-pos
+  category: POS
+  partner_domain: partech.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Zonal
+  app: Zonal
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/zonal
+  category: POS
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: THE BHW GROUP
+  app: THE BHW GROUP
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/the-bhw-group
+  category: Websites
+  partner_domain: thebhwgroup.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Good People Digital
+  app: Good People Digital
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/my-good-people
+  category: Websites
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Pivot Up Technologies
+  app: Pivot Up Technologies
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/pivot-up-technologies
+  category: Consultant Services
+  partner_domain: pivotup.tech
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Aben
+  app: Aben
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/aben
+  category: Data Analytics
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Unifocus
+  app: Unifocus
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/unifocus
+  category: Omivore
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: GiftAMeal
+  app: GiftAMeal
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/giftameal
+  category: Guest Engagement
+  partner_domain: giftameal.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Guest Engagement
+  - Marketing
+- partner_name: Cuboh
+  app: Cuboh
+  partner: cuboh
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/cuboh
+  category: Menu Management
+  partner_domain: cuboh.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Menu Management
+  - Omivore
+- partner_name: Red Foundry
+  app: Red Foundry
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/red-foundry
+  category: Mobile Apps
+  partner_domain: redfoundry.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Mobile Apps
+  - Websites
+- partner_name: CRUMBS
+  app: CRUMBS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/crumbs
+  category: Catering
+  partner_domain: restaurantcrumbs.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Catering
+  - Consultant Services
+  - Marketing
+- partner_name: kea
+  app: kea
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/kea
+  category: Call Center
+  partner_domain: kea.ai
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Call Center
+  - Voice
+  badges:
+  - Olo Partner - Standard
+- partner_name: FreedomPay
+  app: FreedomPay
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/freedom-pay
+  category: Payment Processor
+  partner_domain: freedompay.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Compris
+  app: Compris
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/compris
+  category: POS
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Cognetry Labs
+  app: Cognetry Labs
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/cognetry-labs
+  category: Digital Ordering
+  partner_domain: cognetrylabs.ai
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Handoff Technology
+- partner_name: Synq3
+  app: Synq3
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/synq3
+  category: Call Center
+  partner_domain: synq3.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Call Center
+  - Voice
+- partner_name: Capillary Technologies
+  app: Capillary Technologies
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/capillary-technologies
+  category: Loyalty
+  partner_domain: capillarytech.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Loyalty
+  - Mobile Apps
+  - Websites
+- partner_name: BarTrack
+  app: BarTrack
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/bartrack
+  category: Data Analytics
+  partner_domain: bartrack.beer
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Inventory Management
+  - Omivore
+- partner_name: Grubtech
+  app: Grubtech
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/grubtech
+  category: Digital Ordering
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Omivore
+- partner_name: SevenRooms
+  app: SevenRooms
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/sevenrooms
+  category: Data Analytics
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Fourth
+  app: Fourth
+  partner: fourth
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/fourth
+  category: Data Analytics
+  partner_domain: fourth.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Labor Management
+  - Omivore
+- partner_name: Relevant
+  app: Relevant
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/relevant
+  category: Loyalty
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Fuego
+  app: Fuego
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/fuego
+  category: POS
+  partner_domain: fuegopos.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Sonnenberg Creative Group
+  app: Sonnenberg Creative Group
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/sonnenberg-creative
+  category: Marketing
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Uptown
+  app: Uptown
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/uptown
+  category: Omivore
+  partner_domain: uptownnetwork.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Omivore
+  - Payments
+- partner_name: Curbit
+  app: Curbit
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/curbit
+  category: Handoff Technology
+  partner_domain: curbit.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Gold
+- partner_name: CustomerX.i
+  app: CustomerX.i
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/customerx-i
+  category: Data Analytics
+  partner_domain: customerxi.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Omivore
+- partner_name: Spoonity
+  app: Spoonity
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/spoonity
+  category: Gift Cards
+  partner_domain: spoonity.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Gift Cards
+  - Loyalty
+- partner_name: UrVenue
+  app: UrVenue
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/urvenue
+  category: Event Management
+  partner_domain: urvenue.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Event Management
+  - Omivore
+  - Payments
+  - Reservations
+- partner_name: Happy Cog
+  app: Happy Cog
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/happy-cog
+  category: Mobile Apps
+  partner_domain: happycog.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Mobile Apps
+  - Websites
+- partner_name: Valyant AI
+  app: Valyant AI
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/valyant-ai
+  category: Omivore
+  partner_domain: valyant.ai
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Omivore
+  - Voice
+- partner_name: OrderPay
+  app: OrderPay
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/orderpay
+  category: Digital Ordering
+  partner_domain: orderpay.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Omivore
+  - Payments
+- partner_name: ReachifyAI
+  app: ReachifyAI
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/reachify
+  category: Chat
+  partner_domain: reachify.io
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Chat
+  - Voice
+  badges:
+  - Olo Partner - Standard
+- partner_name: ezCater
+  app: ezCater
+  partner: ezcater
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/ezcater
+  category: Catering
+  partner_domain: ezcater.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Catering
+  - Rails Marketplace
+- partner_name: 45/RPM
+  app: 45/RPM
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/45rpm
+  category: Data Analytics
+  partner_domain: 45rpm.co
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Marketing
+- partner_name: Birdeye
+  app: Birdeye
+  partner: birdeye
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/birdeye
+  category: Data Syndication
+  partner_domain: birdeye.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Voicify
+  app: Voicify
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/voicify
+  category: Chat
+  partner_domain: voicify.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Chat
+  - Voice
+  badges:
+  - Olo Partner - Gold
+- partner_name: Nexstar Digital
+  app: Nexstar Digital
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/nexstar-digital
+  category: Marketing
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: GRUBBRR
+  app: GRUBBRR
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/grubbrr
+  category: Kiosk
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Platinum
+- partner_name: Figure8
+  app: Figure8
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/figure8
+  category: Consultant Services
+  partner_domain: figure8.delivery
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Consultant Services
+  - Data Analytics
+  badges:
+  - Olo Partner - Standard
+- partner_name: Xpient
+  app: Xpient
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/xpient
+  category: POS
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Agilysis
+  app: Agilysis
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/agilysis
+  category: POS
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Rio SEO
+  app: Rio SEO
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/rio-seo
+  category: Data Syndication
+  partner_domain: rioseo.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Syndication
+  - Marketing
+- partner_name: EasyTab
+  app: EasyTab
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/easytab
+  category: Digital Ordering
+  partner_domain: getwinendine.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Omivore
+  - Payments
+- partner_name: Cybage
+  app: Cybage
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/cybage
+  category: Mobile Apps
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Raydiant
+  app: Raydiant
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/raydiant
+  category: null
+  partner_domain: raydiant.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Standard
+- partner_name: Bluedot
+  app: Bluedot
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/bluedot
+  category: Handoff Technology
+  partner_domain: bluedot.io
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Inktel
+  app: Inktel
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/inktel
+  category: Call Center
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Exults
+  app: Exults
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/ianalyst
+  category: Data Analytics
+  partner_domain: exults.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Moxie Labs
+  app: Moxie Labs
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/moxie-labs
+  category: Kiosk
+  partner_domain: moxielabs.co
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Kiosk
+  - Websites
+- partner_name: Chatter Research
+  app: Chatter Research
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/chatter-research
+  category: Guest Surveys
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Sauce Pricing
+  app: Sauce Pricing
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/sauce-pricing
+  category: Data Analytics
+  partner_domain: saucepricing.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Digital Ordering
+  - Marketing
+  badges:
+  - Olo Partner - Gold
+- partner_name: Cheetah Digital
+  app: Cheetah Digital
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/cheetah-digital
+  category: Loyalty
+  partner_domain: cheetahdigital.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: BevSpot
+  app: BevSpot
+  partner: bevspot
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/bevspot
+  category: Inventory Management
+  partner_domain: bevspot.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Inventory Management
+  - Omivore
+- partner_name: Fiserv
+  app: Fiserv
+  partner: fiserv
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/fiserv
+  category: Payment Processor
+  partner_domain: fiserv.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Media Horizons
+  app: Media Horizons
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/media-horizons
+  category: Direct Mail
+  partner_domain: mediahorizons.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Direct Mail
+  - Marketing
+  badges:
+  - Olo Partner - Standard
+- partner_name: QU
+  app: QU
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/qu
+  category: POS
+  partner_domain: qubeyond.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: SpringML
+  app: SpringML
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/springml
+  category: Voice
+  partner_domain: springml.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: QSR
+  app: QSR
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/qsr-automations
+  category: Kitchen Display System
+  partner_domain: qsrautomations.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Boxie
+  app: Boxie
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/boxie
+  category: Smart Lockers
+  partner_domain: boxielockers.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: BHW Group
+  app: BHW Group
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/bhw-group
+  category: Websites
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Avenga
+  app: Avenga
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/avenga
+  category: Mobile Apps
+  partner_domain: avenga.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Mobile Apps
+  - Websites
+- partner_name: Crunchtime
+  app: Crunchtime
+  partner: crunchtime
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/crunchtime
+  category: Kitchen Display System
+  partner_domain: crunchtime.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Cordial
+  app: Cordial
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/cordial
+  category: Marketing
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Medallia
+  app: Medallia
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/medallia
+  category: Guest Surveys
+  partner_domain: medallia.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Credera
+  app: Credera
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/credera
+  category: Websites
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Citrusbits
+  app: Citrusbits
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/citrusbits
+  category: Mobile Apps
+  partner_domain: citrusbits.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Mobile Apps
+  - Websites
+  badges:
+  - Olo Partner - Gold
+- partner_name: Restaurant365
+  app: Restaurant365
+  partner: restaurant365
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/restaurant365
+  category: Data Analytics
+  partner_domain: restaurant365.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Standard
+- partner_name: PayMyTab
+  app: PayMyTab
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/paymytab
+  category: Loyalty
+  partner_domain: paymytab.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Loyalty
+  - Omivore
+- partner_name: POSnet
+  app: POSnet
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/posnet
+  category: POS
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: 7Shifts
+  app: 7Shifts
+  partner: 7shifts
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/7shifts
+  category: Labor Management
+  partner_domain: 7shifts.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Labor Management
+  - Omivore
+- partner_name: Konducter
+  app: Konducter
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/konducter
+  category: Kitchen Display System
+  partner_domain: konducter.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: POSitouch
+  app: POSitouch
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/positouch
+  category: POS
+  partner_domain: positouch.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Shift4
+  app: Shift4
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/shift4-merchantlink
+  category: POS
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Proprietary
+  app: Proprietary
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/proprietary
+  category: POS
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Sip
+  app: Sip
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/sip
+  category: Loyalty
+  partner_domain: sipscience.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Loyalty
+  - Omivore
+  - Payments
+- partner_name: EZ-Chow
+  app: EZ-Chow
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/ez-chow
+  category: Digital Ordering
+  partner_domain: ez-chow.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Kiosk
+  - Omivore
+- partner_name: Wisely
+  app: Wisely
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/wisely
+  category: Data Analytics
+  partner_domain: getwisely.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Guest Surveys
+  - Handoff Technology
+  - Marketing
+- partner_name: Punchh
+  app: Punchh
+  partner: punchh
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/punchh
+  category: Loyalty
+  partner_domain: punchh.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: LetzChat
+  app: LetzChat
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/letzchat
+  category: Chat
+  partner_domain: letzchat.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Alpine IQ
+  app: Alpine IQ
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/alpine-iq
+  category: Omivore
+  partner_domain: alpineiq.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Bridg
+  app: Bridg
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/bridg
+  category: Data Analytics
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Chase Paymentech
+  app: Chase Paymentech
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/chase-paymentech
+  category: Payment Processor
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: SoftPoint
+  app: SoftPoint
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/softpoint
+  category: Data Analytics
+  partner_domain: softpointcloud.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Omivore
+  - Payments
+- partner_name: Monstarlab
+  app: Monstarlab
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/monstarlab-fka-fuzz
+  category: Kiosk
+  partner_domain: monstar-lab.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Kiosk
+  - Mobile Apps
+  - Websites
+- partner_name: Sagepath
+  app: Sagepath
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/sagepath
+  category: Mobile Apps
+  partner_domain: sagepath.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Mobile Apps
+  - Websites
+- partner_name: Bloom Intelligence
+  app: Bloom Intelligence
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/bloom-intelligence
+  category: Marketing
+  partner_domain: bloomintelligence.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Marqii
+  app: Marqii
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/marqii
+  category: Data Syndication
+  partner_domain: marqii.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Syndication
+  - Marketing
+  - Menu Management
+- partner_name: Koala
+  app: Koala
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/koala
+  category: Kiosk
+  partner_domain: koala.io
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Kiosk
+  - Mobile Apps
+  - Websites
+- partner_name: Blackbird Lab
+  app: Blackbird Lab
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/blackbird-lab
+  category: Websites
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Net Conversion
+  app: Net Conversion
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/net-conversion
+  category: Marketing
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: VantivCore
+  app: VantivCore
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/vantivcore
+  category: Gift Cards
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Square
+  app: Square
+  partner: square
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/square
+  category: POS
+  partner_domain: squareup.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Servy
+  app: Servy
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/servy
+  category: Digital Ordering
+  partner_domain: servy.us
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Kiosk
+  - Omivore
+- partner_name: Search Discovery
+  app: Search Discovery
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/empirical-path
+  category: Data Analytics
+  partner_domain: searchdiscovery.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Rawsoft
+  app: Rawsoft
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/rawsoft
+  category: Data Analytics
+  partner_domain: rawsoft.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Data Syndication
+  - Mobile Apps
+  - Websites
+  badges:
+  - Olo Partner - Gold
+- partner_name: Resy
+  app: Resy
+  partner: resy
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/resy
+  category: Omivore
+  partner_domain: resy.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Omivore
+  - Reservations
+- partner_name: Elavon
+  app: Elavon
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/elavon
+  category: Payment Processor
+  partner_domain: elavon.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Eliassen Group
+  app: Eliassen Group
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/eliassen-group
+  category: Mobile Apps
+  partner_domain: eliassen.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Mobile Apps
+  - Websites
+  badges:
+  - Olo Partner - Standard
+- partner_name: Stratix
+  app: Stratix
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/stratix
+  category: Consultant Services
+  partner_domain: stratixcorp.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Consultant Services
+  - Hardware
+  badges:
+  - Olo Partner - Gold
+- partner_name: Juicer Pricing
+  app: Juicer Pricing
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/juicer-pricing
+  category: Data Analytics
+  partner_domain: juicerpricing.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Menu Management
+- partner_name: Tapendium
+  app: Tapendium
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/tapendium
+  category: Digital Ordering
+  partner_domain: tapendium.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Guest Engagement
+- partner_name: GoTab
+  app: GoTab
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/gotab
+  category: Digital Ordering
+  partner_domain: gotab.io
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Omivore
+  - Payments
+- partner_name: Mavi
+  app: Mavi
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/mavi
+  category: Automotive
+  partner_domain: mavi.io
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Standard
+- partner_name: Orders.co
+  app: Orders.co
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/orders-co
+  category: Digital Ordering
+  partner_domain: orders.co
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Menu Management
+  - Omivore
+- partner_name: Glyde
+  app: Glyde
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/glyde
+  category: Mobile Apps
+  partner_domain: joinglyde.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Mobile Apps
+  - Omivore
+  - Websites
+- partner_name: me&u
+  app: me&u
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/me-u
+  category: Digital Ordering
+  partner_domain: meandu.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Mobile Apps
+  - Omivore
+- partner_name: Tabit
+  app: Tabit
+  partner: tabit
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/tabit
+  category: POS
+  partner_domain: tabit.cloud
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: EveryBite
+  app: EveryBite
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/everybite
+  category: Allergen Management
+  partner_domain: everybite.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Allergen Management
+  - Menu Management
+  badges:
+  - Olo Partner - Standard
+- partner_name: Rooam
+  app: Rooam
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/rooam
+  category: Digital Ordering
+  partner_domain: rooam.co
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Omivore
+  - Payments
+- partner_name: KEYRUS
+  app: KEYRUS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/keyrus
+  category: Data Analytics
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Mixbowl
+  app: Mixbowl
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/mixbowl
+  category: Digital Ordering
+  partner_domain: mixbowl.co
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Omivore
+- partner_name: Restaurant App Engines
+  app: Restaurant App Engines
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/restaurant-app-engines
+  category: Digital Ordering
+  partner_domain: restaurantappengines.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Omivore
+  - Reservations
+- partner_name: Restaurant Loyalty Specialists
+  app: Restaurant Loyalty Specialists
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/restaurant-loyalty-specialists
+  category: Consultant Services
+  partner_domain: restaurantloyaltyspecialists.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: PCI Proxy
+  app: PCI Proxy
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/pci-proxy
+  category: Payment Security
+  partner_domain: pci-proxy.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Braze
+  app: Braze
+  partner: braze
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/braze
+  category: Marketing
+  partner_domain: braze.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Paytronix
+  app: Paytronix
+  partner: paytronix
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/paytronix
+  category: Gift Cards
+  partner_domain: paytronix.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Gift Cards
+  - Loyalty
+- partner_name: Yumpingo
+  app: Yumpingo
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/yumpingo
+  category: Guest Surveys
+  partner_domain: yumpingo.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Guest Surveys
+  - Omivore
+- partner_name: Yelp
+  app: Yelp
+  partner: yelp
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/yelp
+  category: Handoff Technology
+  partner_domain: yelp.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Handoff Technology
+  - Omivore
+- partner_name: PourMyBeer
+  app: PourMyBeer
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/pourmybeer
+  category: Inventory Management
+  partner_domain: pourmybeer.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Inventory Management
+  - Labor Management
+  - Omivore
+- partner_name: DineEngine
+  app: DineEngine
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/dineengine
+  category: Kiosk
+  partner_domain: dineengine.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Kiosk
+  - Mobile Apps
+  - Websites
+  badges:
+  - Olo Partner - Standard
+- partner_name: Qubriux
+  app: Qubriux
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/qubriux
+  category: Loyalty
+  partner_domain: qubriux.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Loyalty
+  - Marketing
+  badges:
+  - Olo Partner - Standard
+- partner_name: Esper
+  app: Esper
+  partner: esper
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/esper
+  category: Consultant Services
+  partner_domain: esper.io
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Consultant Services
+  - Hardware
+- partner_name: serVme
+  app: serVme
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/servme
+  category: Data Analytics
+  partner_domain: servmeco.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Omivore
+  - Reservations
+- partner_name: Axial Shift
+  app: Axial Shift
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/axial-shift
+  category: Labor Management
+  partner_domain: axialshift.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Labor Management
+  - Omivore
+- partner_name: Pepper
+  app: Pepper
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/pepper
+  category: Digital Ordering
+  partner_domain: pepperhq.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Omivore
+  - Payments
+- partner_name: Kontactless
+  app: Kontactless
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/kontactless
+  category: Omivore
+  partner_domain: kontactless.io
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Omivore
+  - Payments
+- partner_name: The Digital Ring
+  app: The Digital Ring
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/the-digital-ring
+  category: Marketing
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: ConverseNow
+  app: ConverseNow
+  partner: conversenow
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/conversenow
+  category: Call Center
+  partner_domain: conversenow.ai
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Call Center
+  - Omivore
+  - Voice
+- partner_name: Allset
+  app: Allset
+  partner: allset
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/allset
+  category: Rails Marketplace
+  partner_domain: allsetnow.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Backbar Solutions
+  app: Backbar Solutions
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/backbar-solutions
+  category: Labor Management
+  partner_domain: backbar.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Labor Management
+  - Omivore
+- partner_name: Epam
+  app: Epam
+  partner: epam-systems
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/epam
+  category: Mobile Apps
+  partner_domain: epam.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Mobile Apps
+  - Websites
+- partner_name: NeonScreens
+  app: NeonScreens
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/neonscreens
+  category: null
+  partner_domain: neonscreens.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Cognizant
+  app: Cognizant
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/cognizant
+  category: Websites
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Auphan
+  app: Auphan
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/auphan
+  category: POS
+  partner_domain: auphansoftware.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: UEAT
+  app: UEAT
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/ueat
+  category: Digital Ordering
+  partner_domain: ueat.io
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Payments
+- partner_name: A1 POS
+  app: A1 POS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/a1-pos
+  category: POS
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: iLumio
+  app: iLumio
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/ilumio
+  category: Mobile Apps
+  partner_domain: ilumioapp.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Mobile Apps
+  - Omivore
+- partner_name: Science On Call
+  app: Science On Call
+  partner: science-on-call
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/science-on-call
+  category: Consultant Services
+  partner_domain: scienceoncall.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Standard
+- partner_name: Wildfire
+  app: Wildfire
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/wildfire
+  category: Websites
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Worldpay
+  app: Worldpay
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/worldpay
+  category: Gift Cards
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Gift Cards
+  - Payment Processor
+- partner_name: Outpay
+  app: Outpay
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/outpay
+  category: Guest Engagement
+  partner_domain: getoutpay.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Guest Engagement
+  - Omivore
+  - Payments
+- partner_name: Chowly
+  app: Chowly
+  partner: chowly
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/chowly
+  category: Menu Management
+  partner_domain: chowly.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Menu Management
+  - Omivore
+- partner_name: Detroit Labs
+  app: Detroit Labs
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/detroit-labs-octocart
+  category: Mobile Apps
+  partner_domain: detroitlabs.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Mobile Apps
+  - Websites
+- partner_name: Beanstalk
+  app: Beanstalk
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/beanstalk
+  category: Loyalty
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Otis
+  app: Otis
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/otis
+  category: Marketing
+  partner_domain: meetotis.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Infobip
+  app: Infobip
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/infobip
+  category: Marketing
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Uber Eats
+  app: Uber Eats
+  partner: null
+  partner_match: null
+  partner_candidate: cornershop
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/uber-eats
+  category: Rails Marketplace
+  partner_domain: ubereats.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Loop AI
+  app: Loop AI
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/loop-ai
+  category: Data Analytics
+  partner_domain: loopkitchen.xyz
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Standard
+- partner_name: sunday
+  app: sunday
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/sunday
+  category: Omivore
+  partner_domain: sundayapp.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Omivore
+  - Pay at Table
+  - Payments
+  badges:
+  - Olo Partner - Standard
+- partner_name: 10up
+  app: 10up
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/10up
+  category: Websites
+  partner_domain: 10up.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Camelot
+  app: Camelot
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/camelot
+  category: Marketing
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Zifty
+  app: Zifty
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/zifty
+  category: Rails Marketplace
+  partner_domain: zifty.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: New Catering Connections
+  app: New Catering Connections
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/new-catering-connections
+  category: Catering
+  partner_domain: newcateringconnections.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Catering
+  - Consultant Services
+- partner_name: Dreambox Creations
+  app: Dreambox Creations
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/dreambox-creations
+  category: Websites
+  partner_domain: dreamboxcreations.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: InvisiPay
+  app: InvisiPay
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/invisipay
+  category: Omivore
+  partner_domain: invisipay.io
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Omivore
+  - Payments
+- partner_name: DoorDash
+  app: DoorDash
+  partner: doordash
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/doordash
+  category: Rails Marketplace
+  partner_domain: doordash.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Voosh
+  app: Voosh
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/voosh
+  category: Data Analytics
+  partner_domain: voosh.ai
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Standard
+- partner_name: FreshKDS
+  app: FreshKDS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/freshkds
+  category: Data Analytics
+  partner_domain: fresh.technology
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Handoff Technology
+- partner_name: Franpos
+  app: Franpos
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/franpos
+  category: POS
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: 5&5
+  app: 5&5
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/5-5
+  category: Consultant Services
+  partner_domain: 5and5.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Standard
+- partner_name: Blutag
+  app: Blutag
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/blutag
+  category: Chat
+  partner_domain: blu.ai
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Chat
+  - Data Analytics
+  - Voice
+- partner_name: Sift
+  app: Sift
+  partner: sift
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/sift-science
+  category: Payment Security
+  partner_domain: sift.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Clutch
+  app: Clutch
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/clutch
+  category: Loyalty
+  partner_domain: clutch.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Loyalty
+  - Marketing
+- partner_name: Defero
+  app: Defero
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/defero
+  category: Marketing
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: ITWERCS
+  app: ITWERCS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/itwercs
+  category: POS
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Playrcart
+  app: Playrcart
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/playrcart
+  category: Digital Ordering
+  partner_domain: playrcart.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Marketing
+- partner_name: IT LOGIX
+  app: IT LOGIX
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/itlogix
+  category: Mobile Apps
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Scala
+  app: Scala
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/scala
+  category: Kiosk
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Xoikos
+  app: Xoikos
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/xoikos
+  category: POS
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: DeliverLogic
+  app: DeliverLogic
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/deliverlogic
+  category: Rails Marketplace
+  partner_domain: deliverlogic.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Beta Acid
+  app: Beta Acid
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/beta-acid
+  category: Mobile Apps
+  partner_domain: betaacid.co
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Mobile Apps
+  - Websites
+- partner_name: SoundHound AI
+  app: SoundHound AI
+  partner: soundhound
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/soundhound-ai
+  category: Voice
+  partner_domain: soundhound.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Platinum
+- partner_name: Ready
+  app: Ready
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/ready
+  category: Digital Ordering
+  partner_domain: readytopay.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Omivore
+  - Payments
+- partner_name: eGiftify
+  app: eGiftify
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/egiftify
+  category: Omivore
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Spendgo
+  app: Spendgo
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/spendgo
+  category: Loyalty
+  partner_domain: spendgo.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Gold
+- partner_name: EatStreet
+  app: EatStreet
+  partner: eatstreet
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/eatstreet
+  category: Rails Marketplace
+  partner_domain: eatstreet.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Aloha Loyalty
+  app: Aloha Loyalty
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/aloha-loyalty
+  category: Loyalty
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: SSOS
+  app: SSOS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/ssos
+  category: POS
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Bounteous
+  app: Bounteous
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/bounteous
+  category: Kiosk
+  partner_domain: bounteous.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Kiosk
+  - Mobile Apps
+  - Websites
+  badges:
+  - Olo Partner - Platinum
+- partner_name: Tandem Theory
+  app: Tandem Theory
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/tandem-theory
+  category: Websites
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: DataDelivers
+  app: DataDelivers
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/datadelivers
+  category: CRM
+  partner_domain: datadelivers.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - CRM
+  - Data Analytics
+- partner_name: inKind
+  app: inKind
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/inkind
+  category: Loyalty
+  partner_domain: inkind.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Loyalty
+  - Omivore
+- partner_name: Onfleet
+  app: Onfleet
+  partner: onfleet
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/onfleet
+  category: Self-Delivery
+  partner_domain: onfleet.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: TipReports
+  app: TipReports
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/tipreports
+  category: Labor Management
+  partner_domain: tipreports.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Labor Management
+  - Omivore
+- partner_name: Kitchen CUT
+  app: Kitchen CUT
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/kitchen-cut
+  category: Data Analytics
+  partner_domain: kitchencut.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Omivore
+- partner_name: Microsale
+  app: Microsale
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/microsale
+  category: POS
+  partner_domain: microsale.net
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Salido
+  app: Salido
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/salido-pos
+  category: POS
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: MarketMan
+  app: MarketMan
+  partner: marketman
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/marketman
+  category: Data Analytics
+  partner_domain: marketman.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Inventory Management
+  - Omivore
+- partner_name: SOLINK
+  app: SOLINK
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/solink
+  category: Data Analytics
+  partner_domain: solink.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Omivore
+- partner_name: DemandLocal
+  app: DemandLocal
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/demandlocal
+  category: Marketing
+  partner_domain: demandlocal.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: OPGA
+  app: OPGA
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/opga
+  category: Consultant Services
+  partner_domain: opga.academy
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Plum
+  app: Plum
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/plum
+  category: POS
+  partner_domain: plumpos.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: FTR Hospitality
+  app: FTR Hospitality
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/ftr-hospitality
+  category: Consultant Services
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: FullRail
+  app: FullRail
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/fullrail
+  category: Marketing
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: AdFuel
+  app: AdFuel
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/adfuel
+  category: Marketing
+  partner_domain: goadfuel.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Heartland
+  app: Heartland
+  partner: heartland-payment-systems
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/heartland
+  category: Gift Cards
+  partner_domain: heartland.us
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Gift Cards
+  - Payment Processor
+- partner_name: Bikky
+  app: Bikky
+  partner: bikky
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/bikky
+  category: Data Analytics
+  partner_domain: bikky.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Marketing
+- partner_name: BentoBox
+  app: BentoBox
+  partner: bentobox
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/bentobox
+  category: Omivore
+  partner_domain: getbento.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Omivore
+  - Websites
+- partner_name: SpotOn
+  app: SpotOn
+  partner: spoton
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/appetize
+  category: POS
+  partner_domain: spoton.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Reji
+  app: Reji
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/reji
+  category: Kiosk
+  partner_domain: reji.io
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Kiosk
+  - Omivore
+  - Payments
+- partner_name: Aloha Stored Value
+  app: Aloha Stored Value
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/aloha-stored-value
+  category: Gift Cards
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Waitbusters
+  app: Waitbusters
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/waitbusters
+  category: Digital Ordering
+  partner_domain: waitbustersdining.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Omivore
+  - Reservations
+- partner_name: Sparkfly
+  app: Sparkfly
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/sparkfly
+  category: Loyalty
+  partner_domain: sparkfly.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Gold
+- partner_name: YepChat
+  app: YepChat
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/yepchat
+  category: Chat
+  partner_domain: yepchat.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Chat
+  - Voice
+- partner_name: Radar
+  app: Radar
+  partner: radar
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/radar
+  category: Handoff Technology
+  partner_domain: radar.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Platinum
+- partner_name: BiteBuddy AI
+  app: BiteBuddy AI
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/bite-buddy-ai
+  category: Voice
+  partner_domain: bitebuddy.ai
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Instant
+  app: Instant
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/instant
+  category: Labor Management
+  partner_domain: instant.co
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Labor Management
+  - Omivore
+- partner_name: Lucas POS
+  app: Lucas POS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/lucas-pos
+  category: POS
+  partner_domain: lucaspos.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Today
+  app: Today
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/today
+  category: Labor Management
+  partner_domain: mytodaycard.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Labor Management
+  - Omivore
+  - Payments
+- partner_name: AverittExpress
+  app: AverittExpress
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/averittexpress
+  category: Handoff Technology
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: ServeAutomation
+  app: ServeAutomation
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/serveautomation
+  category: POS
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: NEXTEP
+  app: NEXTEP
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/nextep
+  category: Omivore
+  partner_domain: nextepsystems.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Omivore
+  - POS
+- partner_name: Thanx
+  app: Thanx
+  partner: thanx
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/thanx
+  category: Data Analytics
+  partner_domain: thanx.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Loyalty
+  - Marketing
+  - Mobile Apps
+  - Omivore
+  - Websites
+  badges:
+  - Olo Partner - Gold
+- partner_name: Jetson
+  app: Jetson
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/jetson
+  category: Digital Ordering
+  partner_domain: launchjetson.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Guest Engagement
+  - Omivore
+- partner_name: mParticle
+  app: mParticle
+  partner: mparticle
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/mparticle
+  category: Data Analytics
+  partner_domain: mparticle.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Hang
+  app: Hang
+  partner: hang
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/hang
+  category: Loyalty
+  partner_domain: hang.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: techtris
+  app: techtris
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/techtris
+  category: Mobile Apps
+  partner_domain: techtris.dev
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Standard
+- partner_name: Tipzyy
+  app: Tipzyy
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/tipzyy
+  category: Labor Management
+  partner_domain: tipzyy.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Labor Management
+  - Omivore
+- partner_name: Acelerate
+  app: Acelerate
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/acelerate
+  category: Data Analytics
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Loyalti
+  app: Loyalti
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/loyalti
+  category: Marketing
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Omnirev
+  app: Omnirev
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/omnirev
+  category: CRM
+  partner_domain: omnirev.ai
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - CRM
+  - Catering
+  badges:
+  - Olo Partner - Gold
+- partner_name: Rakuten Ready
+  app: Rakuten Ready
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/rakuten-ready
+  category: Handoff Technology
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Tray
+  app: Tray
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/tray
+  category: POS
+  partner_domain: tray.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Ring N Bring
+  app: Ring N Bring
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/ring-n-bring
+  category: null
+  partner_domain: ringnbring.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: The Johnson Group
+  app: The Johnson Group
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/the-johnson-group
+  category: Marketing
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Hazlnut
+  app: Hazlnut
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/hazlnut
+  category: Digital Ordering
+  partner_domain: hazlnut.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Loyalty
+  - Omivore
+- partner_name: Apex
+  app: Apex
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.olo.com/partners/apex-supply-chain
+  category: Handoff Technology
+  partner_domain: olo.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Bring Your Own Data
+  app: Bring Your Own Data
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/bring-your-own-data
+  category: Data Analytics
+  partner_domain: byod.ai
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Boka Technologies
+  app: Boka Technologies
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/boka-technologies
+  category: Omivore
+  partner_domain: bokatechnologies.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Omivore
+  - Payments
+- partner_name: Disrupt
+  app: Disrupt
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/disrupt
+  category: Websites
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Bottle Rocket
+  app: Bottle Rocket
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/bottle-rocket
+  category: Consultant Services
+  partner_domain: bottlerocketstudios.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Consultant Services
+  - Mobile Apps
+  - Websites
+  badges:
+  - Olo Partner - Standard
+- partner_name: HungerRush
+  app: HungerRush
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/hungerrush
+  category: Chat
+  partner_domain: hungerrush.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Mailchimp
+  app: Mailchimp
+  partner: mailchimp
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/mailchimp
+  category: Marketing
+  partner_domain: mailchimp.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Venga
+  app: Venga
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/venga
+  category: Handoff Technology
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: PDQ POS
+  app: PDQ POS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/pdq-pos
+  category: POS
+  partner_domain: pdqpos.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Rokt
+  app: Rokt
+  partner: rokt
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/rokt
+  category: Marketing
+  partner_domain: rokt.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: RPOWER
+  app: RPOWER
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/rpower
+  category: POS
+  partner_domain: rpowerpos.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Tastevin
+  app: Tastevin
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/tastevin
+  category: Omivore
+  partner_domain: tastevinapp.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Goji Systems
+  app: Goji Systems
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/goji-systems
+  category: Kiosk
+  partner_domain: gojisystems.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Kiosk
+  - Omivore
+- partner_name: Bite
+  app: Bite
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/bite
+  category: Kiosk
+  partner_domain: getbite.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Platinum
+- partner_name: e-tab
+  app: e-tab
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/e-tab
+  category: Digital Ordering
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Northern Lights
+  app: Northern Lights
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/northern-lights
+  category: Mobile Apps
+  partner_domain: nltd.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Mobile Apps
+  - Websites
+- partner_name: IQ
+  app: IQ
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/iq
+  category: POS
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Milestone Internet Marketing
+  app: Milestone Internet Marketing
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/milestone-internet-marketing
+  category: Data Syndication
+  partner_domain: milestoneinternet.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Syndication
+  - Marketing
+  - Websites
+- partner_name: Squirrel Systems
+  app: Squirrel Systems
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/squirrel-systems
+  category: POS
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Finally
+  app: Finally
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/finally
+  category: Digital Ordering
+  partner_domain: finallytech.io
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Omivore
+  - Payments
+- partner_name: Foodini
+  app: Foodini
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/foodini
+  category: Allergen Management
+  partner_domain: foodini.co
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Kore.ai
+  app: Kore.ai
+  partner: koreai
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/kore-ai
+  category: Voice
+  partner_domain: kore.ai
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Zewallet
+  app: Zewallet
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/zewallet
+  category: Data Analytics
+  partner_domain: zewallet.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Omivore
+  - Payments
+- partner_name: Harri
+  app: Harri
+  partner: harri
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/harri-sales-connector
+  category: Data Analytics
+  partner_domain: harri.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Labor Management
+  - Omivore
+- partner_name: Velocity Labs
+  app: Velocity Labs
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/velocity-labs
+  category: Websites
+  partner_domain: velocitylabs.dev
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Cartwheel
+  app: Cartwheel
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/cartwheel
+  category: Self-Delivery
+  partner_domain: trycartwheel.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Anasight Inc
+  app: Anasight Inc
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/anasight-inc
+  category: Data Analytics
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Tattle
+  app: Tattle
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/tattle
+  category: Guest Surveys
+  partner_domain: gettattle.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: GetSwift
+  app: GetSwift
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/getswift
+  category: Self-Delivery
+  partner_domain: getswift.co
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: CheckPlease
+  app: CheckPlease
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/checkplease
+  category: Omivore
+  partner_domain: checkpls.io
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Omivore
+  - Payments
+- partner_name: CBS Northstar
+  app: CBS Northstar
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/cbs-northstar
+  category: POS
+  partner_domain: northstarrestaurantpos.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Favor
+  app: Favor
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/favor
+  category: Rails Marketplace
+  partner_domain: favordelivery.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: TabX
+  app: TabX
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/tabx
+  category: Digital Ordering
+  partner_domain: tabxapp.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Omivore
+  - Payments
+- partner_name: ToGo
+  app: ToGo
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/togo
+  category: Digital Ordering
+  partner_domain: fresh.technology
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Omivore
+  - Payments
+- partner_name: Como
+  app: Como
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/como
+  category: Data Analytics
+  partner_domain: como.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Loyalty
+  - Marketing
+  - Mobile Apps
+- partner_name: BuyerGenomics
+  app: BuyerGenomics
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/buyergenomics
+  category: Data Analytics
+  partner_domain: buyergenomics.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Marketing
+- partner_name: SessionM
+  app: SessionM
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/sessionm
+  category: Loyalty
+  partner_domain: sessionm.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: LiveXchange
+  app: LiveXchange
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/livexchange
+  category: Call Center
+  partner_domain: livexchange.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Chope
+  app: Chope
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/chope
+  category: Omivore
+  partner_domain: chope.co
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Omivore
+  - Reservations
+- partner_name: Spades
+  app: Spades
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/spades
+  category: Omivore
+  partner_domain: spadesapp.io
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Omivore
+  - Payments
+- partner_name: Yext
+  app: Yext
+  partner: yext
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/yext
+  category: Data Syndication
+  partner_domain: yext.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Vistify
+  app: Vistify
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/vistify
+  category: null
+  partner_domain: vistifyinc.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Standard
+- partner_name: Linked Eats
+  app: Linked Eats
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/linkedeats
+  category: Data Analytics
+  partner_domain: linkedeats.io
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Gold
+- partner_name: CheddrSuite
+  app: CheddrSuite
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/cheddrsuite
+  category: Inventory Management
+  partner_domain: cheddrsuite.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Inventory Management
+  - Labor Management
+  - Omivore
+- partner_name: Waitr
+  app: Waitr
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/waitr
+  category: Rails Marketplace
+  partner_domain: waitrapp.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: VROMO
+  app: VROMO
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/vromo
+  category: Self-Delivery
+  partner_domain: vromo.io
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Dinenamics
+  app: Dinenamics
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/dinenamics
+  category: null
+  partner_domain: dinenamics.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: TrayAway
+  app: TrayAway
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/trayaway
+  category: Omivore
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: TD Merchant Solutions
+  app: TD Merchant Solutions
+  partner: null
+  partner_match: null
+  partner_candidate: td-bank
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/td-merchant-solutions
+  category: Payment Processor
+  partner_domain: td.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: TipHaus
+  app: TipHaus
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/tiphaus
+  category: Data Analytics
+  partner_domain: tiphaus.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Labor Management
+  - Omivore
+- partner_name: Skyline Analytics
+  app: Skyline Analytics
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/skyline-analytics
+  category: Data Analytics
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Valutec
+  app: Valutec
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/valutec
+  category: Gift Cards
+  partner_domain: valuteccardsolutions.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Wisk
+  app: Wisk
+  partner: wisk-ai
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/wisk
+  category: Data Analytics
+  partner_domain: wisk.ai
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Inventory Management
+  - Omivore
+- partner_name: Gritsee
+  app: Gritsee
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/gritsee
+  category: Data Analytics
+  partner_domain: gritsee.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Caviar
+  app: Caviar
+  partner: caviar
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/caviar
+  category: Rails Marketplace
+  partner_domain: trycaviar.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Ask Alex
+  app: Ask Alex
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/ask-alex
+  category: Data Analytics
+  partner_domain: askalex.co
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Marketing
+  badges:
+  - Olo Partner - Standard
+- partner_name: Winston
+  app: Winston
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/winston
+  category: POS
+  partner_domain: winstonpos.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: iPourIt
+  app: iPourIt
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/ipourit
+  category: Data Analytics
+  partner_domain: ipouritinc.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Digital Ordering
+  - Omivore
+- partner_name: Razorfish
+  app: Razorfish
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/sapient-razorfish
+  category: Mobile Apps
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Mobile Apps
+  - Websites
+- partner_name: Klaviyo
+  app: Klaviyo
+  partner: klaviyo
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/klaviyo
+  category: Data Analytics
+  partner_domain: klaviyo.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Marketing
+- partner_name: QuikServe
+  app: QuikServe
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/quikserve
+  category: POS
+  partner_domain: quikserve.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: TASK
+  app: TASK
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/task-retail
+  category: Kiosk
+  partner_domain: tasksoftware.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Kiosk
+  - Loyalty
+  - POS
+- partner_name: EP+Co
+  app: EP+Co
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/ep-co
+  category: Websites
+  partner_domain: epandcompany.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Givex
+  app: Givex
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/givex
+  category: Gift Cards
+  partner_domain: givex.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Gift Cards
+  - POS
+- partner_name: DeliverSense
+  app: DeliverSense
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/deliversense
+  category: Data Analytics
+  partner_domain: deliversense.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Tip n Post
+  app: Tip n Post
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/tip-n-post
+  category: Labor Management
+  partner_domain: tipnpost.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Labor Management
+  - Omivore
+- partner_name: Fishbowl
+  app: Fishbowl
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/fishbowl
+  category: Loyalty
+  partner_domain: personica.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Fishbowl
+  app: Fishbowl
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/fishbowl-2
+  category: null
+  partner_domain: fishbowl.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: American Eagle
+  app: American Eagle
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/american-eagle
+  category: Websites
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: BYOD
+  app: BYOD
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/byod
+  category: Data Analytics
+  partner_domain: byod.ai
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Omivore
+- partner_name: Grubhub
+  app: Grubhub
+  partner: grubhub
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/grubhub
+  category: Rails Marketplace
+  partner_domain: grubhub.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Meta
+  app: Meta
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/meta
+  category: Marketing
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Hunt & Gather
+  app: Hunt & Gather
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/hunt-gather
+  category: Websites
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Gift It
+  app: Gift It
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/gift-it
+  category: Omivore
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: T-3
+  app: T-3
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/t-3
+  category: Websites
+  partner_domain: t-3.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: iPost
+  app: iPost
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/ipost
+  category: Marketing
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: SOCi
+  app: SOCi
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/soci
+  category: Data Syndication
+  partner_domain: meetsoci.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Platinum
+- partner_name: App8
+  app: App8
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/app8
+  category: Digital Ordering
+  partner_domain: app8solutions.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Omivore
+  - Payments
+- partner_name: BiteSquad
+  app: BiteSquad
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/bitesquad
+  category: Rails Marketplace
+  partner_domain: bitesquad.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Pacto
+  app: Pacto
+  partner: pacto
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/pacto
+  category: Payment Processor
+  partner_domain: pacto.co
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Paychex
+  app: Paychex
+  partner: paychex-developer
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/paychex
+  category: Labor Management
+  partner_domain: paychex.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Labor Management
+  - Omivore
+- partner_name: Lineup.ai
+  app: Lineup.ai
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/lineup-ai
+  category: Data Analytics
+  partner_domain: lineup.ai
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Labor Management
+  - Omivore
+- partner_name: LevelUp
+  app: LevelUp
+  partner: levelup
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/levelup
+  category: Loyalty
+  partner_domain: thelevelup.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Loyalty
+  - Websites
+- partner_name: Radtab, INC
+  app: Radtab, INC
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/radtab-inc
+  category: Omivore
+  partner_domain: radtab.co
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Omivore
+  - Payments
+- partner_name: Nigel POS
+  app: Nigel POS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/nigel-pos
+  category: POS
+  partner_domain: nigel.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Mobivity
+  app: Mobivity
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/mobivity
+  category: Handoff Technology
+  partner_domain: mobivity.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: TSD Global
+  app: TSD Global
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/tsd-global
+  category: Call Center
+  partner_domain: tsdglobal.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Saturday
+  app: Saturday
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/hey-saturday
+  category: Marketing
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Finedine Menu
+  app: Finedine Menu
+  partner: finedine
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/finedine-menu
+  category: Digital Ordering
+  partner_domain: finedinemenu.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Menu Management
+  - Omivore
+- partner_name: TablelistPro
+  app: TablelistPro
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/tablelistpro
+  category: Event Management
+  partner_domain: tablelistpro.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Event Management
+  - Guest Engagement
+  - Omivore
+  - Reservations
+- partner_name: Oracle
+  app: Oracle
+  partner: oracle
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/micros-oracle
+  category: POS
+  partner_domain: oracle.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Damion Hickman
+  app: Damion Hickman
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/damion-hickman
+  category: Marketing
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: LoyaltyMatch
+  app: LoyaltyMatch
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/loyaltymatch
+  category: Data Analytics
+  partner_domain: loyaltymatch.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Loyalty
+  - Omivore
+- partner_name: 24-7 Intouch
+  app: 24-7 Intouch
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/24-7-intouch-inc
+  category: Call Center
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: BiteBerry
+  app: BiteBerry
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/biteberry
+  category: Voice
+  partner_domain: biteberry.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: CardFree
+  app: CardFree
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/cardfree
+  category: Digital Ordering
+  partner_domain: cardfree.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Omivore
+  - Payments
+- partner_name: Revel Systems
+  app: Revel Systems
+  partner: revel-systems
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/revel-revelsystems
+  category: POS
+  partner_domain: revelsystems.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Attentive
+  app: Attentive
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/attentive
+  category: Marketing
+  partner_domain: attentivemobile.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Exopsol
+  app: Exopsol
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/exopsol
+  category: Websites
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Max Media
+  app: Max Media
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/max-media
+  category: Marketing
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Blent
+  app: Blent
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/blent
+  category: Data Analytics
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Omivore
+- partner_name: TACIT
+  app: TACIT
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/tacit
+  category: Websites
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Bbot
+  app: Bbot
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/bbot
+  category: Digital Ordering
+  partner_domain: meetbbot.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Omivore
+  - Payments
+- partner_name: Eat App
+  app: Eat App
+  partner: eat-app
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/eat-app
+  category: Loyalty
+  partner_domain: eatapp.co
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Loyalty
+  - Omivore
+  - Reservations
+- partner_name: ItsOnMe
+  app: ItsOnMe
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/itsonme
+  category: Gift Cards
+  partner_domain: itson.me
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Gift Cards
+  - Loyalty
+  - Omivore
+- partner_name: Mad Mobile
+  app: Mad Mobile
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/mad-mobile
+  category: Digital Ordering
+  partner_domain: madmobile.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Kiosk
+  - Omivore
+  - Payment Processor
+- partner_name: delivery.com
+  app: delivery.com
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/delivery-com
+  category: Rails Marketplace
+  partner_domain: delivery.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Agot
+  app: Agot
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/agot
+  category: Omivore
+  partner_domain: agot.ai
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Qerko
+  app: Qerko
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/qerko-2
+  category: Payments
+  partner_domain: qerko.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: WillowTree
+  app: WillowTree
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/willowtree
+  category: Mobile Apps
+  partner_domain: willowtreeapps.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: SomiData
+  app: SomiData
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/somidata
+  category: Websites
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Toast
+  app: Toast
+  partner: toast
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/toast
+  category: POS
+  partner_domain: toasttab.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: birdbill
+  app: birdbill
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/birdbill
+  category: Guest Engagement
+  partner_domain: birdbill.app
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Guest Engagement
+  - Mobile Apps
+  - Omivore
+  - Payments
+- partner_name: World Wide Technology
+  app: World Wide Technology
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/world-wide-technology
+  category: Mobile Apps
+  partner_domain: wwt.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Mobile Apps
+  - Websites
+- partner_name: 3Owl
+  app: 3Owl
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/3-owl
+  category: Mobile Apps
+  partner_domain: 3owl.agency
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Mobile Apps
+  - Websites
+  badges:
+  - Olo Partner - Platinum
+- partner_name: Flute Drinks
+  app: Flute Drinks
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/flute-drinks
+  category: Loyalty
+  partner_domain: flutedrinks.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Loyalty
+  - Omivore
+  - Payments
+- partner_name: Red Onion
+  app: Red Onion
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/red-onion
+  category: Data Analytics
+  partner_domain: redonion.ai
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: OneDine
+  app: OneDine
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/onedine
+  category: Digital Ordering
+  partner_domain: onedine.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Omivore
+  - Payments
+- partner_name: Xevo
+  app: Xevo
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/xevo
+  category: Automotive
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Beachy
+  app: Beachy
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/beachy
+  category: Omivore
+  partner_domain: beachyapp.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Omivore
+  - Payments
+  - Reservations
+- partner_name: Apply Digital
+  app: Apply Digital
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/apply-digital
+  category: Websites
+  partner_domain: applydigital.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: RAD
+  app: RAD
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/rad
+  category: Data Analytics
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Dark Lake Software
+  app: Dark Lake Software
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/dark-lake-software
+  category: Data Analytics
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Marketing
+  - Websites
+- partner_name: Xenial
+  app: Xenial
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/xenial
+  category: POS
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Momos
+  app: Momos
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/momos
+  category: CRM
+  partner_domain: momos.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - CRM
+  - Guest Surveys
+  - Marketing
+- partner_name: Hostie
+  app: Hostie
+  partner: hostie
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/hostie
+  category: Voice
+  partner_domain: hostie.ai
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: ValueLink
+  app: ValueLink
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/valuelink
+  category: Gift Cards
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Marketforce
+  app: Marketforce
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/marketforce
+  category: Guest Surveys
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Skyfii
+  app: Skyfii
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/skyfii
+  category: Data Analytics
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Marketing
+- partner_name: Ritual
+  app: Ritual
+  partner: ritual-ordering
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/ritual
+  category: Rails Marketplace
+  partner_domain: ritual.co
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: SVS
+  app: SVS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/svs
+  category: Gift Cards
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Vemos
+  app: Vemos
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/vemos
+  category: Data Analytics
+  partner_domain: vemos.io
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Data Analytics
+  - Omivore
+- partner_name: TSYS
+  app: TSYS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/tsys
+  category: Payment Processor
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Peoplevine
+  app: Peoplevine
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/peoplevine
+  category: Loyalty
+  partner_domain: peoplevine.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Loyalty
+  - Marketing
+  - Omivore
+- partner_name: Uberall
+  app: Uberall
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/uberall
+  category: Data Syndication
+  partner_domain: uberall.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Gold
+- partner_name: AppSuite
+  app: AppSuite
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/appsuite
+  category: Loyalty
+  partner_domain: appsuitecrm.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Loyalty
+  - Omivore
+- partner_name: Marigold
+  app: Marigold
+  partner: null
+  partner_match: null
+  partner_candidate: carnival-mobile
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/marigold
+  category: Loyalty
+  partner_domain: meetmarigold.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Loyalty
+  - Marketing
+- partner_name: QikServe
+  app: QikServe
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/qikserve
+  category: Digital Ordering
+  partner_domain: qikserve.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Digital Ordering
+  - Omivore
+  - Payments
+  badges:
+  - Olo Partner - Standard
+- partner_name: Flybuy by Radius Networks
+  app: Flybuy by Radius Networks
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/radius-networks
+  category: Handoff Technology
+  partner_domain: flybuy.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Platinum
+- partner_name: LS Retail
+  app: LS Retail
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/ls-retail
+  category: POS
+  partner_domain: lsretail.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: GatherUp
+  app: GatherUp
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/gatherup
+  category: Guest Surveys
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: YML
+  app: YML
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/y-media-lab
+  category: Websites
+  partner_domain: yml.co
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Treatware
+  app: Treatware
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/treatware
+  category: POS
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: VOICEplug
+  app: VOICEplug
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/voiceplug
+  category: Call Center
+  partner_domain: voiceplug.ai
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Call Center
+  - Voice
+- partner_name: PXY Data
+  app: PXY Data
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/pxy-data
+  category: Data Analytics
+  partner_domain: null
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Mobelux
+  app: Mobelux
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/mobelux
+  category: Mobile Apps
+  partner_domain: mobelux.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Mobile Apps
+  - Websites
+- partner_name: Switchbox
+  app: Switchbox
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/switchbox
+  category: Mobile Apps
+  partner_domain: switchboxinc.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Zero-In
+  app: Zero-In
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/zero-in
+  category: Omivore
+  partner_domain: zero-in.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: Croud
+  app: Croud
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/croud
+  category: Marketing
+  partner_domain: croud.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  badges:
+  - Olo Partner - Standard
+- partner_name: Crave
+  app: Crave
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/crave-up
+  category: Mobile Apps
+  partner_domain: craveup.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Mobile Apps
+  - Websites
+- partner_name: Qerko
+  app: Qerko
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/qerko
+  category: Omivore
+  partner_domain: qerko.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Omivore
+  - Payments
+- partner_name: Proliant
+  app: Proliant
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/proliant
+  category: Labor Management
+  partner_domain: proliant.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Labor Management
+  - Omivore
+- partner_name: Tripleseat
+  app: Tripleseat
+  partner: tripleseat
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/tripleseat
+  category: Event Management
+  partner_domain: tripleseat.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+- partner_name: NCR VOYIX
+  app: NCR VOYIX
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.olo.com/partners/ncr
+  category: Gift Cards
+  partner_domain: ncr.com
+  detected_by: sweep-restaurant-pos.py
+  detected: '2026-10-14'
+  categories:
+  - Gift Cards
+  - Loyalty
+  - POS
+  - Payment Processor
 templates: []
