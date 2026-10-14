@@ -1959,6 +1959,7 @@
   arazzo: null
 - slug: olo-uber-eats
   label: Uber Eats
+  partner: uber-eats
   partner_name: Uber Eats
   category: Rails Marketplace
   type: marketplace

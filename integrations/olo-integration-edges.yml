@@ -2762,9 +2762,9 @@ edges:
   detected: '2026-10-14'
 - partner_name: Uber Eats
   app: Uber Eats
-  partner: null
-  partner_match: null
-  partner_candidate: cornershop
+  partner: uber-eats
+  partner_match: domain
+  partner_candidate: null
   type: marketplace
   marketplace: own
   channel: partner-built
