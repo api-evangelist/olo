@@ -103,33 +103,25 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    Transaction:
-      type: object
-      description: The result of a Promotions operation.
-      properties:
-        id:
-          type: string
-          description: A unique identifier for the transaction in the provider's system.
-    Payment:
-      type: object
-      description: A payment applied to the order.
-      properties:
-        tender:
-          $ref: '#/components/schemas/Tender'
-        issuer:
-          $ref: '#/components/schemas/Issuer'
-        suffix:
-          type: string
-          description: The credit card suffix. Only populated when tender is Credit.
-        amount:
-          type: number
-          description: The payment amount for this payment method.
-    TransactionWithPromotionsEnvelope:
-      type: object
-      description: An envelope wrapping a transaction result that includes validated or redeemed promotions.
-      properties:
-        transaction:
-          $ref: '#/components/schemas/TransactionWithPromotions'
+    Tender:
+      type: string
+      description: A payment tender type.
+      enum:
+      - Cash
+      - Check
+      - Credit
+      - Debit
+      - Prepaid
+      - Transfer
+      - Value
+      - Other
+    ErrorCodeResponse:
+      allOf:
+      - $ref: '#/components/schemas/ErrorResponse'
+      - type: object
+        properties:
+          code:
+            $ref: '#/components/schemas/ErrorCode'
     Coupon:
       type: object
       description: A coupon applied to a basket.
@@ -148,22 +140,67 @@ components:
         discount:
           type: number
           description: The discount amount for the coupon. Only populated once the basket is validated.
-    Address:
+    TransactionWithPromotions:
+      allOf:
+      - $ref: '#/components/schemas/Transaction'
+      - type: object
+        properties:
+          promotions:
+            type: array
+            description: The details of the validated or redeemed promotions.
+            items:
+              $ref: '#/components/schemas/Promotion'
+    Source:
+      type: string
+      description: The source of the order.
+      enum:
+      - Web
+      - MobileWeb
+      - iOS
+      - Android
+      - Kiosk
+      - Other
+    Transaction:
       type: object
-      description: The destination address of the order.
+      description: The result of a Promotions operation.
       properties:
-        street:
+        id:
           type: string
-          description: The street address.
-        city:
+          description: A unique identifier for the transaction in the provider's system.
+    ErrorCode:
+      type: string
+      description: A machine-readable code identifying the issue with the request.
+      enum:
+      - EXPIRED_PROMOTION
+      - INVALID_PROMOTION
+      - MISSING_ITEM
+      - INVALID_TOTAL
+      - INVALID_HANDOFF
+      - INVALID_ACCOUNT
+      - OTHER
+    PosItem:
+      type: object
+      description: A POS-represented basket item.
+      properties:
+        product:
           type: string
-          description: The name of the city.
-        code:
+          description: The POS product ID.
+        categories:
+          type: array
+          description: The POS category IDs for the product.
+          items:
+            type: string
+        modifiers:
+          type: array
+          description: The modifiers applied to the product.
+          items:
+            $ref: '#/components/schemas/Modifier'
+        label:
           type: string
-          description: The zip code.
-        country:
-          type: string
-          description: A three-letter ISO 3166-1 country code.
+          description: The name of the product on the POS.
+        cost:
+          type: number
+          description: The per-unit cost of the product on the POS.
     VoidRedemptionRequest:
       type: object
       description: Request payload to void a previously redeemed set of promotions.
@@ -193,6 +230,164 @@ components:
         restaurant:
           type: string
           description: A unique ID representing the vendor restaurant in Olo's system.
+    ErrorResponse:
+      type: object
+      description: Returned for error responses.
+      properties:
+        id:
+          type: string
+          description: A unique identifier for the error in the provider's system.
+        details:
+          type: string
+          description: Additional details used to help troubleshoot the error.
+        message:
+          type: string
+          description: An error message to be shown to the customer.
+    PosReference:
+      type: object
+      description: Data used to identify a promotion or reward on the POS.
+      properties:
+        type:
+          $ref: '#/components/schemas/PosReferenceType'
+        code:
+          type: string
+          description: The value of the POS reference.
+    Handoff:
+      type: string
+      description: The handoff method for the order.
+      enum:
+      - Pickup
+      - Curbside
+      - Delivery
+      - Dispatch
+      - Drivethru
+      - Dinein
+    Address:
+      type: object
+      description: The destination address of the order.
+      properties:
+        street:
+          type: string
+          description: The street address.
+        city:
+          type: string
+          description: The name of the city.
+        code:
+          type: string
+          description: The zip code.
+        country:
+          type: string
+          description: A three-letter ISO 3166-1 country code.
+    Issuer:
+      type: string
+      description: The credit card issuer. Only populated when tender is Credit.
+      enum:
+      - Amex
+      - Diners
+      - Discover
+      - JCB
+      - MasterCard
+      - PayPal
+      - Visa
+    Payment:
+      type: object
+      description: A payment applied to the order.
+      properties:
+        tender:
+          $ref: '#/components/schemas/Tender'
+        issuer:
+          $ref: '#/components/schemas/Issuer'
+        suffix:
+          type: string
+          description: The credit card suffix. Only populated when tender is Credit.
+        amount:
+          type: number
+          description: The payment amount for this payment method.
+    Modifier:
+      type: object
+      description: A POS modifier applied to a product, supporting nested modifiers.
+      properties:
+        id:
+          type: string
+          description: The POS modifier ID.
+        quantity:
+          type: number
+          description: The quantity of the modifier applied to the product.
+        product:
+          type: string
+          description: The POS product ID the modifier is applied to.
+        categories:
+          type: array
+          description: The POS category IDs for the modifier.
+          items:
+            type: string
+        label:
+          type: string
+          description: The name of the modifier on the POS.
+        cost:
+          type: number
+          description: The per-unit cost of the modifier on the POS.
+        modifiers:
+          type: array
+          description: The modifiers applied to the modifier.
+          items:
+            $ref: '#/components/schemas/Modifier'
+    TransactionWithPromotionsEnvelope:
+      type: object
+      description: An envelope wrapping a transaction result that includes validated or redeemed promotions.
+      properties:
+        transaction:
+          $ref: '#/components/schemas/TransactionWithPromotions'
+    OloEntry:
+      type: object
+      description: An Olo-represented basket item entry.
+      properties:
+        quantity:
+          type: number
+          description: The quantity of the item in the basket.
+        item:
+          $ref: '#/components/schemas/OloItem'
+    Promotion:
+      type: object
+      description: A validated or redeemed promotion.
+      properties:
+        id:
+          type: string
+          description: The promotion's identifier; the coupon code for coupons or the reward ID for loyalty rewards.
+        type:
+          $ref: '#/components/schemas/PromotionType'
+        discount:
+          type: number
+          description: The provider-calculated discount for the validated promotion.
+        reference:
+          $ref: '#/components/schemas/PosReference'
+    Basket:
+      type: object
+      description: The basket contents for an order.
+      properties:
+        id:
+          type: string
+          description: The ID of the basket; the unique order identifier until an order ID is generated.
+        rewards:
+          type: array
+          description: Any loyalty rewards applied to the basket.
+          items:
+            $ref: '#/components/schemas/BasketReward'
+        coupons:
+          type: array
+          description: Any coupons applied to the basket.
+          items:
+            $ref: '#/components/schemas/Coupon'
+        entries:
+          type: array
+          description: The Olo representations of the basket items.
+          items:
+            $ref: '#/components/schemas/OloEntry'
+        posEntries:
+          type: array
+          description: The POS representations of the basket items.
+          items:
+            $ref: '#/components/schemas/PosEntry'
     PromotionsRequest:
       type: object
       description: Shared payload for the Validate Promotions and Redeem Promotions operations, describing the order, its totals, and its basket contents.
@@ -260,47 +455,6 @@ components:
       - subtotal
       - total
       - basket
-    PosReferenceType:
-      type: string
-      description: The type of a POS reference.
-      enum:
-      - Promo
-      - Comp
-    TransactionWithPromotions:
-      allOf:
-      - $ref: '#/components/schemas/Transaction'
-      - type: object
-        properties:
-          promotions:
-            type: array
-            description: The details of the validated or redeemed promotions.
-            items:
-              $ref: '#/components/schemas/Promotion'
-    Promotion:
-      type: object
-      description: A validated or redeemed promotion.
-      properties:
-        id:
-          type: string
-          description: The promotion's identifier; the coupon code for coupons or the reward ID for loyalty rewards.
-        type:
-          $ref: '#/components/schemas/PromotionType'
-        discount:
-          type: number
-          description: The provider-calculated discount for the validated promotion.
-        reference:
-          $ref: '#/components/schemas/PosReference'
-    Issuer:
-      type: string
-      description: The credit card issuer. Only populated when tender is Credit.
-      enum:
-      - Amex
-      - Diners
-      - Discover
-      - JCB
-      - MasterCard
-      - PayPal
-      - Visa
     OloItem:
       type: object
       description: An Olo-represented basket item.
@@ -314,33 +468,33 @@ components:
         cost:
           type: number
           description: The per-unit cost of the product in Olo's system.
-    Basket:
+    PosReferenceType:
+      type: string
+      description: The type of a POS reference.
+      enum:
+      - Promo
+      - Comp
+    DiscountLevel:
+      type: string
+      description: The level at which a discount is applied.
+      enum:
+      - Item
+      - Basket
+    PosEntry:
       type: object
-      description: The basket contents for an order.
+      description: A POS-represented basket item entry.
       properties:
-        id:
-          type: string
-          description: The ID of the basket; the unique order identifier until an order ID is generated.
-        rewards:
-          type: array
-          description: Any loyalty rewards applied to the basket.
-          items:
-            $ref: '#/components/schemas/BasketReward'
-        coupons:
-          type: array
-          description: Any coupons applied to the basket.
-          items:
-            $ref: '#/components/schemas/Coupon'
-        entries:
-          type: array
-          description: The Olo representations of the basket items.
-          items:
-            $ref: '#/components/schemas/OloEntry'
-        posEntries:
-          type: array
-          description: The POS representations of the basket items.
-          items:
-            $ref: '#/components/schemas/PosEntry'
+        quantity:
+          type: number
+          description: The quantity of the item in the basket.
+        posItem:
+          $ref: '#/components/schemas/PosItem'
+    TransactionEnvelope:
+      type: object
+      description: An envelope wrapping a transaction result.
+      properties:
+        transaction:
+          $ref: '#/components/schemas/Transaction'
     BasketReward:
       type: object
       description: A loyalty reward applied to a basket.
@@ -368,179 +522,25 @@ components:
         customFields:
           type: string
           description: Custom provider metadata echoed back in subsequent requests.
-    DiscountLevel:
-      type: string
-      description: The level at which a discount is applied.
-      enum:
-      - Item
-      - Basket
-    OloEntry:
-      type: object
-      description: An Olo-represented basket item entry.
-      properties:
-        quantity:
-          type: number
-          description: The quantity of the item in the basket.
-        item:
-          $ref: '#/components/schemas/OloItem'
-    ErrorResponse:
-      type: object
-      description: Returned for error responses.
-      properties:
-        id:
-          type: string
-          description: A unique identifier for the error in the provider's system.
-        details:
-          type: string
-          description: Additional details used to help troubleshoot the error.
-        message:
-          type: string
-          description: An error message to be shown to the customer.
-    ErrorCodeResponse:
-      allOf:
-      - $ref: '#/components/schemas/ErrorResponse'
-      - type: object
-        properties:
-          code:
-            $ref: '#/components/schemas/ErrorCode'
-    PosItem:
-      type: object
-      description: A POS-represented basket item.
-      properties:
-        product:
-          type: string
-          description: The POS product ID.
-        categories:
-          type: array
-          description: The POS category IDs for the product.
-          items:
-            type: string
-        modifiers:
-          type: array
-          description: The modifiers applied to the product.
-          items:
-            $ref: '#/components/schemas/Modifier'
-        label:
-          type: string
-          description: The name of the product on the POS.
-        cost:
-          type: number
-          description: The per-unit cost of the product on the POS.
-    PosEntry:
-      type: object
-      description: A POS-represented basket item entry.
-      properties:
-        quantity:
-          type: number
-          description: The quantity of the item in the basket.
-        posItem:
-          $ref: '#/components/schemas/PosItem'
     PromotionType:
       type: string
       description: The type of a promotion.
       enum:
       - Coupon
       - Reward
-    Modifier:
-      type: object
-      description: A POS modifier applied to a product, supporting nested modifiers.
-      properties:
-        id:
-          type: string
-          description: The POS modifier ID.
-        quantity:
-          type: number
-          description: The quantity of the modifier applied to the product.
-        product:
-          type: string
-          description: The POS product ID the modifier is applied to.
-        categories:
-          type: array
-          description: The POS category IDs for the modifier.
-          items:
-            type: string
-        label:
-          type: string
-          description: The name of the modifier on the POS.
-        cost:
-          type: number
-          description: The per-unit cost of the modifier on the POS.
-        modifiers:
-          type: array
-          description: The modifiers applied to the modifier.
-          items:
-            $ref: '#/components/schemas/Modifier'
-    Tender:
-      type: string
-      description: A payment tender type.
-      enum:
-      - Cash
-      - Check
-      - Credit
-      - Debit
-      - Prepaid
-      - Transfer
-      - Value
-      - Other
-    PosReference:
-      type: object
-      description: Data used to identify a promotion or reward on the POS.
-      properties:
-        type:
-          $ref: '#/components/schemas/PosReferenceType'
-        code:
-          type: string
-          description: The value of the POS reference.
-    Source:
-      type: string
-      description: The source of the order.
-      enum:
-      - Web
-      - MobileWeb
-      - iOS
-      - Android
-      - Kiosk
-      - Other
-    TransactionEnvelope:
-      type: object
-      description: An envelope wrapping a transaction result.
-      properties:
-        transaction:
-          $ref: '#/components/schemas/Transaction'
-    Handoff:
-      type: string
-      description: The handoff method for the order.
-      enum:
-      - Pickup
-      - Curbside
-      - Delivery
-      - Dispatch
-      - Drivethru
-      - Dinein
-    ErrorCode:
-      type: string
-      description: A machine-readable code identifying the issue with the request.
-      enum:
-      - EXPIRED_PROMOTION
-      - INVALID_PROMOTION
-      - MISSING_ITEM
-      - INVALID_TOTAL
-      - INVALID_HANDOFF
-      - INVALID_ACCOUNT
-      - OTHER
   responses:
-    Unauthorized:
-      description: The request signature was invalid or missing.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     BadRequestWithCode:
       description: The request could not be processed; a machine-readable error code is included.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorCodeResponse'
+    Unauthorized:
+      description: The request signature was invalid or missing.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   securitySchemes:
     OloSignature:
       type: apiKey

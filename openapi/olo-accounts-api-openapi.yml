@@ -99,12 +99,34 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    AccountStatus:
-      type: string
-      description: Whether the loyalty account is active or inactive.
-      enum:
-      - Active
-      - Inactive
+    Account:
+      type: object
+      description: A guest's loyalty account.
+      properties:
+        id:
+          type: string
+          description: The account's unique identifier in the provider's system.
+        status:
+          $ref: '#/components/schemas/AccountStatus'
+        balance:
+          $ref: '#/components/schemas/Balance'
+        rewards:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountReward'
+    ErrorResponse:
+      type: object
+      description: Returned for error responses.
+      properties:
+        id:
+          type: string
+          description: A unique identifier for the error in the provider's system.
+        details:
+          type: string
+          description: Additional details used to help troubleshoot the error.
+        message:
+          type: string
+          description: An error message to be shown to the customer.
     AccountReward:
       type: object
       description: A reward available in a loyalty account.
@@ -148,21 +170,12 @@ components:
         code:
           type: string
           description: The value of the POS reference.
-    Account:
-      type: object
-      description: A guest's loyalty account.
-      properties:
-        id:
-          type: string
-          description: The account's unique identifier in the provider's system.
-        status:
-          $ref: '#/components/schemas/AccountStatus'
-        balance:
-          $ref: '#/components/schemas/Balance'
-        rewards:
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountReward'
+    PosReferenceType:
+      type: string
+      description: The type of a POS reference.
+      enum:
+      - Promo
+      - Comp
     Balance:
       type: object
       description: A loyalty account's points balance.
@@ -177,25 +190,12 @@ components:
           type: string
           default: points
           description: The unit used to describe the quantity of a loyalty account balance.
-    ErrorResponse:
-      type: object
-      description: Returned for error responses.
-      properties:
-        id:
-          type: string
-          description: A unique identifier for the error in the provider's system.
-        details:
-          type: string
-          description: Additional details used to help troubleshoot the error.
-        message:
-          type: string
-          description: An error message to be shown to the customer.
-    PosReferenceType:
+    AccountStatus:
       type: string
-      description: The type of a POS reference.
+      description: Whether the loyalty account is active or inactive.
       enum:
-      - Promo
-      - Comp
+      - Active
+      - Inactive
     CreateAccountRequest:
       type: object
       description: Request payload to create a new loyalty account.
@@ -216,14 +216,14 @@ components:
           type: string
           description: Unique external identifier for the user.
   responses:
-    Unauthorized:
-      description: The request signature was invalid or missing.
+    BadRequest:
+      description: The request was malformed.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: The request was malformed.
+    Unauthorized:
+      description: The request signature was invalid or missing.
       content:
         application/json:
           schema:
