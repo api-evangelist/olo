@@ -1,10 +1,11 @@
-generated: '2026-10-12'
+generated: '2026-10-20'
 method: searched
 source:
 - https://zapier.com/apps/olo/integrations
 - https://n8n.io/integrations/olo/
 - https://composio.dev/toolkits/olo
 - https://monid.ai/tools/olo
+- https://www.olo.com/partners
 checked:
 - https://composio.dev/toolkits/olo
 - https://monid.ai/tools/olo
