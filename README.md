@@ -1,4 +1,4 @@
-# Olo (olo)
+# Olo
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,346 +66,220 @@
 
 Olo is a leading on-demand commerce platform powering the digital experience for restaurant brands, serving approximately 750+ enterprise and emerging chains across 90,000+ restaurant locations. The Olo platform combines online ordering, delivery dispatch, marketplace integration (Rails), payments (Olo Pay), guest data (GDP / Marketing), loyalty, and POS connectivity (Omnivore) into a single restaurant commerce stack. Developers and certified Olo Connect partners build against the Ordering API (custom order injection), Rails API (third-party marketplace order delivery), Dispatch API (delivery orchestration), the POS Interface (OloCloud) for direct POS integrations, the Omnivore API (multi-POS abstraction), the Olo Pay SDKs (iOS, Android, Flutter, Digital Wallets), and a webhook surface that fires order, loyalty, gift-card, and tender events. APIs use signature-based request authorization (HMAC) for ordering/rails plus webhook signature validation; sample code is published for C#, Java, PHP, Ruby, JavaScript, and Python. Olo (NYSE - OLO) is headquartered in New York City and went public in March 2021.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/olo/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/olo/refs/heads/main/apis.yml)
+**Areas:** Food Service · Restaurant · Online Ordering · Delivery · Point-of-Sale · Hospitality · Payments · Loyalty · Marketing
 
-## Scope
+## Olo on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Olo is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/olo/](https://apis.io/providers/olo/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (15)
 
-- Food Service
-- Restaurants
-- Online Ordering
-- Delivery
-- Point of Sale
-- Hospitality
-- Payments
-- Loyalty
-- Marketing
+- [Olo Dispatch API](https://apis.io/apis/olo/olo-dispatch/) — The Olo Dispatch API orchestrates direct delivery for restaurants by routing orders to a network of delivery service providers (DSPs) such as DoorDash…
+- [Olo POS Interface (OloCloud)](https://apis.io/apis/olo/olo-pos-interface/) — The Olo POS Interface Specification (commonly OloCloud) is the contract POS vendors implement to make their point-of-sale system natively integrable with…
+- [Omnivore POS API](https://apis.io/apis/olo/olo-omnivore/) — Omnivore (acquired by Olo in 2019) is a universal POS API that abstracts 12+ point-of-sale systems behind a single REST surface, handling 5.6M API calls per…
+- [Olo Pay API](https://apis.io/apis/olo/olo-pay/) — Olo Pay is the platform's embedded payments solution, providing PCI-compliant card capture, tokenization, Apple Pay / Google Pay digital wallet acceptance,…
+- [Olo Network API](https://apis.io/apis/olo/olo-network/) — The Olo Network is a second-party ordering ecosystem that exposes participating restaurant brands' menus and ordering surfaces to high-intent guest channels…
+- [Olo Marketing & Guest Data Platform API](https://apis.io/apis/olo/olo-marketing/) — Olo Marketing and the Guest Data Platform (GDP) unify first-party guest data captured across ordering, payments, loyalty, host, and sentiment signals into a…
+- [Olo Host API](https://apis.io/apis/olo/olo-host/) — Olo Host (acquired from Wisely) provides reservations, waitlist, table management, and host-stand workflows for restaurants. The Host API exposes…
+- [Olo Sentiment API](https://apis.io/apis/olo/olo-sentiment/) — Olo Sentiment aggregates guest feedback signals - post-order surveys, public reviews (Google, Yelp), and social mentions - and exposes them through a…
+- [Olo Webhooks](https://apis.io/apis/olo/olo-webhooks/) — Olo exposes outbound webhooks that fire on order lifecycle events (placed, confirmed, ready, completed, refunded), gift-card activity, loyalty accrual /…
+- [Olo Accounts API](https://apis.io/apis/olo/olo-accounts-api/) — Loyalty account creation and lookup
+- [Olo Accruals API](https://apis.io/apis/olo/olo-accruals-api/) — Loyalty point accrual and void
+- [Olo Brand API](https://apis.io/apis/olo/olo-brand-api/) — Brand-level configuration and metadata
+- [Olo Promotions API](https://apis.io/apis/olo/olo-promotions-api/) — Validation and redemption of coupons and loyalty rewards
+- [Olo Rails API](https://apis.io/apis/olo/olo-rails-api/) — Marketplace Rails partner export and order injection operations
+- [Olo Users API](https://apis.io/apis/olo/olo-users-api/) — Guest account lookups
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-25
-- **Modified:** 2026-06-03
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### AsyncAPI (1)
 
-### Olo Ordering API
+Event-driven and webhook contracts.
 
-The Olo Ordering API is the platform's flagship order-injection surface, enabling certified partner apps, branded restaurant clients, and white-label storefronts to push custom orders, baskets, and payment authorizations into Olo's network of 90,000+ restaurant locations. The API covers menu retrieval, basket construction, basket validation, fulfillment options (pickup, curbside, dine-in, delivery), gift cards, coupons, loyalty redemption, and order submission. Requests are signed with HMAC-based signature authorization; sandbox credentials are issued through the Olo Developer Portal after partner certification.
+- [Olo Webhooks](https://apis.io/asyncapis/olo/olo-webhooks-asyncapi/)
 
-- **Human URL:** [https://developer.olo.com/](https://developer.olo.com/)
+#### Event channels (4)
 
-#### Tags
+Individual events and webhooks the provider emits.
 
-- Ordering
-- Baskets
-- Menus
-- Restaurants
+- [/webhooks/gift-cards](https://apis.io/channels/olo/webhooks-gift-cards/)
+- [/webhooks/loyalty](https://apis.io/channels/olo/webhooks-loyalty/)
+- [/webhooks/orders](https://apis.io/channels/olo/webhooks-orders/)
+- [/webhooks/tenders](https://apis.io/channels/olo/webhooks-tenders/)
 
-#### Properties
+#### GraphQL (1)
 
-- [Developer Portal](https://developer.olo.com/)
-- [Authentication](https://github.com/ololabs/dev-support-code-samples)
-- [Code Examples](https://github.com/ololabs/dev-support-code-samples)
-- [OpenAPI](openapi/olo-ordering-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/olo-ordering.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-ordering.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Example](examples/olo-ordering-check-user-exists-example.json)
-- [Example](examples/olo-ordering-create-basket-example.json)
+GraphQL schemas.
 
-### Olo Rails API
+- [Moved to /providers/olo/](https://apis.io/graphqls/olo/olo-graphql/)
 
-Olo Rails is the marketplace-delivery integration surface, accepting orders originated on third-party delivery marketplaces (DoorDash, Uber Eats, Grubhub, Google, and 25+ other channels) and injecting them into the restaurant's POS through Olo. Rails normalizes menu mapping, modifier translation, fulfillment timing, and tax/tender handling across marketplaces. Partners authenticate with Rails-specific signature authorization that differs from the Ordering API signature scheme.
+#### MCP servers (1)
 
-- **Human URL:** [https://www.olo.com/products/rails](https://www.olo.com/products/rails)
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [olo](https://apis.io/servers/olo/olo/)
 
-- Rails
-- Marketplace
-- Delivery
-- Order Injection
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://www.olo.com/products/rails)
-- [Authentication](https://github.com/ololabs/dev-support-code-samples)
-- [Code Examples](https://github.com/ololabs/dev-support-code-samples)
-- [OpenAPI](openapi/olo-ordering-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/olo-ordering.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-ordering.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Example](examples/olo-ordering-create-basket-example.json)
+- [Olo Agentic Access](https://apis.io/agentic-access/olo/olo-agentic-access/)
 
-### Olo Dispatch API
+#### JSON Schema (2)
 
-The Olo Dispatch API orchestrates direct delivery for restaurants by routing orders to a network of delivery service providers (DSPs) such as DoorDash Drive, Uber Direct, Postmates, and Relay. Dispatch handles quote retrieval, driver assignment, status callbacks, fee calculation, and tipping. Restaurants use Dispatch to power their own branded delivery without operating a fleet.
+The data models the API reads and writes.
 
-- **Human URL:** [https://www.olo.com/products/dispatch](https://www.olo.com/products/dispatch)
+- [Olo Promotions Account](https://apis.io/schemas/olo/olo-promotions-account/)
+- [Olo Promotions Request](https://apis.io/schemas/olo/olo-promotions-request/)
 
-#### Tags
+#### JSON Structure (1)
 
-- Dispatch
-- Delivery
-- Logistics
-- Last Mile
+Data models expressed in JSON Structure.
 
-#### Properties
+- [Olo Promotions Structure](https://apis.io/json-structure/olo/olo-promotions-structure/)
 
-- [Documentation](https://www.olo.com/products/dispatch)
-- [Status Page](https://status.olo.com/)
-- [Postman Collection](collections/olo-ordering.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-ordering.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/olo-promotions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-promotions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### JSON-LD (1)
 
-### Olo POS Interface (OloCloud)
+Linked-data contexts for the provider's vocabulary.
 
-The Olo POS Interface Specification (commonly OloCloud) is the contract POS vendors implement to make their point-of-sale system natively integrable with Olo's ordering platform. The interface defines menu synchronization, order injection, store hours, store status (eighty-sixing), and tender configuration that the POS must accept and respond to. Certified POS systems include NCR Aloha, PAR Brink, Oracle Micros Simphony, POSitouch, Squirrel, and others.
+- [Olo Context](https://apis.io/jsonld/olo/olo-context/)
 
-- **Human URL:** [https://olosupport.zendesk.com/hc/en-us/articles/115002761943-Olo-POS-Interface-Specification-aka-OloCloud](https://olosupport.zendesk.com/hc/en-us/articles/115002761943-Olo-POS-Interface-Specification-aka-OloCloud)
+#### Vocabulary (1)
 
-#### Tags
+The provider's domain terms, defined.
 
-- POS
-- Point of Sale
-- Integration
-- Menus
+- [Olo Vocabulary](https://apis.io/vocabularies/olo/olo-vocabulary/)
 
-#### Properties
+#### Examples (4)
 
-- [Documentation](https://olosupport.zendesk.com/hc/en-us/articles/115002761943-Olo-POS-Interface-Specification-aka-OloCloud)
-- [Postman Collection](collections/olo-ordering.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-ordering.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/olo-promotions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-promotions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Example requests and responses.
 
-### Omnivore POS API
+- [Olo Ordering Check User Exists Example](https://apis.io/examples/olo/olo-ordering-check-user-exists-example/)
+- [Olo Ordering Create Basket Example](https://apis.io/examples/olo/olo-ordering-create-basket-example/)
+- [Olo Promotions Account Example](https://apis.io/examples/olo/olo-promotions-account-example/)
+- [Olo Promotions Validate Example](https://apis.io/examples/olo/olo-promotions-validate-example/)
 
-Omnivore (acquired by Olo in 2019) is a universal POS API that abstracts 12+ point-of-sale systems behind a single REST surface, handling 5.6M API calls per day across 23,000+ restaurant locations. Endpoints cover tickets, menus, employees, tenders, modifiers, discounts, and location data. Supported POS systems include NCR Aloha, PAR Brink, Dinerware, Micros Simphony, Micros 3700, POSitouch, Squirrel, XPIENT, Maitre'D, NCR Cloud Connect, Simphony FE, and SimphonyCloud.
+#### Collections (14)
 
-- **Human URL:** [https://www.olo.com/omnivoreapi](https://www.olo.com/omnivoreapi)
+Postman and Open Collection request collections.
 
-#### Tags
+- [Olo Ordering Accounts API](https://apis.io/collections/olo/open-olo-accounts-api/)
+- [Olo Ordering Accounts Accruals API](https://apis.io/collections/olo/open-olo-accruals-api/)
+- [Olo Ordering Accounts Brand API](https://apis.io/collections/olo/open-olo-brand-api/)
+- [Olo Ordering API](https://apis.io/collections/olo/open-olo-ordering/)
+- [Olo Promotions API](https://apis.io/collections/olo/open-olo-promotions/)
+- [Olo Ordering Accounts Promotions API](https://apis.io/collections/olo/open-olo-promotions-api/)
+- [Olo Ordering Accounts Rails API](https://apis.io/collections/olo/open-olo-rails-api/)
+- [Olo Ordering Accounts Users API](https://apis.io/collections/olo/open-olo-users-api/)
+- [Olo Ordering Accounts API](https://apis.io/collections/olo/postman-olo-accounts-api/)
+- [Olo Ordering Accounts Accruals API](https://apis.io/collections/olo/postman-olo-accruals-api/)
+- [Olo Ordering Accounts Brand API](https://apis.io/collections/olo/postman-olo-brand-api/)
+- [Olo Ordering Accounts Promotions API](https://apis.io/collections/olo/postman-olo-promotions-api/)
+- [Olo Ordering Accounts Rails API](https://apis.io/collections/olo/postman-olo-rails-api/)
+- [Olo Ordering Accounts Users API](https://apis.io/collections/olo/postman-olo-users-api/)
 
-- POS
-- Omnivore
-- Tickets
-- Multi-POS
+#### Governance rules (3)
 
-#### Properties
+Spectral rulesets for the provider's contracts.
 
-- [Documentation](https://www.olo.com/omnivoreapi)
-- [Login](https://panel.omnivore.io/login)
-- [Postman Collection](collections/olo-ordering.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-ordering.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/olo-promotions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-promotions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Olo — asyncapi rules](https://apis.io/rules/olo/olo-asyncapi-spectral-rules/)
+- [Olo — jsonschema rules](https://apis.io/rules/olo/olo-jsonschema-spectral-rules/)
+- [Olo API Rules](https://apis.io/rules/olo/olo-spectral-rules/)
 
-### Olo Pay API
+#### Security (3)
 
-Olo Pay is the platform's embedded payments solution, providing PCI-compliant card capture, tokenization, Apple Pay / Google Pay digital wallet acceptance, network tokenization, fraud prevention, and chargeback handling for restaurant brands. Developers integrate via native SDKs (iOS, Android, Flutter) and a Digital Wallets SDK that complements the Olo Ordering API checkout flow. Olo Pay is also offered as Borderless Payments for cross-border transactions.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://www.olo.com/products/pay](https://www.olo.com/products/pay)
+- [Olo Authentication](https://apis.io/security/olo/olo-authentication/)
+- [Olo Domain Security](https://apis.io/security/olo/olo-domain-security/)
+- [Olo Trust Center](https://apis.io/security/olo/olo-trust-center/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Payments
-- Pay
-- PCI
-- Digital Wallets
+Published plans, tiers and prices.
 
-#### Properties
+- [Olo Plans Pricing](https://apis.io/plans/olo/olo-plans-pricing/)
 
-- [Documentation](https://www.olo.com/products/pay)
-- [SDK](https://github.com/ololabs/olo-pay-ios-sdk-releases)
-- [SDK](https://github.com/ololabs/olo-pay-android-sdk-releases)
-- [SDK](https://github.com/ololabs/olo-pay-flutter-sdk-releases)
-- [SDK](https://github.com/ololabs/pay-digitalwallets-ios-sdk-releases)
-- [SDK](https://github.com/ololabs/pay-digitalwallets-android-sdk-releases)
-- [SDK](https://github.com/ololabs/pay-digitalwallets-flutter-sdk-releases)
-- [Postman Collection](collections/olo-ordering.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-ordering.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/olo-promotions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-promotions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Olo Network API
+Published request limits.
 
-The Olo Network is a second-party ordering ecosystem that exposes participating restaurant brands' menus and ordering surfaces to high-intent guest channels (super-apps, wallets, voice agents, AI assistants) while keeping the restaurant in control of the guest relationship. Network API access lets approved channel partners discover stores, fetch menus, build baskets, and submit orders that flow through the same Ordering / POS Interface pipeline.
+- [Olo Rate Limits](https://apis.io/rate-limits/olo/olo-rate-limits/)
 
-- **Human URL:** [https://www.olo.com/network](https://www.olo.com/network)
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Network
-- Second-Party
-- Distribution
-- Channels
+- [Olo Finops](https://apis.io/finops/olo/olo-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://www.olo.com/network)
-- [Postman Collection](collections/olo-ordering.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-ordering.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/olo-promotions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-promotions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Olo Marketing & Guest Data Platform API
-
-Olo Marketing and the Guest Data Platform (GDP) unify first-party guest data captured across ordering, payments, loyalty, host, and sentiment signals into a single guest profile that powers segmentation, lifecycle campaigns, and personalization. The Marketing surface exposes segments, campaigns, audiences, events, and webhooks used by ESPs, SMS providers (Attentive, Infobip), and loyalty engines to engage guests at scale.
-
-- **Human URL:** [https://www.olo.com/products/marketing](https://www.olo.com/products/marketing)
-
-#### Tags
-
-- Marketing
-- Guest Data Platform
-- GDP
-- Segmentation
-- Personalization
-
-#### Properties
-
-- [Documentation](https://www.olo.com/products/marketing)
-- [Postman Collection](collections/olo-ordering.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-ordering.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/olo-promotions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-promotions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Olo Loyalty API
-
-Olo Loyalty (formerly OloEngage) lets restaurant brands run rewards programs that are tightly bound to the Ordering and POS surfaces - accrual, redemption, tier evaluation, and single-sign-on flow through the Loyalty API and matching loyalty SSO endpoints exposed on the developer portal. Integrates with third-party loyalty engines (Punchh, Paytronix, Thanx) as well as Olo's native loyalty product.
-
-- **Human URL:** [https://www.olo.com/products/olo-loyalty](https://www.olo.com/products/olo-loyalty)
-
-#### Tags
-
-- Loyalty
-- Rewards
-- SSO
-- Engagement
-
-#### Properties
-
-- [Documentation](https://www.olo.com/products/olo-loyalty)
-- [OpenAPI](openapi/olo-promotions-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/olo-promotions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-promotions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [SDK](https://github.com/ololabs/promotions-sdk)
-- [Example](examples/olo-promotions-validate-example.json)
-- [Example](examples/olo-promotions-account-example.json)
-- [JSON Schema](json-schema/olo-promotions-account-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/olo-promotions-request-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/olo-promotions-structure.json)
-
-### Olo Host API
-
-Olo Host (acquired from Wisely) provides reservations, waitlist, table management, and host-stand workflows for restaurants. The Host API exposes reservation creation, waitlist updates, table state, and guest tagging, integrating with the Guest Data Platform so dine-in behavior enriches the same guest profile used in ordering and marketing.
-
-- **Human URL:** [https://www.olo.com/products/host](https://www.olo.com/products/host)
-
-#### Tags
-
-- Host
-- Reservations
-- Waitlist
-- Dine-In
-
-#### Properties
-
-- [Documentation](https://www.olo.com/products/host)
-- [Postman Collection](collections/olo-ordering.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-ordering.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/olo-promotions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-promotions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Olo Sentiment API
-
-Olo Sentiment aggregates guest feedback signals - post-order surveys, public reviews (Google, Yelp), and social mentions - and exposes them through a sentiment API used for reputation management dashboards and automated guest recovery workflows.
-
-- **Human URL:** [https://www.olo.com/products/sentiment](https://www.olo.com/products/sentiment)
-
-#### Tags
-
-- Sentiment
-- Reviews
-- Reputation
-- Feedback
-
-#### Properties
-
-- [Documentation](https://www.olo.com/products/sentiment)
-- [Postman Collection](collections/olo-ordering.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-ordering.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/olo-promotions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-promotions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Olo Webhooks
-
-Olo exposes outbound webhooks that fire on order lifecycle events (placed, confirmed, ready, completed, refunded), gift-card activity, loyalty accrual / redemption, tender events, and marketplace status changes. Webhooks are HMAC-signed; reference signature-validation samples are published in C#, Java, PHP, Ruby, JavaScript, and Python in the ololabs/dev-support-code-samples repository.
-
-- **Human URL:** [https://github.com/ololabs/dev-support-code-samples](https://github.com/ololabs/dev-support-code-samples)
-
-#### Tags
-
-- Webhooks
-- Events
-- Notifications
-
-#### Properties
-
-- [Documentation](https://github.com/ololabs/dev-support-code-samples)
-- [Code Examples](https://github.com/ololabs/dev-support-code-samples)
-- [AsyncAPI](asyncapi/olo-webhooks-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [Postman Collection](collections/olo-ordering.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-ordering.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/olo-promotions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olo-promotions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [Portal](https://www.olo.com/)
-- [Developer Portal](https://developer.olo.com/)
-- [Sign Up](https://developer.olo.com/Account/Register)
-- [Login](https://developer.olo.com/Account/Login)
+- [Website](https://www.olo.com/)
 - [Documentation](https://developer.olo.com/)
-- [Partners](https://partners.olo.com/)
-- [Terms of Service](https://www.olo.com/api-usage-terms/)
-- [Privacy Policy](https://www.olo.com/privacy-policy/)
-- [Status Page](https://status.olo.com/)
 - [Support](https://olosupport.zendesk.com/hc/en-us)
-- [Knowledge Center](https://olosupport.zendesk.com/hc/en-us)
 - [Blog](https://www.olo.com/blog)
-- [GitHub Organization](https://github.com/ololabs)
-- [GitHub Repository](https://github.com/ololabs/dev-support-code-samples)
-- [GitHub Repository](https://github.com/ololabs/promotions-sdk)
-- [GitHub Repository](https://github.com/ololabs/olo-serve-gtm-templates)
-- [Spectral Rules](rules/olo-spectral-rules.yml)
-- [LinkedIn](https://www.linkedin.com/company/olo)
-- [X (Twitter)](https://twitter.com/olo)
-- [YouTube](https://www.youtube.com/@OloRestaurantTech)
 - [Security](https://www.olo.com/security/)
-- [Trust Center](https://trust.olo.com/)
-- [Code Examples](https://github.com/ololabs/dev-support-code-samples)
-- [SDK](https://github.com/ololabs/olo-pay-ios-sdk-releases)
-- [SDK](https://github.com/ololabs/olo-pay-android-sdk-releases)
-- [SDK](https://github.com/ololabs/olo-pay-flutter-sdk-releases)
-- [SDK](https://github.com/ololabs/pay-digitalwallets-ios-sdk-releases)
-- [SDK](https://github.com/ololabs/pay-digitalwallets-android-sdk-releases)
-- [SDK](https://github.com/ololabs/pay-digitalwallets-flutter-sdk-releases)
-- [Plans](plans/olo-plans-pricing.yml)
-- [Rate Limits](rate-limits/olo-rate-limits.yml)
-- [Vocabulary](vocabulary/olo-vocabulary.yaml)
-- [JSON-LD](json-ld/olo-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Solutions](undefined)
+- [Trust centre](https://trust.olo.com/)
+- [Terms of service](https://www.olo.com/api-usage-terms/)
+- [Privacy policy](https://www.olo.com/privacy-policy/)
+- [GitHub](https://github.com/ololabs)
+- [Status](https://status.olo.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 52.7** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 60.0 |
+| Contract quality | 70.7 |
+| Contract governance | 27.3 |
+| Operational transparency | 42.1 |
+| Developer ergonomics | 56.0 |
+| Access clarity | 43.4 |
+
+**Agent readiness 31.0** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 26.8** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/olo/](https://apis.io/providers/olo/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Olo: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/olo/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
